@@ -1,12 +1,19 @@
 import { useState } from 'react'
 import './App.css'
+import axios from 'axios';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  let server = {}
+
+  axios
+  .get('/users')
+  .then(res => server = res)
 
   return (
     <div className="App">
         hello
+        <h1>server</h1>
     </div>
   )
 }
