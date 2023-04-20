@@ -7,13 +7,16 @@ function App() {
   let server = {}
 
   axios
-  .get('/users')
-  .then(res => server = res)
+  .get('/api/users')
+  .then(res => {
+    console.log(res.data)
+    return
+  })
 
   return (
     <div className="App">
+      <title>SUP</title>
         hello
-        <h1>server</h1>
     </div>
   )
 }
