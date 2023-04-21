@@ -1,0 +1,9 @@
+-- schema/04_create_teams.sql
+DROP TABLE IF EXISTS teams CASCADE;
+-- CREATE TEAMS
+CREATE TABLE teams (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  season INTEGER NOT NULL,
+  team_name VARCHAR(255) NOT NULL
+);

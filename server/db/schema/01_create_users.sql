@@ -7,5 +7,6 @@ CREATE TABLE users (
   last_name VARCHAR(255) NOT NULL,
   city_of_birth VARCHAR(255) NOT NULL,
   country_of_birth VARCHAR(255) NOT NULL,
-  date_of_birth VARCHAR(255) DATE NOT NULL,
+  date_of_birth DATE NOT NULL,
+  profile_image TEXT
 );
