@@ -23,3 +23,5 @@ const positionScore = (position: string, fastestLap: boolean):number => {
 
   return finalScore;
 }
+
+export default positionScore;
