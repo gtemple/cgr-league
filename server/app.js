@@ -1,12 +1,17 @@
-var express = require('express');
-var cors = require('cors')
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let express = require('express');
+let cors = require('cors')
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
 
-var usersRouter = require('./routes/users-api');
+let usersRouter = require('./routes/users-api');
+let tracksRouter = require('./routes/tracks-api');
+let raceResultsRouter = require('./routes/raceResults-api');
+let teamsRouter = require('./routes/teams-api');
 
-var app = express();
+
+
+let app = express();
 app.use(cors())
 
 app.use(logger('dev'));
@@ -16,5 +21,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/users', usersRouter);
+app.use('/api/tracks', tracksRouter);
+app.use('/api/race-results', raceResultsRouter);
+app.use('/api/teams', teamsRouter);
+
+
+
 
 module.exports = app;
