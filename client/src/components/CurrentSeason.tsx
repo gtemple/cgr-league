@@ -1,29 +1,14 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import totalSeasonScore from '../helpers/totalSeasonScore';
+import useSeasonStandings from '../Hooks/useSeasonStandings'
 
 
 
 const CurrentSeason = () => {
-
-  const [raceResults, setRaceResults] = useState<boolean | ObjectType>(false);
-  let racer = 0;
-
-
-  useEffect(() => {
-
-    axios
-    .get('/api/race-results')
-    .then(res => setRaceResults(res.data['raceResults']))
-  }, [])
-
-  if(raceResults) {
-    console.log(raceResults)
-    racer = totalSeasonScore(raceResults);
-  }
+  const { raceResults, drivers, seasonStandings, totalSeasonScore, setSeasonStandings, currentSeasonStandings } = useSeasonStandings();
 
   return (
-    <div>{racer}</div>
+    <div></div>
   )
 }
 

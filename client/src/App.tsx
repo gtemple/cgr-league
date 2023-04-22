@@ -7,7 +7,6 @@ import CurrentSeason from './components/CurrentSeason';
 function App() {
 
 
-
   return (
     <div className="App">
       <title>SUP</title>
