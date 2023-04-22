@@ -10,5 +10,6 @@ CREATE TABLE race_results (
   fastest_lap BOOLEAN NOT NULL,
   season INTEGER NOT NULL,
   sprint BOOLEAN NOT NULL,
-  race_distance INTEGER
+  race_distance INTEGER,
+  created_at TIMESTAMP DEFAULT NOW()
 );
