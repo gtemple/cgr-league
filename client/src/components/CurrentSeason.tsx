@@ -5,7 +5,7 @@ import useSeasonStandings from '../Hooks/useSeasonStandings'
 
 
 const CurrentSeason = () => {
-  const { raceResults, drivers, seasonStandings, totalSeasonScore, setSeasonStandings, currentSeasonStandings } = useSeasonStandings();
+  useEffect(())
 
   return (
     <div></div>

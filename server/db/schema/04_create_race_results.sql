@@ -8,7 +8,7 @@ CREATE TABLE race_results (
   position INTEGER NOT NULL,
   dnf BOOLEAN NOT NULL,
   fastest_lap BOOLEAN NOT NULL,
-  season INTEGER NOT NULL,
+  season_id INTEGER REFERENCES seasons(id) ON DELETE CASCADE,
   sprint BOOLEAN NOT NULL,
   race_distance INTEGER,
   created_at TIMESTAMP DEFAULT NOW()

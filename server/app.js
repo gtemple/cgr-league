@@ -6,6 +6,7 @@ let logger = require('morgan');
 
 let usersRouter = require('./routes/users-api');
 let tracksRouter = require('./routes/tracks-api');
+let seasonsRouter = require('./routes/seasons-api')
 let raceResultsRouter = require('./routes/raceResults-api');
 let teamsRouter = require('./routes/teams-api');
 
@@ -22,6 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/users', usersRouter);
 app.use('/api/tracks', tracksRouter);
+app.use('/api/seasons', seasonsRouter)
 app.use('/api/race-results', raceResultsRouter);
 app.use('/api/teams', teamsRouter);
 

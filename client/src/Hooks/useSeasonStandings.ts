@@ -4,24 +4,11 @@ import axios from 'axios';
 export default function useSeasonStandings() {
   const [raceResults, setRaceResults] = useState<boolean | ObjectType>(false)
   const [drivers, setDrivers] = useState<boolean | ObjectType>(false)
-
+  
+  const [driversScores, setDriversScores] = useState<boolean | ObjectType>(false)
   const [seasonStandings, setSeasonStandings] = useState<boolean | ObjectType>(false)
 
-  useEffect(() => {
-    //gets all race result data
-    axios
-    .get('/api/race-results')
-    .then(res => setRaceResults(res.data['raceResults']))
-    .then(() => {
-      axios
-      .get('/api/users')
-      .then(res => setDrivers(res.data['users']))
-    })
-    .then(() => {
-      
-    })
-
-  }, [])
+  //
 
   const positionScore = (position: string, fastestLap: boolean):number => {
     let finalScore = 0
@@ -56,7 +43,7 @@ export default function useSeasonStandings() {
       if (allScores[user_id] === undefined) {
         allScores[user_id] = 0;
       }
-      if (race[user_id] && race['season'] === season) {
+      if (race['user_id'] && race['season'] === season) {
         allScores[user_id] += positionScore(race['position' as keyof ObjectType], race['fastest_lap' as keyof ObjectType])
       }
     })
@@ -67,21 +54,33 @@ export default function useSeasonStandings() {
   const currentSeasonStandings = (totalSeasonScore: ObjectType, driverInfo: ObjectType): ObjectType => {
 
     const driverScores: ObjectType = {};
-    console.log(driverInfo)
-    for (let driverId of driverInfo) {
-      driverScores[driverInfo.user_id] = totalSeasonScore[driverInfo.user_id]
+    console.log('yo', totalSeasonScore)
+    for (let driver of driverInfo) {
+      driverScores[driver.id] = [driver, totalSeasonScore[driver.id]]
     }
-
     return driverScores
   }
 
-  if (raceResults && drivers) {
-    let driversScores = {}
-    console.log(raceResults)
-    driversScores = totalSeasonScore(raceResults, 1);
-    setSeasonStandings(currentSeasonStandings(driversScores, drivers))
-    console.log(drivers)
-  }
+
+
+  useEffect(() => {
+    //gets all race result data
+    axios
+    .get('/api/race-results')
+    .then(res => setRaceResults(res.data['raceResults']))
+    .then(() => {
+      axios
+      .get('/api/users')
+      .then(res => setDrivers(res.data['users']))
+    })
+
+    if (raceResults && drivers) {
+      setDriversScores(totalSeasonScore(raceResults, 1));
+      setSeasonStandings(currentSeasonStandings(driversScores, drivers))
+      console.log(seasonStandings)
+    }
+  }, [])
+
 
   return { raceResults, drivers, seasonStandings, totalSeasonScore, setSeasonStandings, currentSeasonStandings }
 
