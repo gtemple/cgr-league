@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import useSeasonStandings from '../Hooks/useSeasonStandings'
+import useSeasonStandings from '../../Hooks/useSeasonStandings'
 
 
 
@@ -8,16 +8,15 @@ const CurrentSeason = () => {
   const [data, setData] = useState<boolean>(false)
   const [seasonInfo, setSeasonInfo] = useState<ObjectType>({})
 
-  // const Results:React.FunctionComponent = (results:ObjectType) => {
-  //   results.map((result:ObjectType) => {
-  //     <h1>{result.first_name}</h1>
-  //   })
-
-  // }
-
-  const Results:React.FunctionComponent = () => {
-      return (<h1>heyrr</h1>)
-  }
+  const results = (results:ObjectType) => {
+    console.log(results)
+        return results.map((result:ObjectType) => {
+          return (<li key={result.id}>
+                    {result.first_name}
+                    {results.points}
+                  </li>)
+        })
+    }
 
 
   useEffect(() => {
@@ -26,13 +25,15 @@ const CurrentSeason = () => {
       .then(res => {
         setSeasonInfo(res.data.seasonResults)
         setData(true)
-        console.log(seasonInfo)
       }) 
+
   }, [data])
 
   return (
     <div>
-      {data && <Results />}
+    <ul>
+      {data && results(seasonInfo)}
+    </ul>
     </div>
   )
 }

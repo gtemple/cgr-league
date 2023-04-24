@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import axios from 'axios';
 
-import CurrentSeason from './components/CurrentSeason';
+import CurrentSeason from './components/CurrentSeason/Index';
 
 function App() {
 

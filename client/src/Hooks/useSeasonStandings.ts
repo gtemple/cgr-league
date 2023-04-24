@@ -54,7 +54,6 @@ export default function useSeasonStandings() {
   const currentSeasonStandings = (totalSeasonScore: ObjectType, driverInfo: ObjectType): ObjectType => {
 
     const driverScores: ObjectType = {};
-    console.log('yo', totalSeasonScore)
     for (let driver of driverInfo) {
       driverScores[driver.id] = [driver, totalSeasonScore[driver.id]]
     }
