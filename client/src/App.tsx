@@ -1,18 +1,22 @@
 import { useState } from 'react'
+import { Route, Routes, Link } from 'react-router-dom'
 import './App.css'
 import axios from 'axios';
 
-import CurrentSeason from './components/CurrentSeason/Index';
+import Nav from './components/Nav/Index';
 
 function App() {
 
 
   return (
-    <div className="App">
-      <title>SUP</title>
-      <CurrentSeason />
-        hello
-    </div>
+    <>
+      <div className="App">
+        <title>SUP</title>
+          <Nav />
+      </div>
+
+
+    </>
   )
 }
 
