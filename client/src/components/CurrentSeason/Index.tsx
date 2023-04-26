@@ -8,17 +8,36 @@ const CurrentSeason = () => {
   const [data, setData] = useState<boolean>(false)
   const [seasonInfo, setSeasonInfo] = useState<ObjectType>({})
 
+  // const results = (results:ObjectType) => {
+  //   console.log(results)
+  //   const totalInfo = totalSeasonScore(seasonInfo)
+  //   const totalInfoKeys = Object.keys(totalInfo)
+  //   console.log(totalInfoKeys)
+  //       return totalInfoKeys.map((objKey:string) => {
+  //         return (<li key={objKey}>
+  //                   {totalInfo[objKey].first_name} {totalInfo[objKey].last_name} {totalInfo[objKey].totalPoints}
+  //                 </li>)
+  //       })
+  //   }
+
+
   const results = (results:ObjectType) => {
     console.log(results)
     const totalInfo = totalSeasonScore(seasonInfo)
-    const totalInfoKeys = Object.keys(totalInfo)
-    console.log(totalInfoKeys)
-        return totalInfoKeys.map((objKey:string) => {
-          return (<li key={objKey}>
-                    {totalInfo[objKey].first_name} {totalInfo[objKey].last_name} {totalInfo[objKey].totalPoints}
-                  </li>)
-        })
+    const totalInfoArray = []
+    for (let i in totalInfo) {
+      totalInfoArray.push([totalInfo[i].totalPoints, i, [totalInfo[i].first_name, totalInfo[i].last_name].join(' ')])
     }
+
+    const sortedScores = totalInfoArray.sort(function(a:[number, string, string] , b:[number, string, string]) {return a[0] < b[0]})
+    let position = 0;
+    return sortedScores.map((score) => {
+      position++
+      return ( <li key={score[1]}>
+        {position} {score[2]} {score[0]}
+      </li>)
+    })
+  }
 
 
   useEffect(() => {
