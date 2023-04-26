@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import useSeasonStandings from '../../Hooks/useSeasonStandings'
+import totalSeasonScore from '../../helpers/sumSeasonPoints'
 
 
 
@@ -10,10 +10,12 @@ const CurrentSeason = () => {
 
   const results = (results:ObjectType) => {
     console.log(results)
-        return results.map((result:ObjectType) => {
-          return (<li key={result.id}>
-                    {result.first_name}
-                    {results.points}
+    const totalInfo = totalSeasonScore(seasonInfo)
+    const totalInfoKeys = Object.keys(totalInfo)
+    console.log(totalInfoKeys)
+        return totalInfoKeys.map((objKey:string) => {
+          return (<li key={objKey}>
+                    {totalInfo[objKey].first_name} {totalInfo[objKey].last_name} {totalInfo[objKey].totalPoints}
                   </li>)
         })
     }
@@ -28,6 +30,7 @@ const CurrentSeason = () => {
       }) 
 
   }, [data])
+  data && totalSeasonScore(seasonInfo)
 
   return (
     <div>

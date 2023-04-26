@@ -27,25 +27,19 @@ const totalSeasonScore = (races:ArrayType): ObjectType => {
   const allScores: ObjectType = {};
 
   races.forEach((race:ObjectType) => {
-    const user_id = race['user_id'];
-    if (allScores[user_id] === undefined) {
-      allScores[user_id] = 0;
-    }
-    if (race['user_id']) {
-      allScores[user_id] += positionScore(race['position' as keyof ObjectType], race['fastest_lap' as keyof ObjectType])
+    if (allScores[race.user_id] != undefined) {
+      allScores[race.user_id].totalPoints += positionScore(race.position, race.fastestLap)
+    } else {
+      allScores[race.user_id] = {
+        totalPoints: positionScore(race.position, race.fastestLap),
+        first_name: race.first_name,
+        last_name: race.last_name
+      }
     }
   })
-
   return allScores
 }
 
-const currentSeasonStandings = (totalSeasonScore: ObjectType, driverInfo: ObjectType): ObjectType => {
 
-  const driverScores: ObjectType = {};
-  for (let driver of driverInfo) {
-    driverScores[driver.id] = [driver, totalSeasonScore[driver.id]]
-  }
-  return driverScores
-}
 
-export default currentSeasonStandings;
+export default totalSeasonScore;
