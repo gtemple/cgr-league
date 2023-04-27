@@ -2,21 +2,21 @@ import { useState, useEffect } from 'react';
 
 import axios from "axios";
 
-export default function useGetSeasons() {
-  const [seasonData, setSeasonData] = useState<array>([])
+export default function useGetTracks() {
+  const [tracksData, setTracksData] = useState<array>([])
   const [loaded, setLoaded] = useState<boolean>(false)
 
   useEffect(() => {
     axios
-      .get('/api/seasons')
+      .get('/api/tracks')
       .then((res) => {
-        setSeasonData(res.data.seasons)
+        setTracksData(res.data.tracks)
         setLoaded(true)
-        console.log(res.data.seasons)
+        console.log(res.data.tracks)
       })
   }, [loaded])
 
   return {
-    seasonData
+    tracksData
   }
 }

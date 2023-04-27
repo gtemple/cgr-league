@@ -12,16 +12,20 @@ import TracksList from './TracksList'
 import SeasonsList from './Seasons'
 import DriversList from './DriversList'
 
-import getUsers from '../../Hooks/useGetUsers';
-import getSeasons from '../../Hooks/useGetSeasons';
-import { UserInfo } from 'os';
+import useGetUsers from '../../Hooks/useGetUsers';
+import useGetSeasons from '../../Hooks/useGetSeasons';
+import useGetTracks from '../../Hooks/useGetTracks';
 
 
 const Navigation = () => {
-  const { userData } = getUsers();
-  const { seasonData } = getSeasons();
+  const { userData } = useGetUsers();
+  const { seasonData } = useGetSeasons();
+  const { tracksData } = useGetTracks();
 
-
+  interface Seasons {
+    id: number,
+    game: string
+  }
   interface Users {
     id: number,
     first_name: string,
@@ -33,9 +37,20 @@ const Navigation = () => {
     profile_image: string | null
   }
 
-  interface Seasons {
+  interface Tracks {
     id: number,
-    game: string
+    name: string,
+    city: string,
+    country: string,
+    distance: number
+  }
+
+  const displaySeasons = (seasons: Seasons[]):React.ReactNode => {
+    return seasons.map((season:Seasons) => {
+      return (
+        <NavDropdown.Item key={season.id}>Season {season.id}</NavDropdown.Item>
+      )
+    })
   }
 
   const displayUsers = (users: Users[]):React.ReactNode => {
@@ -46,11 +61,11 @@ const Navigation = () => {
     })
   }
 
-  const displaySeasons = (seasons: Seasons[]):React.ReactNode => {
-    return seasons.map((season:Seasons) => {
-      console.log('hey', season)
+
+  const displayTracks = (tracks: Tracks[]):React.ReactNode => {
+    return tracks.map((track:Tracks) => {
       return (
-        <NavDropdown.Item key={season.id}>Season {season.id}</NavDropdown.Item>
+        <NavDropdown.Item key={track.id}>{track.name}</NavDropdown.Item>
       )
     })
   }
@@ -60,7 +75,7 @@ const Navigation = () => {
   
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="/">CGR Racing League</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -70,6 +85,9 @@ const Navigation = () => {
             </NavDropdown>
             <NavDropdown title="Drivers" id="collasible-nav-dropdown">
               {userData && displayUsers(userData)}
+            </NavDropdown>
+            <NavDropdown title="Tracks" id="collasible-nav-dropdown">
+              {tracksData && displayTracks(tracksData)}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

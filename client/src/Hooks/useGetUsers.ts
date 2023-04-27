@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import axios from "axios";
 
-export default function getUsers() {
+export default function useGetUsers() {
   const [userData, setUserData] = useState<array>([])
   const [loaded, setLoaded] = useState<boolean>(false)
 

@@ -2,6 +2,12 @@
 
 const db = require('../../configs/db.config');
 
+const getAllSeasons = () => {
+	return db.query("SELECT * FROM seasons;").then(data => {
+		return data.rows;
+	})
+}
+
 const getSeasonResults = (id) => {
 	return db.query(`
   SELECT u.id as user_id, u.first_name, u.last_name, u.initials, u.profile_image, r.id, r.dnf, r.fastest_lap, r.sprint, r.position, r.created_at, t.team_name, tr.name
@@ -18,4 +24,4 @@ const getSeasonResults = (id) => {
 }
 
 
-module.exports = {getSeasonResults}
+module.exports = {getAllSeasons, getSeasonResults}
