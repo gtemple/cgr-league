@@ -1,11 +1,16 @@
 import { useParams } from 'react-router-dom'
+import Bio from './Bio';
 
-const User = (props:ObjectType) => {
+import useGetUserRaces from '../../Hooks/useGetUserRaces';
 
+const User = () => {
   const { id } = useParams();
+  const { userData, bio } = useGetUserRaces(id)
 
   return (
-    <div>Da Users {id}</div>
+    <div>
+        <Bio id={id} />
+    </div>
   )
 }
 

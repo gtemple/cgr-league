@@ -22,9 +22,6 @@ const CurrentSeason = () => {
 
     return sortedScores.map((score) => {
       position++
-      if (score[3]) {
-        console.log(score[2])
-      }
 
       return ( <li key={score[1]}>
         {position} {score[2]} {score[0]}
