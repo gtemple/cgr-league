@@ -12,7 +12,6 @@ export default function useGetTracks() {
       .then((res) => {
         setTracksData(res.data.tracks)
         setLoaded(true)
-        console.log(res.data.tracks)
       })
   }, [loaded])
 

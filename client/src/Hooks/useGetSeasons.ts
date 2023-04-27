@@ -12,7 +12,6 @@ export default function useGetSeasons() {
       .then((res) => {
         setSeasonData(res.data.seasons)
         setLoaded(true)
-        console.log(res.data.seasons)
       })
   }, [loaded])
 

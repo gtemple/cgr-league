@@ -33,13 +33,12 @@ const totalSeasonScore = (races:ArrayType): ObjectType => {
       allScores[race.user_id] = {
         totalPoints: positionScore(race.position, race.fastestLap),
         first_name: race.first_name,
-        last_name: race.last_name
+        last_name: race.last_name,
+        human: race.human
       }
     }
   })
   return allScores
 }
-
-
 
 export default totalSeasonScore;
