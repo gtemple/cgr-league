@@ -8,9 +8,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 
 import Home from '../Home/Index'
-import TracksList from './TracksList'
-import SeasonsList from './Seasons'
-import DriversList from './DriversList'
+import User from '../User/Index';
+import Tracks from '../Tracks/Index';
 
 import useGetUsers from '../../Hooks/useGetUsers';
 import useGetSeasons from '../../Hooks/useGetSeasons';
@@ -56,7 +55,7 @@ const Navigation = () => {
   const displayUsers = (users: Users[]):React.ReactNode => {
     return users.map((user:Users) => {
       return (
-        <NavDropdown.Item key={user.id}>{user.first_name} {user.last_name}</NavDropdown.Item>
+        <NavDropdown.Item href={`/drivers/${user.id}`} key={user.id}>{user.first_name} {user.last_name}</NavDropdown.Item>
       )
     })
   }
@@ -65,7 +64,7 @@ const Navigation = () => {
   const displayTracks = (tracks: Tracks[]):React.ReactNode => {
     return tracks.map((track:Tracks) => {
       return (
-        <NavDropdown.Item key={track.id}>{track.name}</NavDropdown.Item>
+        <NavDropdown.Item href={`/tracks/${track.id}`} key={track.id}>{track.name}</NavDropdown.Item>
       )
     })
   }
@@ -73,7 +72,7 @@ const Navigation = () => {
   return (
     <>
   
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="/">CGR Racing League</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -95,7 +94,11 @@ const Navigation = () => {
     </Navbar>
 
       <Routes>
-        <Route path='/' element={<Home />}/>
+        <Route path='/' element={<Home />} />
+        <Route path='/tracks/:id' element={<Tracks />} />
+        <Route path='/drivers/:id' element={<User />} />
+        <Route path='/seasons/:id' element={<Tracks />} />
+
       </Routes>
 
     </>

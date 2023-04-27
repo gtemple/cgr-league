@@ -2,10 +2,10 @@ import { useParams } from 'react-router-dom'
 
 const User = (props:ObjectType) => {
 
-  const { userId } = useParams();
+  const { id } = useParams();
 
   return (
-    <div>Da Users</div>
+    <div>Da Users {id}</div>
   )
 }
 
