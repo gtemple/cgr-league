@@ -9,7 +9,6 @@ const CurrentSeason = () => {
   const [seasonInfo, setSeasonInfo] = useState<ObjectType>({})
 
   const results = (results:ObjectType) => {
-    console.log(results)
     const totalInfo = totalSeasonScore(seasonInfo)
     const totalInfoArray = []
     

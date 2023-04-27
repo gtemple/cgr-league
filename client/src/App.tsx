@@ -2,20 +2,16 @@ import { useState } from 'react'
 import { Route, Routes, Link, useParams } from 'react-router-dom'
 import './App.css'
 import User from './components/User/Index';
-import Nav from './components/Nav/Index';
-
-import getUsers from './Hooks/useGetUsers';
+import Navigation from './components/Navigation/Index';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-
-const {userData, loaded} = getUsers();
 
   return (
     <>
       <div className="App">
         <title>SUP</title>
-        {loaded}
-        <Nav />
+        <Navigation />
       </div>
 
     <Routes>
