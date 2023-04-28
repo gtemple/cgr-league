@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import Bio from './Bio';
+import AllTime from './AllTime';
 import SeasonList from './SeasonList';
 
 const User = () => {
@@ -8,6 +9,7 @@ const User = () => {
   return (
     <div>
         <Bio id={id} />
+        <AllTime id={id} />
         <SeasonList id={id} />
 
     </div>

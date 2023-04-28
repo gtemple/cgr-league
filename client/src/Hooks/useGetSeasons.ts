@@ -16,6 +16,7 @@ export default function useGetSeasons() {
   }, [loaded])
 
   return {
-    seasonData
+    seasonData,
+    loaded
   }
 } 

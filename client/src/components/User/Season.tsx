@@ -8,7 +8,7 @@ const Season = (props: Props) => {
   return (
 
     <div>
-      {id}
+      {props.id}
       Season
     </div>
   )

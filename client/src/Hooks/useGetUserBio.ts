@@ -22,7 +22,6 @@ export default function useGetUserBio(id: string | undefined) {
     axios
       .get(`/api/users/bio/${id}`)
       .then((res) => {
-        console.log('here:', res.data.user)
         const firstName = res.data.user[0].first_name
         const lastName = res.data.user[0].last_name
         const initials = res.data.user[0].initials
