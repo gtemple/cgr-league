@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import totalSeasonScore from '../../helpers/sumSeasonPoints'
+import totalSeasonScore from '../../../helpers/sumSeasonPoints'
 
 
 

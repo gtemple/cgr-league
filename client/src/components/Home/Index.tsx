@@ -1,5 +1,5 @@
 import React from 'react'
-import CurrentSeason from '../CurrentSeason/Index'
+import CurrentSeason from './CurrentSeason/Index'
 
 const Home = () => {
   return (

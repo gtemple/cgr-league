@@ -10,6 +10,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Home from '../Home/Index'
 import User from '../User/Index';
 import Tracks from '../Tracks/Index';
+import Season from '../Season/Index';
 
 import useGetUsers from '../../Hooks/useGetUsers';
 import useGetSeasons from '../../Hooks/useGetSeasons';
@@ -47,7 +48,7 @@ const Navigation = () => {
   const displaySeasons = (seasons: Seasons[]):React.ReactNode => {
     return seasons.map((season:Seasons) => {
       return (
-        <NavDropdown.Item key={season.id}>Season {season.id}</NavDropdown.Item>
+        <NavDropdown.Item href={`/seasons/${season.id}`} key={season.id}>Season {season.id}</NavDropdown.Item>
       )
     })
   }
@@ -97,7 +98,7 @@ const Navigation = () => {
         <Route path='/' element={<Home />} />
         <Route path='/tracks/:id' element={<Tracks />} />
         <Route path='/drivers/:id' element={<User />} />
-        <Route path='/seasons/:id' element={<Tracks />} />
+        <Route path='/seasons/:id' element={<Season />} />
 
       </Routes>
 

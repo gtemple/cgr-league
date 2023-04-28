@@ -1,15 +1,15 @@
 import { useParams } from 'react-router-dom'
 import Bio from './Bio';
-
-import useGetUserRaces from '../../Hooks/useGetUserRaces';
+import SeasonList from './SeasonList';
 
 const User = () => {
   const { id } = useParams();
-  const { userData, bio } = useGetUserRaces(id)
 
   return (
     <div>
         <Bio id={id} />
+        <SeasonList id={id} />
+
     </div>
   )
 }
