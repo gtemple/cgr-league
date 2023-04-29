@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import totalSeasonScore from '../../../helpers/sumSeasonPoints'
+import * as _ from '../../../helpers/sumSeasonPoints'
 
 
 
@@ -10,7 +10,7 @@ const CurrentSeason = () => {
   const [humanStandings, setHumanStandings] = useState<string[]>([])
 
   const results = (results:ObjectType) => {
-    const totalInfo = totalSeasonScore(results)
+    const totalInfo = _.totalSeasonScore(results)
     const totalInfoArray = []
     
     for (let i in totalInfo) {

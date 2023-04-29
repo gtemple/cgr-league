@@ -12,5 +12,6 @@ export default interface RaceResults {
   position: number,
   profile_image: string | null,
   team_name: string,
-  user_id: number
+  user_id: number,
+  dotd: boolean
 }

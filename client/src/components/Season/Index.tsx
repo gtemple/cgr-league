@@ -7,7 +7,7 @@ const Season = () => {
   return (
     <div>
       {id}
-      <SeasonTable seasonId={id} />
+      <SeasonTable key={id} />
     </div>
   )
 }

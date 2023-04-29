@@ -1,6 +1,6 @@
 import RaceResults from "../classes/interfaces";
 
-const positionScore = (position: number, fastestLap: boolean):number => {
+export const positionScore = (position: number, fastestLap: boolean):number => {
   let finalScore = 0
   const scores: ObjectType = {
     '1': 25,
@@ -24,9 +24,9 @@ const positionScore = (position: number, fastestLap: boolean):number => {
   return finalScore;
 }
 
-const totalSeasonScore = (races:ArrayType): ObjectType => {
+export const totalSeasonScore = (races:ArrayType): ObjectType => {
 
-  const allScores: ObjectType = {};
+  const allScores: ObjectType= {};
 
   races.forEach((race:RaceResults) => {
     if (allScores[race.user_id] != undefined) {
@@ -42,5 +42,3 @@ const totalSeasonScore = (races:ArrayType): ObjectType => {
   })
   return allScores
 }
-;
-export default { totalSeasonScore, positionScore };

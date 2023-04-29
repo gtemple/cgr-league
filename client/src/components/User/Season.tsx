@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface Props {
-  'id': integer
+  'id': number
 }
 
 const Season = (props: Props) => {

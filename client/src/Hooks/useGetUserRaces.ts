@@ -10,7 +10,6 @@ export default function useGetUserRaces(id: string | undefined) {
     axios
       .get(`/api/users/${id}`)
       .then((res) => {
-        console.log('hey', res.data.user)
 
         setUserData(res.data.user)
         setLoaded(true)
