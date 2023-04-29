@@ -6,39 +6,30 @@ interface Props {
 }
 
 const SeasonList = (props: Props) => {
-  //get the season length and then pass that once for each season
+  const { id } = props;
 
 
-  const printSeason = () => {
+  const printSeasons = () => {
     let season = 3;
   
     while (season > 0) {
       season--
       return (
-      <Season id={season}/>
+        <div>
+          <Season key={season} id={season} userId={id} />
+        </div>
       )
     }
   }
 
 
-  <table>
-  <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
-  </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-</table> 
+
 
 
 
   return (
     <div>
-      {printSeason()}
+      {printSeasons()}
     </div>
   )
 }

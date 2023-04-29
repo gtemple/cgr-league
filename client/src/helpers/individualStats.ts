@@ -37,7 +37,6 @@ export const totalWins = (races: []): number => {
 export const totalFastestLaps = (races: []): number => {
   let totalFastestLaps = 0;
   races.forEach((race: RaceResults) => {
-    console.log(race)
     if (race.fastest_lap) {
       totalFastestLaps++
     }
@@ -49,7 +48,7 @@ export const totalFastestLaps = (races: []): number => {
 export const totalDOTDs = (races: []): number => {
   let totalDOTDs = 0;
   races.forEach((race: RaceResults) => {
-    if (race) {
+    if (race.dotd) {
       totalDOTDs++
     }
   });

@@ -1,14 +1,57 @@
-import React from 'react'
+import { useEffect } from "react";
+
+import useGetUserRaces from "../../Hooks/useGetUserRaces"
+import RaceResults from "../../classes/interfaces";
 
 interface Props {
-  'id': number
+  'id': number,
+  'userId': string | undefined
 }
 
 const Season = (props: Props) => {
+  const { id, userId } = props;
+  const { userData } = useGetUserRaces(userId);
+
+  const printSeason = (races: Array<RaceResults>) => {
+
+    return races.map((race: RaceResults) => {
+      return (
+      <tr key={race.id}>
+        <th>{race.name}</th>
+        <th>
+          <div>
+            {race.position}
+            {race.fastest_lap && (
+            <div>
+              Yes its fastest
+            </div>
+          )}
+          {race.dnf && (
+            <div>
+              Yes its DNF
+            </div>
+          )}
+          </div>
+
+        </th>
+      </tr>
+      )
+    })
+  }
+
   return (
 
     <div>
-      {props.id}
+      {id} and {userId}
+      {userData && (
+        <div>
+          <table>
+            <tbody>
+              {printSeason(userData)}
+            </tbody>
+          </table>
+        </div>
+        )}
       Season
     </div>
   )
