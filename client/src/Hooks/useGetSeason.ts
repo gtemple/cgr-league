@@ -10,7 +10,6 @@ export default function useGetSeason(id: integer) {
     axios
       .get(`/api/seasons/${id}`)
       .then((res) => {
-        console.log(res.data)
         setSeasonData(res.data.seasonResults)
         setLoaded(true)
       })
