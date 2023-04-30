@@ -8,28 +8,12 @@ interface Props {
 const SeasonList = (props: Props) => {
   const { id } = props;
 
-
-  const printSeasons = () => {
-    let season = 3;
-  
-    while (season > 0) {
-      season--
-      return (
-        <div>
-          <Season key={season} id={season} userId={id} />
-        </div>
-      )
-    }
-  }
-
-
-
-
-
-
   return (
     <div>
-      {printSeasons()}
+      <Season key={1} id={1} userId={id} />
+      <Season key={2} id={2} userId={id} />
+
+
     </div>
   )
 }

@@ -19,14 +19,14 @@ const getUserBioById = (id) => {
 
 const getUserById = (id) => {
 	return db.query(`
-  SELECT u.id as user_id, u.human, u.first_name, u.last_name, u.initials, u.profile_image, r.dotd, r.id, r.dnf, r.fastest_lap, r.sprint, r.position, r.created_at, t.team_name, tr.name, s.game
+  SELECT u.id as user_id, u.human, u.first_name, u.last_name, u.initials, u.profile_image, r.dotd, r.id, r.dnf, r.fastest_lap, r.sprint, r.position, r.created_at, t.team_name, tr.name, s.game, s.id as season_id
   FROM race_results r
   INNER JOIN users u ON r.user_id = u.id
   INNER JOIN tracks tr ON r.track_id = tr.id
   INNER JOIN seasons s ON r.season_id = s.id
   INNER JOIN teams t ON t.user_id = u.id AND t.season_id = s.id
   WHERE u.id = $1
-  GROUP BY r.id, u.id, t.id, tr.id, s.game
+  GROUP BY r.id, u.id, t.id, tr.id, s.game, s.id
 `, [id]).then(data => {
 		return data.rows;
 	})

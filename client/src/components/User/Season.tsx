@@ -13,38 +13,42 @@ const Season = (props: Props) => {
   const { userData } = useGetUserRaces(userId);
 
   const printSeason = (races: Array<RaceResults>) => {
+    console.log(races)
 
     return races.map((race: RaceResults) => {
-      return (
-      <tr key={race.id}>
-        <th>{race.name}</th>
-        <th>
-          <div>
-            {race.position}
-            {race.fastest_lap && (
+      if (race.season_id === id) {
+        return (
+        <tr key={race.id}>
+          <th>{race.name}</th>
+          <th>
             <div>
-              Yes its fastest
+              {race.position}
+              {race.fastest_lap && (
+              <div>
+                Yes its fastest
+              </div>
+            )}
+            {race.dnf && (
+              <div>
+                Yes its DNF
+              </div>
+            )}
             </div>
-          )}
-          {race.dnf && (
-            <div>
-              Yes its DNF
-            </div>
-          )}
-          </div>
 
-        </th>
-      </tr>
-      )
+          </th>
+        </tr>
+        )
+      }
     })
+  
   }
 
   return (
 
     <div>
-      {id} and {userId}
       {userData && (
         <div>
+          Season {id}
           <table>
             <tbody>
               {printSeason(userData)}
@@ -52,7 +56,6 @@ const Season = (props: Props) => {
           </table>
         </div>
         )}
-      Season
     </div>
   )
 }

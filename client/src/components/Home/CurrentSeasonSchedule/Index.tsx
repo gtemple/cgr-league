@@ -7,9 +7,16 @@ import RaceSchedule from '../../../classes/RaceSchedule'
 import CurrentRace from './CurrentRace'
 
 const positionObj = (race: RaceResult) => {
-  return { 
+  // console.log('pos', race, race.position)
+  let obj = { 
     'name': race.name,
-    order: {
+    'order': {}
+  }
+
+  if (race.position) {
+    const position = race.position.toString()
+    console.log('here', position)
+    obj.order = {
       [race.position]: { 
         firstName: race.first_name,
         lastName: race.last_name,
@@ -19,6 +26,7 @@ const positionObj = (race: RaceResult) => {
       }
     }
   }
+  return obj
 }
 
 const CurrentSeasonSchedule = () => {
@@ -37,7 +45,6 @@ const CurrentSeasonSchedule = () => {
     })
 
     data.forEach((race: RaceResult) => {
-      console.log(race)
       if (race.race_order === currentRace - 2) {
         raceSchedule.previousRace2 = positionObj(race)
       }

@@ -6,10 +6,22 @@ interface Props {
 }
 
 const CurrentRace = (props: Props) => {
-  const { previousRace1, previousRace2, currentRace, nextRace1, nextRace2} = props
+  const { previousRace2, previousRace1, currentRace, nextRace1, nextRace2} = props.schedule
+  console.log(props.schedule)
+  console.log('prev2', previousRace2)
+  console.log('prev1', previousRace1)
+  console.log('cur', currentRace)
+
   
   return (
-    <div>CurrentRace</div>
+    <div> 
+      {previousRace1 && (
+        <div>
+          {previousRace1.name}
+          </div>
+      )}
+      CurrentRace
+    </div>
   )
 }
 

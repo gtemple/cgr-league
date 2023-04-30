@@ -9,13 +9,13 @@ type Driver = {
 
 interface RaceDetails {
   name: string,
-  order: {
-    '1'?: Driver
-    '2'?: Driver,
-    '3'?: Driver,
-    '4'?: Driver,
-    '5'?: Driver,
-    '6'?: Driver,
+  order: [{
+    1?: Driver
+    2?: Driver,
+    3?: Driver,
+    4?: Driver,
+    5?: Driver,
+    6?: Driver,
     '7'?: Driver,
     '8'?: Driver,
     '9'?: Driver,
@@ -30,7 +30,7 @@ interface RaceDetails {
     '18'?: Driver,
     '19'?: Driver,
     '20'?: Driver
-  }
+  }]
 }
 
 export default interface RaceSchedule {
