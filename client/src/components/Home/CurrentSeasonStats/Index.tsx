@@ -4,7 +4,7 @@ import * as _ from '../../../helpers/sumSeasonPoints'
 
 
 
-const CurrentSeason = () => {
+const CurrentSeasonStats = () => {
   const [data, setData] = useState<boolean>(false)
   const [seasonInfo, setSeasonInfo] = useState<ObjectType>({})
   const [humanStandings, setHumanStandings] = useState<string[]>([])
@@ -48,10 +48,10 @@ const CurrentSeason = () => {
     <div>
     <ul>
       {data && results(seasonInfo)}
-      {data && humanResults(seasonInfo)}
+      {/* {data && humanResults(seasonInfo)} */}
     </ul>
     </div>
   )
 }
 
-export default CurrentSeason
+export default CurrentSeasonStats

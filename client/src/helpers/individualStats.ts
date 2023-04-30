@@ -1,5 +1,5 @@
 import * as _ from './sumSeasonPoints'
-import RaceResults from '../classes/interfaces'
+import RaceResults from '../classes/RaceResults'
 
 
 export const lifetimePoints = (races: []): number => {

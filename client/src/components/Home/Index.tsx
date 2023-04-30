@@ -1,10 +1,18 @@
-import React from 'react'
-import CurrentSeason from './CurrentSeason/Index'
+import CurrentSeasonStats from './CurrentSeasonStats/Index'
+import CurrentSeasonSchedule from './CurrentSeasonSchedule/Index'
+
+
+
 
 const Home = () => {
+
+
   return (
     <div>
-      <CurrentSeason />
+
+      <CurrentSeasonStats />
+      <CurrentSeasonSchedule />
+
     </div>
   )
 }

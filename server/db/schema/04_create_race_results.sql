@@ -5,7 +5,7 @@ CREATE TABLE race_results (
   id SERIAL PRIMARY KEY,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   track_id INTEGER REFERENCES tracks(id) ON DELETE CASCADE,
-  position INTEGER NOT NULL,
+  position INTEGER,
   dnf BOOLEAN NOT NULL,
   fastest_lap BOOLEAN NOT NULL,
   dotd BOOLEAN NOT NULL,

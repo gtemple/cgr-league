@@ -1,7 +1,6 @@
-import RaceResults from "../classes/interfaces";
+import RaceResults from "../classes/RaceResults";
 
 export const positionScore = (position: number | null, fastestLap: boolean):number => {
-  console.log('position', position)
   let finalScore = 0
   const scores: ObjectType = {
     '1': 25,

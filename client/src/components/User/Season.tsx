@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 import useGetUserRaces from "../../Hooks/useGetUserRaces"
-import RaceResults from "../../classes/interfaces";
+import RaceResults from "../../classes/RaceResults";
 
 interface Props {
   'id': number,
