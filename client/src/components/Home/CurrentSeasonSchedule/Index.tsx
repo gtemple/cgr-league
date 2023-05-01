@@ -15,7 +15,7 @@ const positionObj = (race: RaceResult) => {
 
   if (race.position) {
     const position = race.position.toString()
-    console.log('here', position)
+
     obj.order = {
       [race.position]: { 
         firstName: race.first_name,
