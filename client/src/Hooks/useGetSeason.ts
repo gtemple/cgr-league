@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import axios from "axios";
 
-export default function useGetSeason(id: number) {
+export default function useGetSeason(id: number | string | undefined) {
   const [seasonData, setSeasonData] = useState([])
   const [loaded, setLoaded] = useState<boolean>(false)
 
