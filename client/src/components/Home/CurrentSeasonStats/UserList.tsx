@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import * as _ from '../../../helpers/sumSeasonPoints'
+import '../home.css'
 
 type RaceData = {
   created_at: string;
@@ -33,7 +34,7 @@ interface Person {
 }
 
 
-const UserList = (props: Props) => {
+const UserList = (props: { seasonData: ObjectType }) => {
   const [userData, setUserData] = useState<boolean | Person[]>(false)
   const [loaded, setLoaded] = useState(false)
 
@@ -61,7 +62,7 @@ const UserList = (props: Props) => {
   }
   
   function sortPeopleByPoints(people: {[key: number]: Person}): Person[] {
-    const sortedPeople = Object.values(people).sort((a, b) => a.points - b.points);
+    const sortedPeople = Object.values(people).sort((a, b) => b.points - a.points);
     return sortedPeople;
   }
 
@@ -81,13 +82,13 @@ const UserList = (props: Props) => {
 
   return (
     <div>
-
+      CGR Standings:
       {userData.length > 0 && (
         <div>
-          {console.log(userData)}
-          <div>{userData[2].points} {userData[1].firstName} {userData[1].lastName}</div>
-          <div></div>
-          <div></div>
+          <div>{userData[1].points} {userData[1].firstName} {userData[1].lastName}</div>
+          <div>{userData[0].points} {userData[0].firstName} {userData[0].lastName}</div>
+          <div>{userData[2].points} {userData[2].firstName} {userData[2].lastName}</div>
+
         </div>
       )} 
       <div></div>
