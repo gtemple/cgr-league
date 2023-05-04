@@ -5,6 +5,9 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 
 import Home from '../Home/Index'
@@ -68,10 +71,15 @@ const Navigation = () => {
   const displayTracks = (tracks: Tracks[]):React.ReactNode => {
     return tracks.sort((a, b) => a.name.localeCompare(b.name)).map((track:Tracks) => {
       return (
-        <NavDropdown.Item href={`/tracks/${track.id}`} key={track.id}>{track.name}</NavDropdown.Item>
+        <Dropdown.Item className="nav-drop" href={`/tracks/${track.id}`} key={track.id}>{track.name}</Dropdown.Item>
       )
     })
   }
+
+  const handleDropdownClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    const menu = event.currentTarget.querySelector('.nav-drop-menu');
+    menu?.classList.toggle('show');
+  };
   
 
   return (
@@ -84,15 +92,28 @@ const Navigation = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <NavDropdown title="Seasons" id="collasible-nav-dropdown">
-              {seasonData && displaySeasons(seasonData)}
-            </NavDropdown>
-            <NavDropdown title="Drivers" id="collasible-nav-dropdown" className='dropdown-menu-columns-2'>
-              {userData && displayUsers(userData)}
-            </NavDropdown>
-            <NavDropdown title="Tracks" id="collasible-nav-dropdown">
-              {tracksData && displayTracks(tracksData)}
-            </NavDropdown>
+            <Dropdown as={ButtonGroup} title="Tracks" id="seasons-dropdown">
+              <Dropdown.Toggle className='nav-button' id="seasons-toggle">Seasons</Dropdown.Toggle>
+              <Dropdown.Menu className="nav-drop">
+                {seasonData && displaySeasons(seasonData)}
+              </Dropdown.Menu>
+            </Dropdown>
+
+            <Dropdown as={ButtonGroup} title="Drivers" id="drivers-dropdown" onClick={handleDropdownClick}>
+        <Dropdown.Toggle className='nav-button' id="drivers-toggle">Drivers</Dropdown.Toggle>
+        <Dropdown.Menu className="nav-drop-driver nav-drop-menu">
+          {userData && displayUsers(userData)}
+        </Dropdown.Menu>
+      </Dropdown>
+
+      <Dropdown as={ButtonGroup} title="Tracks" id="tracks-dropdown" onClick={handleDropdownClick}>
+        <Dropdown.Toggle className='nav-button' id="tracks-toggle">Tracks</Dropdown.Toggle>
+        <Dropdown.Menu className="nav-drop-track nav-drop-menu">
+          {tracksData && displayTracks(tracksData)}
+        </Dropdown.Menu>
+      </Dropdown>
+
+
           </Nav>
         </Navbar.Collapse>
       </Container>

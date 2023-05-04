@@ -1,4 +1,15 @@
-.users {
-  display: flex;
-  flex-direction: column
+.nav-button {
+  background-color: transparent !important;
+  border-color: transparent !important;
+
+}
+
+.nav-drop-menu {
+  display: none;
+}
+
+.nav-drop-menu.show {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr 1fr !important;
+  width: 900px !important;
 }
