@@ -16,6 +16,8 @@ import useGetUsers from '../../Hooks/useGetUsers';
 import useGetSeasons from '../../Hooks/useGetSeasons';
 import useGetTracks from '../../Hooks/useGetTracks';
 
+import './navigation.css'
+
 
 const Navigation = () => {
   const { userData } = useGetUsers();
@@ -54,16 +56,18 @@ const Navigation = () => {
   }
 
   const displayUsers = (users: Users[]):React.ReactNode => {
-    return users.map((user:Users) => {
+    return users.sort((a, b) => a.last_name.localeCompare(b.last_name)).map((user:Users, index) => {
       return (
-        <NavDropdown.Item href={`/drivers/${user.id}`} key={user.id}>{user.first_name} {user.last_name}</NavDropdown.Item>
+        <div className='users'>
+          <NavDropdown.Item href={`/drivers/${user.id}`} key={user.id}>{user.first_name} {user.last_name}</NavDropdown.Item>
+        </div>
       )
     })
   }
 
 
   const displayTracks = (tracks: Tracks[]):React.ReactNode => {
-    return tracks.map((track:Tracks) => {
+    return tracks.sort((a, b) => a.name.localeCompare(b.name)).map((track:Tracks) => {
       return (
         <NavDropdown.Item href={`/tracks/${track.id}`} key={track.id}>{track.name}</NavDropdown.Item>
       )
@@ -83,7 +87,7 @@ const Navigation = () => {
             <NavDropdown title="Seasons" id="collasible-nav-dropdown">
               {seasonData && displaySeasons(seasonData)}
             </NavDropdown>
-            <NavDropdown title="Drivers" id="collasible-nav-dropdown">
+            <NavDropdown title="Drivers" id="collasible-nav-dropdown" className='dropdown-menu-columns-2'>
               {userData && displayUsers(userData)}
             </NavDropdown>
             <NavDropdown title="Tracks" id="collasible-nav-dropdown">
