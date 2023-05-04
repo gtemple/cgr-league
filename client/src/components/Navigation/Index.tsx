@@ -54,18 +54,17 @@ const Navigation = () => {
       )
     })
   }
-
+  
   const displayUsers = (users: Users[]):React.ReactNode => {
     return users.sort((a, b) => a.last_name.localeCompare(b.last_name)).map((user:Users, index) => {
       return (
-        <div className='users'>
-          <NavDropdown.Item href={`/drivers/${user.id}`} key={user.id}>{user.first_name} {user.last_name}</NavDropdown.Item>
+        <div className='users' key={user.id}>
+          <NavDropdown.Item href={`/drivers/${user.id}`}>{user.first_name} {user.last_name}</NavDropdown.Item>
         </div>
       )
     })
   }
-
-
+  
   const displayTracks = (tracks: Tracks[]):React.ReactNode => {
     return tracks.sort((a, b) => a.name.localeCompare(b.name)).map((track:Tracks) => {
       return (
@@ -73,6 +72,7 @@ const Navigation = () => {
       )
     })
   }
+  
 
   return (
     <>

@@ -17,3 +17,14 @@ INSERT INTO tracks (id, name, city, country, distance) VALUES (13, 'Belgian Gran
 INSERT INTO tracks (id, name, city, country, distance) VALUES (14, 'Dutch Grand Prix', 'Zandvoort', 'Netherlands', 4259);
 INSERT INTO tracks (id, name, city, country, distance) VALUES (15, 'Italian Grand Prix', 'Monza', 'Italy', 	5793);
 
+INSERT INTO tracks (id, name, city, country, distance) VALUES (16, 'Singapore Gran Prix', 'Marina Bay', 'Singapore', 4928);
+INSERT INTO tracks (id, name, city, country, distance) VALUES (17, 'Japanese Grand Prix', 'Suzuka', 'Japan', 5807);
+INSERT INTO tracks (id, name, city, country, distance) VALUES (18, 'Qatar Grand Prix', 'Lusail', 'Qatar', 5418);
+INSERT INTO tracks (id, name, city, country, distance) VALUES (19, 'Mexico City Grand Prix', 'Mexico City', 'Mexico', 4304);
+INSERT INTO tracks (id, name, city, country, distance) VALUES (20, 'Sao Paolo Grand Prix', 'Sao Paolo', 'Brazil', 	4309);
+
+INSERT INTO tracks (id, name, city, country, distance) VALUES (21, 'Las Vegas Gran Prix', 'Las Vegas', 'United States', 6120);
+INSERT INTO tracks (id, name, city, country, distance) VALUES (22, 'Abu Dhabi Grand Prix', 'Abu Dhabi', 'United Arab Emirates', 5281);
+INSERT INTO tracks (id, name, city, country, distance) VALUES (23, 'Russian Grand Prix', 'Sochi', 'Russia', 5848);
+INSERT INTO tracks (id, name, city, country, distance) VALUES (24, 'Chinese Grand Prix', 'Shanghai', 'China', 5451);
+
