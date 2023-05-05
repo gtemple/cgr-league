@@ -1,10 +1,10 @@
-CGR Racing League - Official League Site
+## CGR Racing League - Official League Site
 
 
 The CGR Racing League site is a passion project that you can visit to stay up to date on the current standings as well go through the statistical history of the league. 
 
 
-What is CGR Racing League?
+## What is CGR Racing League?
 
 Cole Giordano Ryan Racing league (CGR racing league), is an online Formula 1 league started in 2021 based around the EA F1 games.
 
