@@ -1,20 +1,41 @@
+-- Giordano Season 1
 INSERT INTO race_results (id, user_id, track_id, position, dnf, fastest_lap, dotd, season_id, sprint, race_distance, race_order)
-                  VALUES (1, 1, 3, 3, false, false, true, 1, false, 18, 1);
+                  VALUES  (1,    1,        3,       3,     false, false,     true,     1,     false,      18,           1),
+                          (2, 1, 25, 13, false, false, false, 1, false, 17, 2),
+                          (3, 1, 10, 7, false, false, true, 1, false, 18, 3),  
+                          (4, 1, 11, 20, false, true, false, 1, false, 18, 4),  
+                          (5, 1, 20, 7, false, false, false, 1, false, 18, 5),
+                          (6, 1, 13, 5, false, false, true, 1, false, 11, 6),  
+                          (7, 1, 23, 20, false, false, false, 1, false, 14, 7),
+                          (8, 1, 22, 12, false, false, false, 1, false, 15, 8),
+                          (9, 1, 14, 7, false, false, false, 1, false, 18, 9),
+                          (10, 1, 26, 2, false, false, false, 1, false, 13, 10),
+                          (11, 1, 1, 6, false, false, false, 1, false, 13, 11),
+                          (12, 1, 7, 10, false, false, false, 1, false, 16, 12),
+                          (13, 1, 15, 18, false, false, false, 1, false, 13, 13),
+                          (14, 1, 12, 20, false, false, false, 1, false, 18, 13),
+                          (15, 1, 4, 6, false, false, false, 1, false, 14, 14),
+                          (16, 1, 9, 5, false, false, false, 1, false, 14, 16),
+                          (17, 1, 24, 1, false, true, false, 1, false, 14, 17),
+                          (18, 1, 2, 20, false, false, false, 1, false, 13, 18);
+
+-- Ryan Season 1
 INSERT INTO race_results (id, user_id, track_id, position, dnf, fastest_lap, dotd, season_id, sprint, race_distance, race_order)
-                  VALUES (2, 1, 25, 13, false, false, false, 1, false, 18, 2);
-INSERT INTO race_results (id, user_id, track_id, position, dnf, fastest_lap, dotd, season_id, sprint, race_distance, race_order)
-                  VALUES (3, 1, 10, 7, false, false, true, 1, false, 18, 3);      
-INSERT INTO race_results (id, user_id, track_id, position, dnf, fastest_lap, dotd, season_id, sprint, race_distance, race_order)
-                  VALUES (4, 1, 11, 20, false, true, false, 1, false, 18, 4);     
-INSERT INTO race_results (id, user_id, track_id, position, dnf, fastest_lap, dotd, season_id, sprint, race_distance, race_order)
-                  VALUES (5, 1, 20, 7, false, false, false, 1, false, 18, 5);
-INSERT INTO race_results (id, user_id, track_id, position, dnf, fastest_lap, dotd, season_id, sprint, race_distance, race_order)
-                  VALUES (6, 1, 13, 5, false, false, true, 1, false, 18, 6);    
-INSERT INTO race_results (id, user_id, track_id, position, dnf, fastest_lap, dotd, season_id, sprint, race_distance, race_order)
-                  VALUES (7, 1, 23, 20, false, false, false, 1, false, 18, 7);    
-INSERT INTO race_results (id, user_id, track_id, position, dnf, fastest_lap, dotd, season_id, sprint, race_distance, race_order)
-                  VALUES (8, 1, 22, 12, false, false, false, 1, false, 18, 8);
-INSERT INTO race_results (id, user_id, track_id, position, dnf, fastest_lap, dotd, season_id, sprint, race_distance, race_order)
-                  VALUES (9, 1, 14, 7, false, false, false, 1, false, 18, 9); 
-INSERT INTO race_results (id, user_id, track_id, position, dnf, fastest_lap, dotd, season_id, sprint, race_distance, race_order)
-                  VALUES (10, 1, 26, 2, false, false, false, 1, false, 18, 10);                                                                            
+                  VALUES  (19,    3,        3,       1,     false, true,     false,     1,     false,      18,           1),
+                          (20, 3, 25, 1, false, true, true, 1, false, 17, 2),
+                          (21, 3, 10, 19, false, false, false, 1, false, 18, 3),  
+                          (22, 3, 11, 18, false, false, false, 1, false, 18, 4),  
+                          (23, 3, 20, 1, false, true, false, 1, false, 18, 5),
+                          (24, 3, 13, 4, false, false, false, 1, false, 11, 6),  
+                          (25, 3, 23, 11, false, false, false, 1, false, 14, 7),
+                          (26, 3, 22, 7, false, false, false, 1, false, 15, 8),
+                          (27, 3, 14, 20, false, false, false, 1, false, 18, 9),
+                          (28, 3, 26, 1, false, true, false, 1, false, 13, 10),
+                          (29, 3, 1, 20, false, false, false, 1, false, 13, 11),
+                          (30, 3, 7, 2, false, false, false, 1, false, 16, 12),
+                          (31, 3, 15, 9, false, false, false, 1, false, 13, 13),
+                          (32, 3, 12, 4, false, false, false, 1, false, 18, 13),
+                          (33, 3, 4, 5, false, true, true, 1, false, 14, 14),
+                          (34, 3, 9, 12, false, false, false, 1, false, 14, 16),
+                          (35, 3, 24, 7, false, false, false, 1, false, 14, 17),
+                          (36, 3, 2, 3, false, false, true, 1, false, 13, 18);                               
