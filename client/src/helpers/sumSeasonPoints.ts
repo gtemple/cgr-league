@@ -19,7 +19,7 @@ export const positionScore = (position: number | null, fastestLap: boolean):numb
     finalScore += 1;
   }
 
-  if (position) {
+  if (position && position !== undefined && position < 11) {
     finalScore += scores[position as keyof ObjectType]
   }
 
