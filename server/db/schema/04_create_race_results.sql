@@ -13,5 +13,6 @@ CREATE TABLE race_results (
   sprint BOOLEAN NOT NULL,
   race_distance INTEGER,
   race_order INTEGER,
+  pole_position BOOLEAN,
   created_at TIMESTAMP DEFAULT NOW()
 );
