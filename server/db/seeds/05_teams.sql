@@ -5,9 +5,9 @@ VALUES  (1, 1, 1, 'Ferrari'),
         (2, 4, 1, 'Ferrari'),
 
         (3, 3, 1, 'Mclaren'),
-        (4, 5, 1, 'Mclaren');
+        (4, 5, 1, 'Mclaren'),
 
-        (5, 3, 1, 'Aston Martin'),
+        (5, 2, 1, 'Aston Martin'),
         (6, 32, 1, 'Aston Martin'),
 
         (7, 13, 1, 'Red Bull'),
@@ -22,14 +22,14 @@ VALUES  (1, 1, 1, 'Ferrari'),
         (13, 22, 1, 'Alpha Tauri'),
         (14, 23, 1, 'Alpha Tauri'),
 
-        (13, 17, 1, 'Alfa Romeo'),
-        (14, 18, 1, 'Alfa Romeo'),
+        (15, 17, 1, 'Alfa Romeo'),
+        (16, 18, 1, 'Alfa Romeo'),
 
-        (13, 12, 1, 'Williams'),
-        (14, 8, 1, 'Williams'),
+        (17, 12, 1, 'Williams'),
+        (18, 8, 1, 'Williams'),
 
-        (13, 6, 1, 'Alpine'),
-        (14, 26, 1, 'Alpine');
+        (19, 6, 1, 'Alpine'),
+        (20, 26, 1, 'Alpine');
 --Season 2
 
 INSERT INTO teams (id, user_id, season_id, team_name) VALUES (5, 1, 2, 'Ferrari');
