@@ -44,7 +44,6 @@ const UserList = (props: { seasonData: ObjectType }) => {
     raceData.forEach((race:RaceData) => {
 
       if (race.human) {
-        console.log('aaa', humans)
         if (humans[race.user_id] === undefined) {
 
           humans[race.user_id] = {
@@ -74,7 +73,6 @@ const UserList = (props: { seasonData: ObjectType }) => {
       const sortedUserData = sortPeopleByPoints(result)
       setUserData(sortedUserData)
       setLoaded(true)
-      console.log(userData)
     }
 
   }, [loaded])

@@ -37,8 +37,6 @@ const AllTime = (props: Props) => {
   }, [userData])
 
 
-//console.log(userData)
-
   return (
     <div>
       {userData && (

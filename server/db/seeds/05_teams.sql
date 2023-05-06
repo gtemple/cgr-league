@@ -1,5 +1,4 @@
 --Season 1
-
 INSERT INTO teams (id, user_id, season_id, team_name) 
 VALUES  (1, 1, 1, 'Ferrari'),
         (2, 4, 1, 'Ferrari'),
@@ -30,10 +29,36 @@ VALUES  (1, 1, 1, 'Ferrari'),
 
         (19, 6, 1, 'Alpine'),
         (20, 26, 1, 'Alpine');
+
 --Season 2
 
-INSERT INTO teams (id, user_id, season_id, team_name) VALUES (5, 1, 2, 'Ferrari');
-INSERT INTO teams (id, user_id, season_id, team_name) VALUES (6, 2, 2, 'Mclaren');
-INSERT INTO teams (id, user_id, season_id, team_name) VALUES (7, 3, 2, 'Ferrari');
-INSERT INTO teams (id, user_id, season_id, team_name) VALUES (8, 4, 2, 'Mclaren');
+INSERT INTO teams (id, user_id, season_id, team_name) 
+VALUES  (21, 31, 2, 'Ferrari'),
+        (22, 4, 2, 'Ferrari'),
 
+        (23, 20, 2, 'Mclaren'),
+        (24, 5, 2, 'Mclaren'),
+
+        (25, 7, 2, 'Aston Martin'),
+        (26, 32, 2, 'Aston Martin'),
+
+        (27, 13, 2, 'Red Bull'),
+        (28, 14, 2, 'Red Bull'),
+
+        (29, 11, 2, 'Mercedes'),
+        (30, 15, 2, 'Mercedes'),
+
+        (31, 28, 2, 'Haas'),
+        (32, 27, 2, 'Haas'),
+
+        (33, 1, 2, 'Alpha Tauri'),
+        (34, 3, 2, 'Alpha Tauri'),
+
+        (35, 17, 2, 'Alfa Romeo'),
+        (36, 2, 2, 'Alfa Romeo'),
+
+        (37, 12, 2, 'Williams'),
+        (38, 8, 2, 'Williams'),
+
+        (39, 6, 2, 'Alpine'),
+        (40, 26, 2, 'Alpine');

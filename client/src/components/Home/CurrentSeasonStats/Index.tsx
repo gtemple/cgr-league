@@ -13,7 +13,6 @@ const CurrentSeasonStats = () => {
     <div className='current-season'>
       <h1 className='current-season-title'>Season 2</h1>
       <div className='current-season-stats'>
-        {seasonData && console.log(seasonData)}
         <StandingsList seasonData={seasonData} />
         <UserList seasonData={seasonData} />
       </div>

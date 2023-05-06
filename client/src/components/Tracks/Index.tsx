@@ -83,7 +83,6 @@ const Tracks= () => {
       traaaacks {id}
       {groupData && (
         <div>
-          {console.log(groupData)}
           {/* or render some component instead of console.log */}
           <div>Grouped data by season and user</div>
         </div>

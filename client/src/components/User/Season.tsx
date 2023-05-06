@@ -13,7 +13,6 @@ const Season = (props: Props) => {
   const { userData } = useGetUserRaces(userId);
 
   const printSeason = (races: Array<RaceResults>) => {
-    console.log(races)
 
     return races.map((race: RaceResults) => {
       if (race.season_id === id) {

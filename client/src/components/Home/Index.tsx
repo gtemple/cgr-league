@@ -16,7 +16,7 @@ const Home = () => {
         <img src={background} className='background-image' />
       </div>
       <CurrentSeasonStats />
-      <CurrentSeasonSchedule />
+      {/* <CurrentSeasonSchedule /> */}
 
     </div>
   )

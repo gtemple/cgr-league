@@ -7,7 +7,6 @@ import RaceSchedule from '../../../classes/RaceSchedule'
 import CurrentRace from './CurrentRace'
 
 const positionObj = (race: RaceResult) => {
-  // console.log('pos', race, race.position)
   let obj = { 
     'name': race.name,
     'order': {}
