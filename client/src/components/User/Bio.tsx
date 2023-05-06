@@ -9,6 +9,8 @@ const Bio = (props: Props) => {
 
   const {userData, bio} = useGetUserBio(props.id);
 
+  const formattedDate = bio.dateOfBirth ? new Date(bio.dateOfBirth).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : '';
+
   return (
     <div>
       {userData && (
@@ -16,7 +18,7 @@ const Bio = (props: Props) => {
           <div>{bio.profileImage}</div>
           <div> {bio.initials}</div>
           <div> {bio.firstName} {bio.lastName}</div>
-          <div> {bio.dateOfBirth}</div>
+          <div> {formattedDate}</div>
           <div> Birthplace: {bio.cityOfBirth}, {bio.countryOfBirth}</div>
         </>
         )

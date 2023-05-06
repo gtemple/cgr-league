@@ -1,0 +1,28 @@
+.season-table {
+  background-color: grey;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+}
+
+.season-cell {
+  margin: 4px
+}
+
+.fastest-lap {
+  color: purple;
+}
+
+.dotd {
+  background-color: green;
+}
+
+.dnf {
+  background-color: yellow;
+}
+
+.pole_position {
+  border-color: green;
+  border-style: solid;
+  border-width: 2px;
+}
