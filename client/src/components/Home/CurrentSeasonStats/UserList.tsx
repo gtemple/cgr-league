@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
-import * as _ from '../../../helpers/sumSeasonPoints'
-import '../home.css'
+import { useEffect, useState } from "react";
+import * as _ from '../../../helpers/sumSeasonPoints';
+import '../home.css';
 
 type RaceData = {
   created_at: string;
@@ -24,7 +24,7 @@ type RaceData = {
 }
 
 type Props = {
-  seasonData: RaceData
+  seasonData: RaceData[]
 }
 
 interface Person {
@@ -33,66 +33,79 @@ interface Person {
   lastName: string;
 }
 
+interface Human {
+  points: number;
+  firstName: string;
+  lastName: string;
+}
 
-const UserList = (props: { seasonData: ObjectType }) => {
-  const [userData, setUserData] = useState<boolean | Person[]>(false)
-  const [loaded, setLoaded] = useState(false)
+interface Humans {
+  [key: number]: Human;
+}
 
-  const  getUserData = (raceData: RaceData[]) => {
-    let humans = {}
+const getUserData = (raceData: RaceData[]) => {
+  let humans: Humans = {};
 
-    raceData.forEach((race:RaceData) => {
-
-      if (race.human) {
-        if (humans[race.user_id] === undefined) {
-
-          humans[race.user_id] = {
-            points: _.positionScore(race.position, race.sprint),
-            firstName: race.first_name,
-            lastName: race.last_name
-          } 
-        } else {
-          humans[race.user_id].points += _.positionScore(race.position, race.sprint)
-        }
+  raceData.forEach((race: RaceData) => {
+    if (race.human) {
+      if (humans[race.user_id] === undefined) {
+        humans[race.user_id] = {
+          points: _.positionScore(race.position, race.fastest_lap),
+          firstName: race.first_name,
+          lastName: race.last_name
+        };
+      } else {
+        humans[race.user_id].points += _.positionScore(race.position, race.fastest_lap);
       }
-    })
-
-    return humans
-  }
-  
-  function sortPeopleByPoints(people: {[key: number]: Person}): Person[] {
-    const sortedPeople = Object.values(people).sort((a, b) => b.points - a.points);
-    return sortedPeople;
-  }
-
-
-  
-  useEffect(() => {
-    const result = props.seasonData !== [] ? getUserData(props.seasonData) : null;
-    if (result) {
-      const sortedUserData = sortPeopleByPoints(result)
-      setUserData(sortedUserData)
-      setLoaded(true)
     }
+  });
 
-  }, [loaded])
+  return humans;
+};
 
+function sortPeopleByPoints(people: {[key: number]: Person}): Person[] {
+  const sortedPeople = Object.values(people).sort((a, b) => b.points - a.points);
+  return sortedPeople;
+}
+
+const UserList = (props: Props) => {
+  const [userData, setUserData] = useState<Person[]>([]);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const result = getUserData(props.seasonData);
+    const sortedUserData = sortPeopleByPoints(result);
+    setUserData(sortedUserData);
+    setLoaded(true);
+  }, [props.seasonData]);
+
+  const calculateChartSize = (activeValue: number, valueB: number, valueC: number): number => {
+    let result = activeValue / (activeValue + valueB + valueC) * 300;
+    return result
+  }
 
   return (
     <div>
       CGR Standings:
       {userData.length > 0 && (
-        <div>
-          <div>{userData[1].points} {userData[1].firstName} {userData[1].lastName}</div>
-          <div>{userData[0].points} {userData[0].firstName} {userData[0].lastName}</div>
-          <div>{userData[2].points} {userData[2].firstName} {userData[2].lastName}</div>
-
+        <div className='chart'>
+          <div className='stat'>
+            <div className='bar silver-chart' style={{height: `${calculateChartSize(userData[1].points, userData[0].points, userData[2].points)}px`}}>{userData[1].points}</div>
+            <div>{userData[1].firstName.slice(-0, 1) + '.'} {userData[1].lastName}</div>
+          </div>
+          <div className='stat'>
+            <div className='bar gold-chart' style={{height: `${calculateChartSize(userData[0].points, userData[1].points, userData[2].points)}px`}}>{userData[0].points}</div>
+            <div>{userData[0].firstName.slice(-0, 1) + '.'} {userData[0].lastName}</div>
+          </div>
+          <div className='stat'>
+            <div className='bar bronze-chart' style={{height: `${calculateChartSize(userData[2].points, userData[1].points, userData[0].points)}px`}}>{userData[2].points}</div> 
+            <div>{userData[2].firstName.slice(-0, 1) + '.'} {userData[2].lastName}</div>
+          </div>
         </div>
       )} 
       <div></div>
-      
     </div>
   )
 }
 
-export default UserList
+export default UserList;

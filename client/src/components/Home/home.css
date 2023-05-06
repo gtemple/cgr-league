@@ -31,6 +31,36 @@
 .standings-cell {
   border: 2px solid #1F1F1F;
 }
+.chart {
+  display: flex;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  margin: 10px;
+}
+
+.bar {
+  color: black;
+  width: 100px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.silver-chart {
+  background-color: silver;
+}
+
+.gold-chart {
+  background-color: gold;
+}
+
+.bronze-chart {
+  background-color: brown;
+}
 
 tr {
   background-color: #AD213D;
