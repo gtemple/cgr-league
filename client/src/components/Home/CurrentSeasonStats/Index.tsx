@@ -3,6 +3,7 @@ import StandingsList from './StandingsList'
 import UserList from './UserList';
 
 import '../home.css'
+import ConstructorsStandings from './ConstructorsStandings';
 
 
 const CurrentSeasonStats = () => {
@@ -13,6 +14,7 @@ const CurrentSeasonStats = () => {
     <div className='current-season'>
       <h1 className='current-season-title'>Season 2</h1>
       <div className='current-season-stats'>
+        <ConstructorsStandings seasonData={seasonData} />
         <StandingsList seasonData={seasonData} />
         <UserList seasonData={seasonData} />
       </div>

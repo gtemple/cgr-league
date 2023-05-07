@@ -44,3 +44,17 @@ export const totalSeasonScore = (races:ArrayType): ObjectType => {
   })
   return allScores
 }
+
+export const totalConstructorScore = (races:ArrayType): ObjectType => {
+
+  const allScores = {};
+
+  races.forEach((race:RaceResults) => {
+    if (allScores[race.team_name] != undefined) {
+      allScores[race.team_name] += positionScore(race.position, race.fastest_lap)
+    } else {
+      allScores[race.team_name] = positionScore(race.position, race.fastest_lap)
+    }
+  })
+  return allScores
+}
