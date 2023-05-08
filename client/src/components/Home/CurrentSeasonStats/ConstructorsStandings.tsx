@@ -1,5 +1,4 @@
 import * as _ from "../../../helpers/sumSeasonPoints";
-import { useState } from "react";
 import "../home.css";
 
 

@@ -9,7 +9,7 @@ INSERT INTO users (id, first_name, last_name, initials, city_of_birth, country_o
 INSERT INTO users (id, first_name, last_name, initials, city_of_birth, country_of_birth, human, date_of_birth) VALUES (6, 'Fernando', 'Alonso', 'ALO', 'Oviedo', 'Spain', false, '1981-07-29');
 INSERT INTO users (id, first_name, last_name, initials, city_of_birth, country_of_birth, human, date_of_birth) VALUES (7, 'Lance', 'Stroll', 'STR', 'Montreal', 'Canada', false, '1998-10-29');
 INSERT INTO users (id, first_name, last_name, initials, city_of_birth, country_of_birth, human, date_of_birth) VALUES (8, 'Nicholas', 'Latifi', 'LAT', 'Montreal', 'Canada', false, '1995-06-27');
-INSERT INTO users (id, first_name, last_name, initials, city_of_birth, country_of_birth, human, date_of_birth) VALUES (9, 'Alexander', 'Albon', 'ALB', 'London', 'United Kingdom', false, '1996-03-23');
+INSERT INTO users (id, first_name, last_name, initials, city_of_birth, country_of_birth, human, date_of_birth, profile_image) VALUES (9, 'Alexander', 'Albon', 'ALB', 'London', 'United Kingdom', false, '1996-03-23', 'alex-albon');
 INSERT INTO users (id, first_name, last_name, initials, city_of_birth, country_of_birth, human, date_of_birth) VALUES (10, 'Logan', 'Sargeant', 'SAR', 'Fort Lauderdale', 'United States', false, '2000-12-31');
 
 INSERT INTO users (id, first_name, last_name, initials, city_of_birth, country_of_birth, human, date_of_birth) VALUES (11, 'Lewis', 'Hamilton', 'HAM', 'Stevenage', 'United Kingdom', false, '1985-01-07');
