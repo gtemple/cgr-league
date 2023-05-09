@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import useGetTrack from '../../Hooks/useGetTrackData'
+import Track from './Track'
 
 type Data = {
   user_id: number,
@@ -65,25 +66,14 @@ const Tracks= () => {
     return result;
   }
 
-  
-  function sortRaceResultsByPosition(raceResults: RaceResult): Array<RaceResult[keyof RaceResult]> {
-    // convert the object of objects to an array of objects
-    const raceResultsArray = Object.values(raceResults);
-  
-    // sort the array by position
-    raceResultsArray.sort((a, b) => a.position - b.position);
-  
-    return raceResultsArray;
-  }
 
-  const groupData = trackData ? groupDataBySeasonAndUser(trackData) : null;
 
   return (
     <div>
       traaaacks {id}
-      {groupData && (
+      {trackData && (
         <div>
-          {/* or render some component instead of console.log */}
+          <Track trackData={trackData} />
           <div>Grouped data by season and user</div>
         </div>
       )}

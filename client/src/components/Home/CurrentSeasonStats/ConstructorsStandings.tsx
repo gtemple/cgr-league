@@ -8,12 +8,11 @@ const ConstructorsStandings = (props: { seasonData: ObjectType }) => {
     const totalInfo = _.totalConstructorScore(results);
     const infoArray = Object.keys(totalInfo)
       .sort((teamA, teamB) => totalInfo[teamB] - totalInfo[teamA]); // sort by total points in descending order
-    console.log(totalInfo)
     let position = 0;
-    return infoArray.map((team) =>{
+    return infoArray.map((team, index) =>{
       position++
       return (
-        <tr>
+        <tr key={index}>
           <th>{position}</th>
           <th>{team}</th>
           <th>{totalInfo[team]}</th>

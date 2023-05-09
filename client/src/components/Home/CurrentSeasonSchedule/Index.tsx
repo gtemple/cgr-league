@@ -1,88 +1,76 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
+import useGetSeason from '../../../Hooks/useGetSeason';
 
-import useGetSeason from '../../../Hooks/useGetSeason'
-import RaceResult from '../../../classes/RaceResults'
-import RaceSchedule from '../../../classes/RaceSchedule'
-
-import CurrentRace from './CurrentRace'
-
-const positionObj = (race: RaceResult) => {
-  let obj = { 
-    'name': race.name,
-    'order': {}
+function createRaceOrder(data: any[]): IRaceOrder {
+  let firstRace = 0
+  let raceData = {
+    previousRace2: {
+      name: null,
+      position: {}
+    },
+    previousRace: {
+      name: null,
+      position: {}
+    },
+    currentRace: null,
+    nextRace: null,
   }
 
-  if (race.position) {
-    const position = race.position.toString()
-
-    obj.order = {
-      [race.position]: { 
-        firstName: race.first_name,
-        lastName: race.last_name,
-        fastestLap: race.fastest_lap,
-        dnf: race.dnf,
-        dotd: race.dotd
-      }
+  data.forEach((result) => {
+    if (result.race_order >= firstRace && result.position !== null) {
+      firstRace = result.race_order
+      raceData.previousRace.name = result.name
+      raceData.previousRace.position[result.position] = `${result.first_name} ${result.last_name}`
     }
-  }
-  return obj
+
+    if (result.race_order == firstRace - 1 && result.position !== null) {
+      raceData.previousRace2.name = result.name
+      raceData.previousRace2.position[result.position] = `${result.first_name} ${result.last_name}`
+    }
+    if (result.race_order == firstRace + 1 && result.position === null) {
+      raceData.currentRace = result.name
+    }
+    if (result.race_order == firstRace + 2 && result.position === null) {
+      raceData.currentRace = result.name
+    }
+    
+  })
+  return raceData;
 }
+
 
 const CurrentSeasonSchedule = () => {
-  const [raceSchedule, setRaceSchedule] = useState<RaceSchedule>({})
-  const { seasonData } = useGetSeason(2)
-
-  const parseRaceSchedule = (data: RaceResult[]): object => {
-    const raceSchedule: RaceSchedule = {};
-
-    let currentRace = 0;
-
-    data.forEach((race: RaceResult) => {
-      if (race.race_order > currentRace && race.position) {
-        currentRace = race.race_order + 2
-      }
-    })
-
-    data.forEach((race: RaceResult) => {
-      if (race.race_order === currentRace - 2) {
-        raceSchedule.previousRace2 = positionObj(race)
-      }
-      if (race.race_order === currentRace - 1) {
-        raceSchedule.previousRace1 = positionObj(race)
-      }
-      if (race.race_order === currentRace) {
-        raceSchedule.currentRace = positionObj(race)
-      }
-      if (race.race_order === currentRace + 1) {
-        raceSchedule.nextRace1 = positionObj(race)
-      }
-      if (race.race_order === currentRace + 2) {
-        raceSchedule.nextRace2 = positionObj(race)
-      }
-    })
-
-    return raceSchedule;
-  }
+  const { seasonData } = useGetSeason(1);
+  const [raceOrder, setRaceOrder] = useState<IRaceOrder>({});
 
   useEffect(() => {
-    const schedule = parseRaceSchedule(seasonData)
-    setRaceSchedule(schedule)
-  }, [seasonData])
+    if (seasonData) {
+      const newRaceOrder = createRaceOrder(seasonData);
+      setRaceOrder(newRaceOrder);
+      console.log(raceOrder)
+    }
+  }, [seasonData]);
 
-  
   return (
-    <div>
-      {raceSchedule.currentRace && (
-        <div>
-          previous: {raceSchedule.previousRace1.name}
-          current: {raceSchedule.currentRace.name}
-          next: {raceSchedule.nextRace1.name}
+    <>
+      {Object.keys(raceOrder).length !== 0 && (
+        <>
+          <div>
+            {raceOrder.previousRace2.name} {raceOrder.previousRace2.position[1]} {raceOrder.previousRace2.position[2]} {raceOrder.previousRace2.position[3]}
+          </div>
+          <div>
+            {raceOrder.previousRace.name} {raceOrder.previousRace.position[1]} {raceOrder.previousRace.position[2]} {raceOrder.previousRace.position[3]}
+          </div>
+          <div>
+            {raceOrder.currentRace}
+          </div>
+          <div>
+            {raceOrder.nextRace}
+          </div>
+        </>
+        )
+      }
+    </>);
+};
 
-          <CurrentRace schedule={raceSchedule}/>
-        </div>
-      )}
-    </div>
-  )
-}
-
-export default CurrentSeasonSchedule
+export default CurrentSeasonSchedule;
