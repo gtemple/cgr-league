@@ -16,7 +16,7 @@ const Bio = (props: Props) => {
     <div>
       {userData && (
         <>
-          <img src={image}/>
+          {/* <img src={image}/> */}
           <div> {bio.initials}</div>
           <div> {bio.firstName} {bio.lastName}</div>
           <div> {formattedDate}</div>

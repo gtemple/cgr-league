@@ -58,6 +58,13 @@ const Track: React.FC<Props> = ({ trackData }) => {
           </table>
         )
       })}
+            to add:
+      <ul>
+        <li>Track image</li>
+        <li>All time most points at track (top 10?)</li>
+        <li>Most fastest laps: top 5</li>
+        <li>most DOTDs: Top 5</li>
+      </ul>
     </div>
   )
 }
