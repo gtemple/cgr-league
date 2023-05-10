@@ -10,7 +10,7 @@ const getAllSeasons = () => {
 
 const getSeasonResults = (id) => {
 	return db.query(`
-  SELECT u.id as user_id, u.human, u.first_name, u.last_name, u.initials, u.profile_image, r.id, r.dnf, r.fastest_lap, r.sprint, r.position, r.dotd, r.race_order, r.dnf, r.pole_position, r.created_at, t.team_name, tr.name, s.game, s.id as season_id
+  SELECT u.id as user_id, u.human, u.first_name, u.last_name, u.initials, u.profile_image, r.id, r.dnf, r.fastest_lap, r.sprint, r.position, r.dotd, r.race_distance, r.race_order, r.dnf, r.pole_position, r.created_at, t.team_name, tr.name, s.game, s.id as season_id
   FROM race_results r
   INNER JOIN users u ON r.user_id = u.id
   INNER JOIN tracks tr ON r.track_id = tr.id

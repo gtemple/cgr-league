@@ -15,5 +15,7 @@ export default interface RaceResults {
   user_id: number,
   race_order: number,
   dotd: boolean,
-  season_id: number
+  season_id: number,
+  race_distance: number,
+  distance: number
 }

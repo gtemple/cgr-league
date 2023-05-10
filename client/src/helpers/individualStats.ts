@@ -12,6 +12,26 @@ export const lifetimePoints = (races: []): number => {
     return totalPoints
 }
 
+export const lifetimeLaps = (races: []): number => {
+  let totalLaps = 0;
+
+  races.forEach((race: RaceResults) => {
+    totalLaps += race.race_distance
+  });
+
+  return totalLaps
+}
+
+export const lifetimeDistance = (races: []): number => {
+  let totalDistance = 0;
+
+  races.forEach((race: RaceResults) => {
+    totalDistance += race.distance
+  });
+
+  return totalDistance
+}
+
 export const totalPodiums = (races: []): number => {
   let totalPodiums = 0;
   races.forEach((race: RaceResults) => {
