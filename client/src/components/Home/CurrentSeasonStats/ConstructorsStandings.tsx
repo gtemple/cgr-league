@@ -12,7 +12,7 @@ const ConstructorsStandings = (props: { seasonData: ObjectType }) => {
     return infoArray.map((team, index) =>{
       position++
       return (
-        <tr key={index}>
+        <tr className="standings-cell" key={index}>
           <th>{position}</th>
           <th>{team}</th>
           <th>{totalInfo[team]}</th>

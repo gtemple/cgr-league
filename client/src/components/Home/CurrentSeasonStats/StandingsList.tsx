@@ -1,5 +1,7 @@
 import * as _ from "../../../helpers/sumSeasonPoints";
 import { useState } from "react";
+import { BsFillCaretDownFill, BsFillCaretUpFill } from "react-icons/bs";
+
 import "../home.css";
 
 type ScoreTuple = [number, string, string];
@@ -47,17 +49,19 @@ const StandingsList = (props: { seasonData: ObjectType }) => {
 
   return (
     <div>
+      <div className='container'>
       <table className="standings">
         <tbody>
           {props.seasonData && results(props.seasonData)}
         </tbody>
       </table>
       {!showAllRows && (
-        <button onClick={toggleShowAllRows}>Show all rows</button>
+        <button className='show-rows' onClick={toggleShowAllRows}><BsFillCaretDownFill /></button>
       )}
       {showAllRows && (
-        <button onClick={toggleShowAllRows}>Hide rows</button>
+        <button className='show-rows' onClick={toggleShowAllRows}><BsFillCaretUpFill /></button>
       )}
+      </div>
     </div>
   );
 };
