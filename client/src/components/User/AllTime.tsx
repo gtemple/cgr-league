@@ -38,15 +38,18 @@ const AllTime = (props: Props) => {
 
 
   return (
-    <div>
+    <div className='bio'>
       {userData && (
-        <div>
-          <div>All Time points: {allTimeStats.points}</div>
-          <div>All Time podiums: {allTimeStats.podiums}</div>
-          <div>All Time wins: {allTimeStats.wins}</div>
-          <div>Fastest Laps: {allTimeStats.fastestLaps}</div>
-          <div>Driver of the Days: {allTimeStats.dotd}</div>
-
+        <div className='all-time'>
+          <div>
+            <div>All Time points: {allTimeStats.points}</div>
+            <div>Fastest Laps: {allTimeStats.fastestLaps}</div>
+            <div>Driver of the Days: {allTimeStats.dotd}</div>
+          </div>
+          <div>
+            <div>All Time podiums: {allTimeStats.podiums}</div>
+            <div>All Time wins: {allTimeStats.wins}</div>
+          </div>
         </div>)}
     </div>
   )
