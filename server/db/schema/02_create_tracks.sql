@@ -6,5 +6,7 @@ CREATE TABLE tracks (
   name TEXT NOT NULL,
   city VARCHAR(255),
   country VARCHAR(255),
-  distance INTEGER
+  distance INTEGER,
+  layout TEXT,
+  img TEXT
 );

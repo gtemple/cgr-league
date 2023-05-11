@@ -10,6 +10,7 @@ interface Bio {
   dateOfBirth?: string,
   cityOfBirth?: string,
   countryOfBirth?: string,
+  countryOfRepresentation?: string,
   human?: boolean
 }
 
@@ -29,6 +30,7 @@ export default function useGetUserBio(id: string | undefined) {
         const dateOfBirth = res.data.user[0].date_of_birth
         const cityOfBirth = res.data.user[0].city_of_birth
         const countryOfBirth = res.data.user[0].country_of_birth
+        const countryOfRepresentation = res.data.user[0].country_of_representation
         const human = res.data.user[0].human
 
         setBio({
@@ -39,6 +41,7 @@ export default function useGetUserBio(id: string | undefined) {
           dateOfBirth,
           cityOfBirth,
           countryOfBirth,
+          countryOfRepresentation,
           human
         })
         setUserData(res.data.user)

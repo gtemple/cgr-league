@@ -14,7 +14,7 @@ const Bio = (props: Props) => {
   const { userData, bio } = useGetUserBio(props.id);
   const { userData: userData2 } = useGetUserRaces(props.id);
   const { img, loading } = useGetImage(bio?.profileImage || '');
-  
+
   const formattedDate = bio?.dateOfBirth ? new Date(bio.dateOfBirth).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : '';
 
   const calculateAge = () => {
@@ -62,7 +62,7 @@ const Bio = (props: Props) => {
           </div>
           <div className='bio-secondary'>
             <div>{bio.initials}</div>
-            <div>{bio.countryOfBirth}</div>
+            <div>{bio.countryOfRepresentation}</div>
           </div>
         </div>
       )}
