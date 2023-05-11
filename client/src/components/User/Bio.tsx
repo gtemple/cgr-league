@@ -13,7 +13,8 @@ interface Props {
 const Bio = (props: Props) => {
   const { userData, bio } = useGetUserBio(props.id);
   const { userData: userData2 } = useGetUserRaces(props.id);
-  const { img, loading } = useGetImage(bio?.profileImage || '');
+  const { img, loading } = useGetImage(bio?.profileImage, 'driver' || '');
+  const { img: img2, loading: loading2 } =  useGetImage(bio?.countryOfRepresentation, 'flag' || '');
 
   const formattedDate = bio?.dateOfBirth ? new Date(bio.dateOfBirth).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : '';
 
@@ -61,8 +62,12 @@ const Bio = (props: Props) => {
             </div>
           </div>
           <div className='bio-secondary'>
+            {loading ? (
+              <div>Loading image...</div>
+            ) : (
+              <img src={img2} className='bio-flag' alt={bio.countryOfRepresentation} />
+            )}
             <div>{bio.initials}</div>
-            <div>{bio.countryOfRepresentation}</div>
           </div>
         </div>
       )}
