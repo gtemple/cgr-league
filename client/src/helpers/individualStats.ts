@@ -24,9 +24,10 @@ export const lifetimeLaps = (races: []): number => {
 
 export const lifetimeDistance = (races: []): number => {
   let totalDistance = 0;
+  console.log('races', races)
 
   races.forEach((race: RaceResults) => {
-    totalDistance += race.distance
+    totalDistance += race.tracks.distance
   });
 
   return totalDistance

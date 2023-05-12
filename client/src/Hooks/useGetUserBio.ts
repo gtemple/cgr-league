@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import { createClient } from "@supabase/supabase-js";
 
-import axios from "axios";
+const supabase = createClient(import.meta.env.VITE_DB_URL, import.meta.env.VITE_DB_KEY);
 
 interface Bio {
   firstName?: string,
@@ -20,37 +21,17 @@ export default function useGetUserBio(id: string | undefined) {
   const [bio, setBio] = useState<Bio>({})
 
   useEffect(() => {
-    axios
-      .get(`/api/users/bio/${id}`)
-      .then((res) => {
-        const firstName = res.data.user[0].first_name
-        const lastName = res.data.user[0].last_name
-        const initials = res.data.user[0].initials
-        const profileImage = res.data.user[0].profile_image
-        const dateOfBirth = res.data.user[0].date_of_birth
-        const cityOfBirth = res.data.user[0].city_of_birth
-        const countryOfBirth = res.data.user[0].country_of_birth
-        const countryOfRepresentation = res.data.user[0].country_of_representation
-        const human = res.data.user[0].human
-
-        setBio({
-          firstName,
-          lastName,
-          initials,
-          profileImage,
-          dateOfBirth,
-          cityOfBirth,
-          countryOfBirth,
-          countryOfRepresentation,
-          human
-        })
-        setUserData(res.data.user)
-        setLoaded(true)
-      })
+    getUsers(id)
   }, [loaded])
 
+  async function getUsers(userId) {
+    const { data } = await supabase.from("users").select().eq('id', userId);
+    console.log('bio', data)
+    setUserData(data[0]);
+    setLoaded(true)
+  }
+
   return {
-    userData,
-    bio
+    userData
   }
 }

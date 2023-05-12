@@ -15,10 +15,10 @@ const Season = (props: Props) => {
   const printSeason = (races: Array<RaceResults>) => {
 
     return races.map((race: RaceResults) => {
-      if (race.season_id === id) {
+      if (race.seasons.id === id) {
         return (
         <tr key={race.id}>
-          <th>{race.name}</th>
+          <th>{race.tracks.name}</th>
           <th>
             <div>
               {race.position}

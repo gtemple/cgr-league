@@ -11,16 +11,16 @@ interface Props {
 }
 
 const Bio = (props: Props) => {
-  const { userData, bio } = useGetUserBio(props.id);
+  const { userData } = useGetUserBio(props.id);
   const { userData: userData2 } = useGetUserRaces(props.id);
-  const { img, loading } = useGetImage(bio?.profileImage, 'driver' || '');
-  const { img: img2, loading: loading2 } =  useGetImage(bio?.countryOfRepresentation, 'flag' || '');
+  const { img, loading } = useGetImage(userData?.profile_image, 'driver' || '');
+  const { img: img2, loading: loading2 } =  useGetImage(userData?.country_of_representation, 'flag' || '');
 
-  const formattedDate = bio?.dateOfBirth ? new Date(bio.dateOfBirth).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : '';
+  const formattedDate = userData?.date_of_birth ? new Date(userData.date_of_birth).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : '';
 
   const calculateAge = () => {
-    if (bio?.dateOfBirth) {
-      const birthDate = new Date(bio.dateOfBirth);
+    if (userData?.date_of_birth) {
+      const birthDate = new Date(userData.date_of_birth);
       const currentDate = new Date();
       let age = currentDate.getFullYear() - birthDate.getFullYear();
 
@@ -39,7 +39,7 @@ const Bio = (props: Props) => {
 
   return (
     <div className='bio'>
-      {userData && userData2 && bio && (
+      {userData && userData2 && (
         <div>
           <div className='bio-details'>
             {loading ? (
@@ -48,10 +48,10 @@ const Bio = (props: Props) => {
               <img src={img} className='bio-img' alt="User Profile" />
             )}
             <div>
-              <div className='bio-name'>{bio.firstName ? bio.firstName.toUpperCase() : 'loading'} {bio.lastName ? bio.lastName.toUpperCase() : 'loading'}</div>
+              <div className='bio-name'>{userData.first_name ? userData.first_name.toUpperCase() : 'loading'} {userData.last_name ? userData.last_name.toUpperCase() : 'loading'}</div>
               <div>
                 <div>{formattedDate} — {calculateAge()} years old</div>
-                <div>{bio.cityOfBirth}, {bio.countryOfBirth}</div>
+                <div>{userData.city_of_birth}, {console.log('here', userData)} {userData.country_of_birth}</div>
                 <hr className="solid"></hr>
                 <div className='basic-stats'>
                   <div>Races – {userData2.length}</div>
@@ -65,9 +65,9 @@ const Bio = (props: Props) => {
             {loading ? (
               <div>Loading image...</div>
             ) : (
-              <img src={img2} className='bio-flag' alt={bio.countryOfRepresentation} />
+              <img src={img2} className='bio-flag' alt={userData.country_of_representation} />
             )}
-            <div>{bio.initials}</div>
+            <div>{userData.initials}</div>
           </div>
         </div>
       )}
