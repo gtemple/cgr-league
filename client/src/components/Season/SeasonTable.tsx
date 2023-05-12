@@ -26,7 +26,7 @@ type SeasonData = {
 
 const SeasonTable = () => {
   const { id } = useParams();
-  const { seasonData } = useGetSeason(id);
+  const { seasonData = [] } = useGetSeason(id);
 
   if (!seasonData) return null;
 

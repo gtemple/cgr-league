@@ -7,9 +7,11 @@ export default function useGetTracks() {
   const [loaded, setLoaded] = useState<boolean>(false)
 
   useEffect(() => {
+
     axios
       .get('/api/tracks')
       .then((res) => {
+        console.log('track-data', res.data.tracks)
         setTracksData(res.data.tracks)
         setLoaded(true)
       })
