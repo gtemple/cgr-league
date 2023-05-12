@@ -20,6 +20,21 @@ function createRaceOrder(data: any[]): IRaceOrder {
     nextRace: null,
   }
 
+  type IRaceOrder = {
+    previousRace2: {
+      name: string | null;
+      position: { [key: number]: string };
+    };
+    previousRace: {
+      name: string | null;
+      img: string | null;
+      layout: string | null;
+      position: { [key: number]: string };
+    };
+    currentRace: string | null;
+    nextRace: string | null;
+  };
+
   data.forEach((result) => {
     if (result.race_order >= firstRace && result.position !== null) {
       firstRace = result.race_order
