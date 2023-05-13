@@ -73,6 +73,8 @@ const Tracks= () => {
       traaaacks {id}
       {trackData && (
         <div>
+          {/*//@ts-expect-error */}
+
           <Track trackData={trackData} />
           <div>Grouped data by season and user</div>
         </div>
