@@ -5,7 +5,7 @@ VALUES
 (1, 'Giordano', 'Temple', 'TEM', 'Toronto', 'Canada', true, '1993-03-11', 'giordano-temple', 'canada'),
 (2, 'Cole', 'Reynolds', 'CAR', 'Toronto', 'Canada', true, '1996-10-10', 'cole-reynolds', 'canada'),
 (3, 'Ryan', 'Reynolds', 'RCR', 'Toronto', 'Canada', true, '1992-12-05', 'ryan-reynolds', 'canada'),
-(4, 'Charles', 'Leclerc', 'LEC', 'Monte Carlo', 'Monaco', false, '1997-10-16', 'charles-leclerc', 'canada'),
+(4, 'Charles', 'Leclerc', 'LEC', 'Monte Carlo', 'Monaco', false, '1997-10-16', 'charles-leclerc', 'monaco'),
 (5, 'Lando', 'Norris', 'NOR', 'Bristol', 'United Kingdom', false, '1999-11-13', 'lando-norris', 'united-kingdom'),
 (6, 'Fernando', 'Alonso', 'ALO', 'Oviedo', 'Spain', false, '1981-07-29', 'fernando-alonso', 'spain'),
 (7, 'Lance', 'Stroll', 'STR', 'Montreal', 'Canada', false, '1998-10-29', 'lance-stroll', 'canada'),
@@ -30,5 +30,5 @@ VALUES
 (28, 'Nikita', 'Mazepin', 'MAZ', 'Moscow', 'Russia', false, '1999-03-02', 'nikita-mazepin', 'russia'),
 (29, 'Nico', 'Hülkenberg', 'HUL', 'Emmerich', 'Germany', false, '1987-08-19', 'nico-hulkenberg', 'germany'),
 (30, 'Kevin', 'Magnussen', 'MAG', 'Roskilde', 'Denmark', false, '1992-10-05', 'kevin-magnussen', 'denmark'),
-(31, 'Carlos', 'Sainz', 'SAU', 'Madrid', 'Spain', false, '1994-09-01', 'carlos-sainz', 'spain'),
+(31, 'Carlos', 'Sainz', 'SAI', 'Madrid', 'Spain', false, '1994-09-01', 'carlos-sainz', 'spain'),
 (32, 'Sebastian', 'Vettel', 'VET', 'Heppenheim', 'Germany', false, '1987-07-03', 'sebastian-vettel', 'germany');
