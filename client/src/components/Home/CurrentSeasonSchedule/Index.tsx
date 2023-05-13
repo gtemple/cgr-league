@@ -3,6 +3,21 @@ import useGetSeason from '../../../Hooks/useGetSeason';
 import useGetImage from '../../../Hooks/useGetImage'
 
 
+type IRaceOrder = {
+  previousRace2: {
+    name: string | null;
+    position: { [key: number]: string };
+  };
+  previousRace: {
+    name: string | null;
+    img: string | null;
+    layout: string | null;
+    position: { [key: number]: string };
+  };
+  currentRace: string | null;
+  nextRace: string | null;
+};
+
 function createRaceOrder(data: any[]): IRaceOrder {
   let firstRace = 0
   let raceData = {
@@ -20,32 +35,19 @@ function createRaceOrder(data: any[]): IRaceOrder {
     nextRace: null,
   }
 
-  type IRaceOrder = {
-    previousRace2: {
-      name: string | null;
-      position: { [key: number]: string };
-    };
-    previousRace: {
-      name: string | null;
-      img: string | null;
-      layout: string | null;
-      position: { [key: number]: string };
-    };
-    currentRace: string | null;
-    nextRace: string | null;
-  };
-
   data.forEach((result) => {
     if (result.race_order >= firstRace && result.position !== null) {
       firstRace = result.race_order
       raceData.previousRace.name = result.name
       raceData.previousRace.layout = result.layout
       raceData.previousRace.img = result.img
+      //@ts-expect-error
       raceData.previousRace.position[result.position] = `${result.first_name} ${result.last_name}`
     }
 
     if (result.race_order == firstRace - 1 && result.position !== null) {
       raceData.previousRace2.name = result.name
+      //@ts-expect-error
       raceData.previousRace2.position[result.position] = `${result.first_name} ${result.last_name}`
     }
     if (result.race_order == firstRace + 1 && result.position === null) {
@@ -62,7 +64,9 @@ function createRaceOrder(data: any[]): IRaceOrder {
 
 const CurrentSeasonSchedule = () => {
   const { seasonData } = useGetSeason(1);
+  //@ts-expect-error
   const [raceOrder, setRaceOrder] = useState<IRaceOrder>({});
+  //@ts-expect-error
   const { img, loading } = useGetImage(raceOrder?.previousRace?.img, 'track-image' || '');
 
   

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from "axios";
 
 export default function useGetTracks() {
+  //@ts-expect-error
   const [tracksData, setTracksData] = useState<array>([])
   const [loaded, setLoaded] = useState<boolean>(false)
 

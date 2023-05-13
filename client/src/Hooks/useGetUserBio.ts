@@ -24,9 +24,9 @@ export default function useGetUserBio(id: string | undefined) {
     getUsers(id)
   }, [loaded])
 
-  async function getUsers(userId) {
+  async function getUsers(userId: string | undefined) {
     const { data } = await supabase.from("users").select().eq('id', userId);
-    console.log('bio', data)
+    //@ts-expect-error
     setUserData(data[0]);
     setLoaded(true)
   }

@@ -12,6 +12,7 @@ export default function useGetUserRaces(id: string | undefined) {
 
   
   useEffect(()=> {
+    //@ts-expect-error
     getUser(id)
   }, [loaded])
 
@@ -39,6 +40,7 @@ export default function useGetUserRaces(id: string | undefined) {
   
     console.log('new data:', data)
     setLoaded(true)
+    //@ts-expect-error
     setUserData(data)
   }
 

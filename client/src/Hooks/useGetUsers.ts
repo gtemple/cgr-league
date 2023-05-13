@@ -26,6 +26,7 @@ export default function useGetUsers() {
 
   async function getUsers() {
     const { data } = await supabase.from("users").select();
+    //@ts-expect-error
     setUserData(data);
   }
 
