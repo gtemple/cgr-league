@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import { createClient } from "@supabase/supabase-js";
 
-import axios from "axios";
+const supabase = createClient(import.meta.env.VITE_DB_URL, import.meta.env.VITE_DB_KEY);
 
 export default function useGetTracks() {
   //@ts-expect-error
@@ -8,15 +9,15 @@ export default function useGetTracks() {
   const [loaded, setLoaded] = useState<boolean>(false)
 
   useEffect(() => {
+    getTracks();
+  }, []);
 
-    axios
-      .get('/api/tracks')
-      .then((res) => {
-        console.log('track-data', res.data.tracks)
-        setTracksData(res.data.tracks)
-        setLoaded(true)
-      })
-  }, [loaded])
+  async function getTracks() {
+    const { data } = await supabase.from("tracks").select();
+
+    setTracksData(data);
+    setLoaded(true)
+  }
 
   return {
     tracksData

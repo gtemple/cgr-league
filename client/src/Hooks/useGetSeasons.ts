@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(import.meta.env.VITE_DB_URL, import.meta.env.VITE_DB_KEY);
+
 
 interface Season {
   id: number;
   game: string;
-}
-
-interface SeasonsResponse {
-  seasons: Season[];
 }
 
 export default function useGetSeasons() {
@@ -15,13 +14,15 @@ export default function useGetSeasons() {
   const [loaded, setLoaded] = useState<boolean>(false);
 
   useEffect(() => {
-    axios.get('/api/seasons').then((res) => {
-      const responseData: SeasonsResponse = res.data; // Define the response data type
-      console.log('here', responseData.seasons);
-      setSeasonData(responseData.seasons);
-      setLoaded(true);
-    });
-  }, [loaded]);
+    getSeasons();
+  }, []);
+
+  async function getSeasons() {
+    const { data } = await supabase.from("seasons").select();
+    //@ts-expect-error
+    setSeasonData(data);
+    setLoaded(true)
+  }
 
   return {
     seasonData,
