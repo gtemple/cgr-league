@@ -36,7 +36,7 @@ const Bio = (props: Props) => {
     //@ts-expect-error
     if (userData?.date_of_birth) {
       //@ts-expect-error
-      const birthDate = new Date(userData.date_of_birth);
+      const birthDate = new Date(userData['date_of_birth']);
       const currentDate = new Date();
       let age = currentDate.getFullYear() - birthDate.getFullYear();
 
@@ -64,9 +64,11 @@ const Bio = (props: Props) => {
               <img src={img} className='bio-img' alt="User Profile" />
             )}
             <div>
+              {/*//@ts-expect-error */}
               <div className='bio-name'>{userData.first_name ? userData.first_name.toUpperCase() : 'loading'} {userData.last_name ? userData.last_name.toUpperCase() : 'loading'}</div>
               <div>
                 <div>{formattedDate} — {calculateAge()} years old</div>
+              {/*//@ts-expect-error */}
                 <div>{userData.city_of_birth}, {userData.country_of_birth}</div>
                 <hr className="solid"></hr>
                 <div className='basic-stats'>
@@ -84,6 +86,7 @@ const Bio = (props: Props) => {
               //@ts-expect-error
               <img src={img2} className='bio-flag' alt={userData.country_of_representation} />
             )}
+              {/*//@ts-expect-error */}
             <div>{userData.initials}</div>
           </div>
         </div>
