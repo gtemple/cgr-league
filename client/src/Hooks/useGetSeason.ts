@@ -52,7 +52,7 @@ export default function useGetSeason(id: number | string | undefined) {
         teams (team_name),
         tracks (name, distance, layout, img)
       `)
-    .eq('seasons.id', seasonId)
+    .eq('season_id', seasonId)
     if (error) {
       console.error(error);
       return null;
