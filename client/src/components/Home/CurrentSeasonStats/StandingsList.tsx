@@ -5,9 +5,11 @@ import { BsFillCaretDownFill, BsFillCaretUpFill } from "react-icons/bs";
 import "../home.css";
 
 type ScoreTuple = [number, string, string];
+    //@ts-expect-error
 
 const StandingsList = (props: { seasonData: ObjectType }) => {
   const [showTopRows, setShowTopRows] = useState(true);
+    //@ts-expect-error
   const results = (results: ObjectType) => {
     const totalInfo = _.totalSeasonScore(results);
     const totalInfoArray: ScoreTuple[] = [];
