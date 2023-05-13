@@ -27,7 +27,6 @@ export const lifetimeDistance = (races: []): number => {
   console.log('races', races)
 
   races.forEach((race: RaceResults) => {
-    //@ts-expect-error
     totalDistance += race.tracks.distance
   });
 
