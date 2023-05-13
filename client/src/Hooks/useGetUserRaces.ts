@@ -38,7 +38,6 @@ export default function useGetUserRaces(id: string | undefined) {
       return null;
     }
   
-    console.log('new data:', data)
     setLoaded(true)
     //@ts-expect-error
     setUserData(data)

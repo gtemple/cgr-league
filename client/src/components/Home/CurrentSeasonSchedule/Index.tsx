@@ -34,21 +34,22 @@ function createRaceOrder(data: any[]): IRaceOrder {
     currentRace: null,
     nextRace: null,
   }
+  console.log('reesults', data)
 
   data.forEach((result) => {
     if (result.race_order >= firstRace && result.position !== null) {
       firstRace = result.race_order
-      raceData.previousRace.name = result.name
-      raceData.previousRace.layout = result.layout
-      raceData.previousRace.img = result.img
+      raceData.previousRace.name = result.tracks.name
+      raceData.previousRace.layout = result.tracks.layout
+      raceData.previousRace.img = result.tracks.img
       //@ts-expect-error
-      raceData.previousRace.position[result.position] = `${result.first_name} ${result.last_name}`
+      raceData.previousRace.position[result.position] = `${result.users.first_name} ${result.users.last_name}`
     }
 
     if (result.race_order == firstRace - 1 && result.position !== null) {
       raceData.previousRace2.name = result.name
       //@ts-expect-error
-      raceData.previousRace2.position[result.position] = `${result.first_name} ${result.last_name}`
+      raceData.previousRace2.position[result.position] = `${result.users.first_name} ${result.users.last_name}`
     }
     if (result.race_order == firstRace + 1 && result.position === null) {
       raceData.currentRace = result.name

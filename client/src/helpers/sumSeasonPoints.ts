@@ -56,7 +56,6 @@ export const totalSeasonScore = (races:ArrayType): ObjectType => {
 export const totalConstructorScore = (races) => {
 
   const allScores = {};
-  console.log(races)
   races.forEach((race:RaceResults) => {
     //@ts-expect-error
     if (allScores[race.team_name] != undefined) {
