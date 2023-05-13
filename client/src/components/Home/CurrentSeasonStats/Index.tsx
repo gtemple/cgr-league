@@ -14,10 +14,18 @@ const CurrentSeasonStats = () => {
     <div className='current-season'>
       <h1 className='current-season-title'>Season 2</h1>
       <div className='current-season-stats'>
-        <ConstructorsStandings seasonData={seasonData} />
-        <StandingsList seasonData={seasonData} />
+        <div className='current-season-container'>
+          <div className='current-season-container-title'>Constructor Standings</div>
+          <ConstructorsStandings seasonData={seasonData} />
+        </div>
+        <div className='current-season-container'>
+          <div className='current-season-container-title'>Driver Standings</div>
+          <StandingsList seasonData={seasonData} />
+        </div>
+        <div className='current-season-container'>
         {/*//@ts-expect-error */}
-        <UserList seasonData={seasonData} />
+          <UserList seasonData={seasonData} />
+        </div>
       </div>
     </div>
   )

@@ -5,10 +5,9 @@ import { BsFillCaretDownFill, BsFillCaretUpFill } from "react-icons/bs";
 import "../home.css";
 
 type ScoreTuple = [number, string, string];
-//@ts-expect-error
+
 const StandingsList = (props: { seasonData: ObjectType }) => {
-  const [showAllRows, setShowAllRows] = useState(false);
-  //@ts-expect-error
+  const [showTopRows, setShowTopRows] = useState(true);
   const results = (results: ObjectType) => {
     const totalInfo = _.totalSeasonScore(results);
     const totalInfoArray: ScoreTuple[] = [];
@@ -24,14 +23,16 @@ const StandingsList = (props: { seasonData: ObjectType }) => {
     const sortedScores = totalInfoArray.sort(
       (a: ScoreTuple, b: ScoreTuple) => b[0] - a[0]
     );
-    let position = 0;
 
-    return sortedScores.map((score, index) => {
-      position++;
+    let displayedScores: ScoreTuple[];
+    if (showTopRows) {
+      displayedScores = sortedScores.slice(0, 10);
+    } else {
+      displayedScores = sortedScores.slice(-10);
+    }
 
-      if (!showAllRows && index >= 10) {
-        return null;
-      }
+    return displayedScores.map((score, index) => {
+      const position = showTopRows ? index + 1 : sortedScores.length - 10 + index + 1;
 
       return (
         <tr className="standings-cell" key={score[1]}>
@@ -43,24 +44,21 @@ const StandingsList = (props: { seasonData: ObjectType }) => {
     });
   };
 
-  const toggleShowAllRows = () => {
-    setShowAllRows((prevState) => !prevState);
+  const toggleShowTopRows = () => {
+    setShowTopRows((prevState) => !prevState);
   };
 
   return (
     <div>
-      <div className='container'>
-      <table className="standings">
-        <tbody>
-          {props.seasonData && results(props.seasonData)}
-        </tbody>
-      </table>
-      {!showAllRows && (
-        <button className='show-rows' onClick={toggleShowAllRows}><BsFillCaretDownFill /></button>
-      )}
-      {showAllRows && (
-        <button className='show-rows' onClick={toggleShowAllRows}><BsFillCaretUpFill /></button>
-      )}
+      <div className="container">
+        <table className="standings">
+          <tbody>
+            {props.seasonData && results(props.seasonData)}
+          </tbody>
+        </table>
+        <button className="show-rows" onClick={toggleShowTopRows}>
+          {showTopRows ? <BsFillCaretDownFill /> : <BsFillCaretUpFill />}
+        </button>
       </div>
     </div>
   );

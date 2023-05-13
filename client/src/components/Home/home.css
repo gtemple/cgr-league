@@ -15,21 +15,33 @@
 
 .current-season-title {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   padding-bottom: 10px;
 }
 
 .current-season-stats {
   display: flex;
   justify-content: space-evenly;
-  
+}
+
+.current-season-container {
+  background-color: lightgray;
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.current-season-container-title {
+  color: black;
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 5px;
 }
 
 /* table */
 
 .standings {
-  width: 200%;
-  
+  width: 300px;
 }
 
 .standings-cell {
@@ -71,7 +83,7 @@
 }
 
 .show-rows {
-  width: 200%;
+  width: 100%;
   margin-top: 5px;
   background-color: #AD213D;
   color: white;
