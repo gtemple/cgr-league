@@ -34,7 +34,6 @@ function createRaceOrder(data: any[]): IRaceOrder {
     currentRace: null,
     nextRace: null,
   }
-  console.log('reesults', data)
 
   data.forEach((result) => {
     if (result.race_order >= firstRace && result.position !== null) {
@@ -47,15 +46,15 @@ function createRaceOrder(data: any[]): IRaceOrder {
     }
 
     if (result.race_order == firstRace - 1 && result.position !== null) {
-      raceData.previousRace2.name = result.name
+      raceData.previousRace2.name = result.tracks.name
       //@ts-expect-error
       raceData.previousRace2.position[result.position] = `${result.users.first_name} ${result.users.last_name}`
     }
     if (result.race_order == firstRace + 1 && result.position === null) {
-      raceData.currentRace = result.name
+      raceData.currentRace = result.tracks.name
     }
     if (result.race_order == firstRace + 2 && result.position === null) {
-      raceData.currentRace = result.name
+      raceData.currentRace = result.tracks.name
     }
     
   })
@@ -102,8 +101,6 @@ const CurrentSeasonSchedule = () => {
               <div>{raceOrder.previousRace.position[1]}</div>
               <div>{raceOrder.previousRace.position[2]}</div>
               <div>{raceOrder.previousRace.position[3]}</div>
-              <div>{raceOrder.previousRace.position[4]}</div>
-
             </div>
           </div>
           <div>

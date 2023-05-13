@@ -38,14 +38,14 @@ export const totalSeasonScore = (races:ArrayType): ObjectType => {
   const allScores: ObjectType= {};
 
   races.forEach((race:RaceResults) => {
-    if (allScores[race.user_id] != undefined) {
-      allScores[race.user_id].totalPoints += positionScore(race.position, race.fastest_lap)
+    if (allScores[race.users.id] != undefined) {
+      allScores[race.users.id].totalPoints += positionScore(race.position, race.fastest_lap)
     } else {
-      allScores[race.user_id] = {
+      allScores[race.users.id] = {
         totalPoints: positionScore(race.position, race.fastest_lap),
-        first_name: race.first_name,
-        last_name: race.last_name,
-        human: race.human
+        first_name: race.users.first_name,
+        last_name: race.users.last_name,
+        human: race.users.human
       }
     }
   })

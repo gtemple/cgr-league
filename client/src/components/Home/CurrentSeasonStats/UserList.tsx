@@ -7,21 +7,34 @@ type RaceData = {
   dnf: boolean;
   dotd: boolean;
   fastest_lap: boolean;
-  first_name: string;
-  game: string;
-  human: boolean;
   id: number;
-  initials: string;
-  last_name: string;
-  name: string;
   position: number;
-  profile_image: string | null;
+  race_distance: number;
   race_order: number;
-  season_id: number;
+  seasons: {
+    id: number;
+  };
   sprint: boolean;
-  team_name: string;
-  user_id: number;
-}
+  teams: {
+    team_name: string;
+  };
+  tracks: {
+    distance: number;
+    img: string | null;
+    layout: string | null;
+    name: string;
+  };
+  users: {
+    country_of_representation: string;
+    first_name: string;
+    human: boolean;
+    id: number;
+    initials: string;
+    last_name: string;
+    profile_image: string;
+  };
+};
+
 
 type Props = {
   seasonData: RaceData[]
@@ -47,19 +60,19 @@ const getUserData = (raceData: RaceData[]) => {
   let humans: Humans = {};
 
   raceData.forEach((race: RaceData) => {
-    if (race.human) {
-      if (humans[race.user_id] === undefined) {
-        humans[race.user_id] = {
+    if (race.users.human) {
+      console.log(race.users.id)
+      if (humans[race.users.id] === undefined) {
+        humans[race.users.id] = {
           points: _.positionScore(race.position, race.fastest_lap),
-          firstName: race.first_name,
-          lastName: race.last_name
+          firstName: race.users.first_name,
+          lastName: race.users.last_name
         };
       } else {
-        humans[race.user_id].points += _.positionScore(race.position, race.fastest_lap);
+        humans[race.users.id].points += _.positionScore(race.position, race.fastest_lap);
       }
     }
   });
-
   return humans;
 };
 
