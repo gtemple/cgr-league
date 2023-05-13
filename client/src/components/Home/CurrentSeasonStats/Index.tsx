@@ -16,6 +16,7 @@ const CurrentSeasonStats = () => {
       <div className='current-season-stats'>
         <ConstructorsStandings seasonData={seasonData} />
         <StandingsList seasonData={seasonData} />
+        {/*//@ts-expect-error */}
         <UserList seasonData={seasonData} />
       </div>
     </div>

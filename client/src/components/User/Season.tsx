@@ -15,11 +15,9 @@ const Season = (props: Props) => {
   const printSeason = (races: Array<RaceResults>) => {
 
     return races.map((race: RaceResults) => {
-      //@ts-expect-error
       if (race.seasons.id === id) {
         return (
         <tr key={race.id}>
-          {/*//@ts-expect-error */}
 
           <th>{race.tracks.name}</th>
           <th>
