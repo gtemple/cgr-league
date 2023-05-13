@@ -11,7 +11,6 @@ const User = () => {
         <Bio id={id} />
         <AllTime id={id} />
         <SeasonList id={id} />
-
     </div>
   )
 }
