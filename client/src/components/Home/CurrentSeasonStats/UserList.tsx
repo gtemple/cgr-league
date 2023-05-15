@@ -61,7 +61,6 @@ const getUserData = (raceData: RaceData[]) => {
 
   raceData.forEach((race: RaceData) => {
     if (race.users.human) {
-      console.log(race.users.id)
       if (humans[race.users.id] === undefined) {
         humans[race.users.id] = {
           points: _.positionScore(race.position, race.fastest_lap),

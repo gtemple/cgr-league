@@ -75,7 +75,6 @@ const CurrentSeasonSchedule = () => {
     if (seasonData) {
       const newRaceOrder = createRaceOrder(seasonData);
       setRaceOrder(newRaceOrder);
-      console.log(raceOrder)
     }
   }, [seasonData]);
 

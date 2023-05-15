@@ -322,7 +322,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
 INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest_lap, dotd, season_id, sprint, race_distance, race_order)
                   VALUES  (8, 271, 17, 3, 12, false, false, false, 1, false, 18, 1),
                           (8, 272, 17, 25, 14, false, false, false, 1, false, 17, 2),
-                          (8, 273, 17, 10, 23, false, false, false, 1, false, 18, 3),  
+                          (8, 273, 17, 10, 13, false, false, false, 1, false, 18, 3),  
                           (8, 274, 17, 11, 17, false, false, false, 1, false, 18, 4),  
                           (8, 275, 17, 20, 16, false, false, false, 1, false, 18, 5),
                           (8, 276, 17, 13, 15, false, false, false, 1, false, 11, 6),  
@@ -424,66 +424,3 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (10, 359, 6, 24, 18, false, false, false, 1, false, 14, 17),
                           (10, 360, 6, 2, 5, false, false, false, 1, false, 13, 18);  
 
--- SEASON 2 --
--- Giordano Temple Season 2
-INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest_lap, dotd, season_id, sprint, race_distance, race_order)
-                  VALUES  (7, 361, 1, 3, 1, false, false, true, 2, false, 18, 1),
-                          (7, 362, 1, 25, 10, false, false, false, 2, false, 17, 2),
-                          (7, 363, 1, 10, 6, false, false, false, 2, false, 18, 3),  
-                          (7, 364, 1, 11, 3, false, false, true, 2, false, 18, 4),  
-                          (7, 365, 1, 20, 15, false, false, false, 2, false, 18, 5),
-                          (7, 366, 1, 13, 5, false, false, false, 2, false, 11, 6),  
-                          (7, 367, 1, 23, 4, false, false, false, 2,false, 14, 7),
-                          (7, 368, 1, 22, 5, false, false, false, 2, false, 15, 8),
-                          (7, 369, 1, 14, 5, false, false, false, 2, false, 18, 9),
-                          (7, 370, 1, 26, 6, false, false, false, 2, false, 13, 10),
-                          (7, 371, 1, 1, 1, false, true, false, 2, false, 13, 11),
-                          (7, 372, 1, 7, 4, false, false, false, 2, false, 16, 12),
-                          (7, 373, 1, 15, 6, false, false, true, 2, false, 13, 13),
-                          (7, 374, 1, 12, 12, false, false, false, 2, false, 18, 13),
-                          (7, 375, 1, 4, 19, false, false, false, 2, false, 14, 14),
-                          (7, 376, 1, 9, 18, false, false, false, 2, false, 14, 16),
-                          (7, 377, 1, 24, 10, false, false, false, 2, false, 14, 17),
-                          (7, 378, 1, 2, 5, false, false, false, 2, false, 13, 18);
-
--- Ryan Reynolds Season 2
-INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest_lap, dotd, season_id, sprint, race_distance, race_order)
-                  VALUES  (7, 379, 3, 3, 20, false, false, false, 2, false, 18, 1),
-                          (7, 380, 3, 25, 16, false, true, false, 2, false, 17, 2),
-                          (7, 381, 3, 10, 16, false, false, false, 2, false, 18, 3),  
-                          (7, 382, 3, 11, 9, false, false, false, 2, false, 18, 4),  
-                          (7, 383, 3, 20, 4, false, false, true, 2, false, 18, 5),
-                          (7, 384, 3, 13, 19, false, true, false, 2, false, 11, 6),  
-                          (7, 385, 3, 23, 10, false, true, false, 2,false, 14, 7),
-                          (7, 386, 3, 22, 20, false, false, false, 2, false, 15, 8),
-                          (7, 387, 3, 14, 18, false, true, false, 2, false, 18, 9),
-                          (7, 388, 3, 26, 5, false, true, false, 2, false, 13, 10),
-                          (7, 389, 3, 1, 7, false, false, false, 2, false, 13, 11),
-                          (7, 390, 3, 7, 12, false, false, true, 2, false, 16, 12),
-                          (7, 391, 3, 15, 2, false, false, false, 2, false, 13, 13),
-                          (7, 392, 3, 12, 16, false, false, false, 2, false, 18, 13),
-                          (7, 393, 3, 4, 13, false, false, false, 2, false, 14, 14),
-                          (7, 394, 3, 9, 7, false, false, false, 2, false, 14, 16),
-                          (7, 395, 3, 24, 20, false, false, false, 2, false, 14, 17),
-                          (7, 396, 3, 2, 4, false, false, false, 2, false, 13, 18);  
-
--- Cole Reynolds Season 2
-INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest_lap, dotd, season_id, sprint, race_distance, race_order)
-                  VALUES  (8, 397, 2, 3, 18, false, true, false, 2, false, 18, 1),
-                          (8, 398, 2, 25, 4, false, false, false, 2, false, 17, 2),
-                          (8, 399, 2, 10, 10, false, false, true, 2, false, 18, 3),  
-                          (8, 400, 2, 11, 19, false, false, false, 2, false, 18, 4),  
-                          (8, 401, 2, 20, 6, false, false, false, 2, false, 18, 5),
-                          (8, 402, 2, 13, 12, false, false, false, 2, false, 11, 6),  
-                          (8, 403, 2, 23, 5, false, false, true, 2,false, 14, 7),
-                          (8, 404, 2, 22, 12, false, false, true, 2, false, 15, 8),
-                          (8, 405, 2, 14, 12, false, false, true, 2, false, 18, 9),
-                          (8, 406, 2, 26, 10, false, false, true, 2, false, 13, 10),
-                          (8, 407, 2, 1, 9, false,false, true, 2, false, 13, 11),
-                          (8, 408, 2, 7, 19, false, false, false, 2, false, 16, 12),
-                          (8, 409, 2, 15, 14, false, false, false, 2, false, 13, 13),
-                          (8, 410, 2, 12, 4, false, false, true, 2, false, 18, 13),
-                          (8, 411, 2, 4, 5, false, false, true, 2, false, 14, 14),
-                          (8, 412, 2, 9, 2, false, false, true, 2, false, 14, 16),
-                          (8, 413, 2, 24, 5, false, false, false, 2, false, 14, 17),
-                          (8, 414, 2, 2, 20, false, false, false, 2, false, 13, 18);

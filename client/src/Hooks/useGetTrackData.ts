@@ -14,7 +14,7 @@ interface TrackData {
   seasons: { id: number; game: string } | { id: number; game: string }[] | null;  pole_position: boolean | undefined;
   sprint: boolean;
   teams: { team_name: string };
-  tracks: { distance: number; img: null; layout: null; name: string };
+  tracks: { distance: number; img: null | string | undefined; layout: null | string | undefined; name: string };
   users: {
     country_of_representation: string;
     first_name: string;

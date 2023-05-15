@@ -1,86 +1,40 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
-import useGetTrack from '../../Hooks/useGetTrackData'
-import Track from './Track'
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import useGetTrack from '../../Hooks/useGetTrackData';
+import useGetImage from '../../Hooks/useGetImage';
 
-type Data = {
-  user_id: number,
-  human: boolean,
-  first_name: string,
-  last_name: string,
-  initials: string,
-  profile_image: string | null,
-  id: number,
-  dnf: boolean,
-  fastest_lap: boolean,
-  sprint: boolean,
-  position: number,
-  dotd: boolean,
-  race_order: number,
-  created_at: string,
-  team_name: string,
-  name: string,
-  game: string,
-  season_id: number
-}
+import './tracks.css'
 
-type Result = {
-  [season_id: number]: {
-    [user_id: number]: {
-      first_name: string,
-      last_name: string,
-      position: number,
-      fastest_lap: boolean,
-      sprint: boolean,
-      dnf: boolean,
-      dotd: boolean
-    }
-  }
-}
+import Track from './Track';
 
-const Tracks= () => {
+const Tracks = () => {
   const { id } = useParams();
   const { trackData } = useGetTrack(id);
+  const { img, loading } = useGetImage(trackData[0]?.tracks?.layout, 'layout' || '');
+  const { img: img2, loading: loading2 } = useGetImage(trackData[0]?.tracks?.img, 'track-image' || '');
 
-  
-  function groupDataBySeasonAndUser(data: Data[]): Result {
-    const result: Result = {};
-  
-    data.forEach((item) => {
-      if (!result[item.season_id]) {
-        result[item.season_id] = {};
-      }
-      if (!result[item.season_id][item.user_id]) {
-        result[item.season_id][item.user_id] = {
-          first_name: item.first_name,
-          last_name: item.last_name,
-          position: item.position,
-          fastest_lap: item.fastest_lap,
-          sprint: item.sprint,
-          dnf: item.dnf,
-          dotd: item.dotd
-        };
-      }
-    });
-  
-    return result;
+  if (!trackData || trackData.length === 0) {
+    return null; // Return null or show a loading state if trackData is not available
   }
-
-
 
   return (
     <div>
-      traaaacks {id}
-      {trackData && (
+      {loading ? (
+        <div>Loading</div>
+      ) : (
         <div>
+          <div className='track-container'>
+            <img className='track-img' src={img2} alt="Track Image" />
+            <div className='track-title'>{trackData[0]?.tracks?.name}</div>
+          </div>
+          <img src={img} className='track-layout' alt="Track Layout" />
           {/*//@ts-expect-error */}
-
           <Track trackData={trackData} />
           <div>Grouped data by season and user</div>
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Tracks
+export default Tracks;

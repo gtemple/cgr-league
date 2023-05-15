@@ -2,7 +2,6 @@ import useGetUserBio from '../../Hooks/useGetUserBio';
 import useGetImage from '../../Hooks/useGetImage';
 import useGetUserRaces from '../../Hooks/useGetUserRaces';
 import * as _ from "../../helpers/individualStats";
-import { useEffect, useState } from 'react';
 
 import './user.css';
 
