@@ -11,8 +11,7 @@ interface TrackData {
   position: number;
   race_distance: number;
   race_order: number;
-  seasons: { id: number; game: string};
-  pole_position: boolean | undefined;
+  seasons: { id: number; game: string } | { id: number; game: string }[] | null;  pole_position: boolean | undefined;
   sprint: boolean;
   teams: { team_name: string };
   tracks: { distance: number; img: null; layout: null; name: string };
@@ -60,7 +59,7 @@ export default function useGetTrack(id: string | undefined) {
       return null;
     }
 
-  
+    //@ts-expect-error
     setTrackData(data)
     setLoaded(true)
   }
