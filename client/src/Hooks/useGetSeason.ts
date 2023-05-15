@@ -4,25 +4,27 @@ import { createClient } from "@supabase/supabase-js";
 const supabase = createClient(import.meta.env.VITE_DB_URL, import.meta.env.VITE_DB_KEY);
 
 interface SeasonData {
-  user_id: number;
-  human: boolean;
-  first_name: string;
-  last_name: string;
-  initials: string;
-  profile_image: null;
-  id: number;
-  dnf: boolean;
-  fastest_lap: boolean;
-  sprint: boolean;
-  position: number;
-  dotd: boolean;
-  race_order: number;
   created_at: string;
-  team_name: string;
-  name: string;
-  game: string;
-  season_id: number;
-  pole_position: boolean;
+  dnf: boolean;
+  dotd: boolean;
+  fastest_lap: boolean;
+  id: number;
+  position: number;
+  race_distance: number;
+  race_order: number;
+  seasons: { id: number };
+  sprint: boolean;
+  teams: { team_name: string };
+  tracks: { distance: number; img: null; layout: null; name: string };
+  users: {
+    country_of_representation: string;
+    first_name: string;
+    human: true;
+    id: number;
+    initials: string;
+    last_name: string;
+    profile_image: string;
+  };
 }
 
 export default function useGetSeason(id: number | string | undefined) {

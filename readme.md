@@ -1,5 +1,5 @@
 ## CGR Racing League - Official League Site
-
+This site is live! Visit it at https://cgr-league.net
 
 The CGR Racing League site is a passion project that you can visit to stay up to date on the current standings as well go through the statistical history of the league. 
 
