@@ -13,6 +13,7 @@ interface SeasonData {
   race_distance: number;
   race_order: number;
   seasons: { id: number };
+  pole_position: boolean | undefined;
   sprint: boolean;
   teams: { team_name: string };
   tracks: { distance: number; img: null; layout: null; name: string };

@@ -6,15 +6,16 @@ import './season.css';
 const SeasonTable = () => {
   const { id } = useParams();
   const { seasonData = [] } = useGetSeason(id);
+
   if (!seasonData) return null;
 
-  const rows: { name: string; cells: { initial: string; position: number }[] }[] = [];
+  const rows: { name: string; cells: { initial: string; position: number; fastest_lap: boolean; dnf: boolean; dotd: boolean }[] }[] = [];
 
   // Group the data by name and initials
   seasonData.forEach((data) => {
     const name = data.tracks.name;
     const initials = data.users.initials;
-    const { position } = data;
+    const { position, fastest_lap, dnf, dotd } = data;
 
     let row = rows.find((r) => r.name === name);
 
@@ -23,7 +24,7 @@ const SeasonTable = () => {
       rows.push(row);
     }
 
-    row.cells.push({ initial: initials, position });
+    row.cells.push({ initial: initials, position, fastest_lap, dnf, dotd });
   });
 
   // Sort the rows by race_order
@@ -66,7 +67,18 @@ const SeasonTable = () => {
             {initials.map((initial) => {
               const cell = row.cells.find((c) => c.initial === initial);
               const position = cell ? cell.position.toFixed(0) : '-';
-              return <td key={initial}>{position}</td>;
+              const classes: string[] = [];
+              if (cell?.fastest_lap) classes.push('fastest-lap');
+              if (cell?.dotd) classes.push('dotd');
+              if (cell?.dnf) classes.push('dnf');
+
+
+
+              return (
+                <td key={initial} className={classes.join(' ')}>
+                  {position}
+                </td>
+              );
             })}
           </tr>
         ))}
