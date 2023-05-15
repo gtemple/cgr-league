@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { createClient } from "@supabase/supabase-js";
+const supabase = createClient(import.meta.env.VITE_DB_URL, import.meta.env.VITE_DB_KEY);
 
 interface TrackData {
   user_id: number;
@@ -28,11 +29,39 @@ export default function useGetTrack(id: string | undefined) {
   const [loaded, setLoaded] = useState<boolean>(false);
 
   useEffect(() => {
-    axios.get(`/api/tracks/${id}`).then((res) => {
-      setTrackData(res.data.tracks);
-      setLoaded(true);
-    });
+    getTrackData(id);
   }, [loaded]);
+
+  async function getTrackData(trackId: number | string | undefined) {
+    const { data, error } = await supabase
+      .from('race_results')
+      .select(`
+        dotd,
+        id,
+        dnf,
+        fastest_lap,
+        race_distance,
+        pole_position,
+        sprint,
+        position,
+        race_order,
+        created_at,
+        users (id, human, first_name, last_name, country_of_representation, initials, profile_image),
+        seasons (id, game),
+        teams (team_name),
+        tracks (name, distance, layout, img)
+      `)
+    .eq('track_id', trackId)
+    if (error) {
+      console.error(error);
+      return null;
+    }
+
+  
+    setTrackData(data)
+    setLoaded(true)
+  }
+
 
   return {
     trackData,

@@ -23,7 +23,6 @@ const CurrentSeasonStats = () => {
           <StandingsList seasonData={seasonData} />
         </div>
         <div className='current-season-container'>
-        {/*//@ts-expect-error */}
           <UserList seasonData={seasonData} />
         </div>
       </div>
