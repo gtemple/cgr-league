@@ -400,3 +400,24 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (10, 703, 26, 9, 13, false, false, false, 2, false, 14, 16),
                           (10, 704, 26, 24, 15, false, false, false, 2, false, 14, 17),
                           (10, 705, 26, 2, 10, false, false, false, 2, false, 13, 18);
+
+-- Fernando Alonso Season 2
+INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest_lap, dotd, season_id, sprint, race_distance, race_order)
+                  VALUES  (10, 706, 6, 3, 10, false, false, false, 2, false, 18, 1),
+                          (10, 707, 6, 25, 8, false, false, false, 2, false, 17, 2),
+                          (10, 708, 6, 10, 9, false, false, false, 2, false, 18, 3),  
+                          (10, 709, 6, 11, 6, false, false, false, 2, false, 18, 4),  
+                          (10, 710, 6, 20, 11, false, false, false, 2, false, 18, 5),
+                          (10, 711, 6, 13, 8, false, false, false, 2, false, 11, 6),  
+                          (10, 712, 6, 23, 8, false, false, false, 2,false, 14, 7),
+                          (10, 713, 6, 22,11, false, false, false, 2, false, 15, 8),
+                          (10, 714, 6, 14, 16, false, false, false, 2, false, 18, 9),
+                          (10, 715, 6, 26, 9, false, false, false, 2, false, 13, 10),
+                          (10, 716, 6, 1, 18, false, false, false, 2, false, 13, 11),
+                          (10, 717, 6, 7, 9, false, false, false, 2, false, 16, 12),
+                          (10, 718, 6, 15, 20, false, false, false, 2, false, 13, 13),
+                          (10, 719, 6, 12, 20, false, false, false, 2, false, 18, 13),
+                          (10, 720, 6, 4, 7, false, false, false, 2, false, 14, 14),
+                          (10, 721, 6, 9, 8, false, false, false, 2, false, 14, 16),
+                          (10, 722, 6, 24, 8, false, false, false, 2, false, 14, 17),
+                          (10, 723, 6, 2, 9, false, false, false, 2, false, 13, 18);

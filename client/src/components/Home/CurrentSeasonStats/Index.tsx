@@ -1,29 +1,26 @@
-import useGetSeason from '../../../Hooks/useGetSeason'
 import StandingsList from './StandingsList'
 import UserList from './UserList';
 
 import '../home.css'
 import ConstructorsStandings from './ConstructorsStandings';
 
-
-const CurrentSeasonStats = () => {
-  const { seasonData } = useGetSeason(1);
-
+//@ts-expect-error
+const CurrentSeasonStats = (props: { seasonData: ObjectType; currentSeason: number }) => {
 
   return (
     <div className='current-season'>
-      <h1 className='current-season-title'>Season 2</h1>
+      <h1 className='current-season-title'>Season {props.currentSeason}</h1>
       <div className='current-season-stats'>
         <div className='current-season-container'>
           <div className='current-season-container-title'>Constructor Standings</div>
-          <ConstructorsStandings seasonData={seasonData} />
+          <ConstructorsStandings seasonData={props.seasonData} />
         </div>
         <div className='current-season-container'>
           <div className='current-season-container-title'>Driver Standings</div>
-          <StandingsList seasonData={seasonData} />
+          <StandingsList seasonData={props.seasonData} />
         </div>
         <div className='current-season-container'>
-          <UserList seasonData={seasonData} />
+          <UserList seasonData={props.seasonData} />
         </div>
       </div>
     </div>

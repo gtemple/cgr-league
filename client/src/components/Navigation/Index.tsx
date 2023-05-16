@@ -22,33 +22,35 @@ import useGetTracks from '../../Hooks/useGetTracks';
 import './navigation.css'
 
 
+
+interface Seasons {
+  id: number,
+  game: string
+}
+interface Users {
+  id: number,
+  first_name: string,
+  last_name: string,
+  initials: string,
+  date_of_birth: string,
+  city_of_birth: string,
+  country_of_birth: string,
+  profile_image: string | null
+}
+
+interface Tracks {
+  id: number,
+  name: string,
+  city: string,
+  country: string,
+  distance: number
+}
+
+
 const Navigation = () => {
   const { userData } = useGetUsers();
   const { seasonData } = useGetSeasons();
   const { tracksData } = useGetTracks();
-
-  interface Seasons {
-    id: number,
-    game: string
-  }
-  interface Users {
-    id: number,
-    first_name: string,
-    last_name: string,
-    initials: string,
-    date_of_birth: string,
-    city_of_birth: string,
-    country_of_birth: string,
-    profile_image: string | null
-  }
-
-  interface Tracks {
-    id: number,
-    name: string,
-    city: string,
-    country: string,
-    distance: number
-  }
 
   const displaySeasons = (seasons: Seasons[]):React.ReactNode => {
     return seasons.map((season:Seasons) => {

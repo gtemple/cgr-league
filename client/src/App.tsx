@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Route, Routes, Link, useParams } from 'react-router-dom'
 import './App.css'
 import User from './components/User/Index';
@@ -16,7 +15,7 @@ function App() {
 
     <Routes>
       <Route path='users'>
-        <Route path=":userId" element={<User />} />hey
+        <Route path=":userId" element={<User />} />
       </Route>
     </Routes>
 

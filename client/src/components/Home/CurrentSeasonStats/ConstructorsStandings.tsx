@@ -26,7 +26,7 @@ const ConstructorsStandings = (props: { seasonData: ObjectType }) => {
   };
 
   return (
-    <div>
+    <div className='container'>
       <table className="standings">
         <tbody>
           {props.seasonData && results(props.seasonData)}

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import useGetSeason from '../../../Hooks/useGetSeason';
 import useGetImage from '../../../Hooks/useGetImage'
 
 
@@ -61,9 +60,8 @@ function createRaceOrder(data: any[]): IRaceOrder {
   return raceData;
 }
 
-
-const CurrentSeasonSchedule = () => {
-  const { seasonData } = useGetSeason(1);
+//@ts-expect-error
+const CurrentSeasonSchedule = (props: { seasonData: ObjectType; currentSeason: number }) => {
   //@ts-expect-error
   const [raceOrder, setRaceOrder] = useState<IRaceOrder>({});
   //@ts-expect-error
@@ -72,14 +70,14 @@ const CurrentSeasonSchedule = () => {
   
 
   useEffect(() => {
-    if (seasonData) {
-      const newRaceOrder = createRaceOrder(seasonData);
+    if (props.seasonData) {
+      const newRaceOrder = createRaceOrder(props.seasonData);
       setRaceOrder(newRaceOrder);
     }
-  }, [seasonData]);
+  }, [props.seasonData]);
 
   return (
-    <>
+    <div className='schedule-container'>
       {Object.keys(raceOrder).length !== 0 && (
         <>
           <div className='previous-race'>
@@ -111,7 +109,7 @@ const CurrentSeasonSchedule = () => {
         </>
         )
       }
-    </>);
+    </div>);
 };
 
 export default CurrentSeasonSchedule;
