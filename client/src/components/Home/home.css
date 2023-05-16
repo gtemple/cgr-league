@@ -107,7 +107,7 @@ tr {
   color: black;
   text-align: center;
   border-style: solid;
-}
+  box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;}
 
 .schedule-container {
   background-color: black;
