@@ -10,7 +10,10 @@ import Track from './Track';
 const Tracks = () => {
   const { id } = useParams();
   const { trackData } = useGetTrack(id);
+//@ts-expect-error
+
   const { img, loading } = useGetImage(trackData[0]?.tracks?.layout, 'layout' || '');
+//@ts-expect-error
   const { img: img2, loading: loading2 } = useGetImage(trackData[0]?.tracks?.img, 'track-image' || '');
 
   if (!trackData || trackData.length === 0) {
