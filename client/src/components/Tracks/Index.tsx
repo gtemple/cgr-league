@@ -6,6 +6,7 @@ import useGetImage from '../../Hooks/useGetImage';
 import './tracks.css'
 
 import Track from './Track';
+import AllTime from './AllTime';
 
 const Tracks = () => {
   const { id } = useParams();
@@ -30,7 +31,10 @@ const Tracks = () => {
             <img className='track-img' src={img2} alt="Track Image" />
             <div className='track-title'>{trackData[0]?.tracks?.name}</div>
           </div>
-          <img src={img} className='track-layout' alt="Track Layout" />
+          <div>
+            <img src={img} className='track-layout' alt="Track Layout" />
+            <AllTime trackData={trackData}/>
+          </div>
           {/*//@ts-expect-error */}
           <Track trackData={trackData} />
           <div>Grouped data by season and user</div>

@@ -1,5 +1,3 @@
-import React from 'react'
-
 interface TrackData {
   created_at: string;
   dnf: boolean;
@@ -63,7 +61,6 @@ const Track: React.FC<Props> = ({ trackData }) => {
       })}
             to add:
       <ul>
-        <li>Track image</li>
         <li>All time most points at track (top 10?)</li>
         <li>Most fastest laps: top 5</li>
         <li>most DOTDs: Top 5</li>
