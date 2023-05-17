@@ -9,7 +9,7 @@ interface TrackData {
   position: number;
   race_distance: number;
   race_order: number;
-  seasons: { id: number; game: string};
+  seasons: { id: number; game: string } | { id: number; game: string }[] | null;
   pole_position: boolean | undefined;
   sprint: boolean;
   teams: { team_name: string };
@@ -26,9 +26,8 @@ interface TrackData {
 }
 
 interface Props {
-  trackData: TrackData[]
+  trackData: TrackData[];
 }
-
 
 const AllTime: React.FC<Props> = ({ trackData }) => {
   // Calculate the average position for each user
@@ -51,7 +50,7 @@ const AllTime: React.FC<Props> = ({ trackData }) => {
   const sortedUserIdsAverage = uniqueUserIds.sort((a, b) => calculateAveragePosition(a) - calculateAveragePosition(b));
 
   // Sort the user IDs by sum of positions in ascending order for the second table
-  const sortedUserIdsSum = uniqueUserIds.sort((a, b) => calculateSumOfPositions(b) - calculateSumOfPositions(a));
+  const sortedUserIdsSum = uniqueUserIds.sort((a, b) => calculateSumOfPositions(a) - calculateSumOfPositions(b));
 
   // Get the first 10 user IDs for each table
   const first10UserIdsAverage = sortedUserIdsAverage.slice(0, 10);
