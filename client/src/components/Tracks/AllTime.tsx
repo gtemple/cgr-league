@@ -1,6 +1,6 @@
 import { positionScore } from "../../helpers/sumSeasonPoints";
 
-interface TrackData {
+interface TrackData2 {
   created_at: string;
   dnf: boolean;
   dotd: boolean;
@@ -26,7 +26,7 @@ interface TrackData {
 }
 
 interface Props {
-  trackData: TrackData[];
+  trackData: TrackData2[];
 }
 
 const AllTime: React.FC<Props> = ({ trackData }) => {
