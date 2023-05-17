@@ -33,6 +33,8 @@ const Tracks = () => {
           </div>
           <div>
             <img src={img} className='track-layout' alt="Track Layout" />
+           {/* 
+// @ts-ignore */}
             <AllTime trackData={trackData}/>
           </div>
           {/*//@ts-expect-error */}
