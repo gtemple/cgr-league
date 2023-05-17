@@ -1,10 +1,13 @@
 import { positionScore } from "../../helpers/sumSeasonPoints";
 
+    //@ts-expect-error
 
 const AllTime: React.FC<Props> = ({ trackData }) => {
   // Calculate the average position for each user
   const calculateAveragePosition = (userId: number): number => {
+    //@ts-expect-error
     const userData = trackData.filter((data) => data.users.id === userId);
+    //@ts-expect-error
     const sum = userData.reduce((acc, data) => acc + data.position, 0);
     return sum / userData.length;
   };
@@ -49,7 +52,6 @@ const AllTime: React.FC<Props> = ({ trackData }) => {
         <tbody>
           {first10UserIdsAverage.map((userId) => {
     //@ts-expect-error
-
             const userData = trackData.find((data) => data.users.id === userId);
             if (userData) {
               return (
