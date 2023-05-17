@@ -1,0 +1,66 @@
+-- SEASON 3 --
+-- Giordano Temple
+INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest_lap, dotd, pole_position, season_id, sprint, race_distance, race_order)
+                  VALUES  (5, 724, 1, 3, 3, false, false, false, true, 3, false, 18, 1),
+                          (5, 725, 1, 25, 4, false, false, false, false, 3, false, 17, 2),
+                          (5, 726, 1, 10, 4, false, false, false, false, 3, false, 18, 3),  
+                          (5, 727, 1, 11, 2, false, false, false, false, 3, false, 18, 4),  
+                          (5, 728, 1, 20, 2, false, false, true, false, 3, false, 18, 5),
+                          (5, 729, 1, 13, 19, false, true, false, false, 3, false, 11, 6),  
+                          (5, 730, 1, 23, 3, false, false, false, false, 3,false, 14, 7),
+                          (5, 731, 1, 22, 2, false, false, false, false, 3, false, 15, 8),
+                          (5, 732, 1, 14, 18, false, false, false, false, 3, false, 18, 9),
+                          (5, 733, 1, 26, 4, false, false, false, false, 3, false, 13, 10),
+                          (5, 734, 1, 1, 20, false, false, false, true, 3, false, 13, 11),
+                          (5, 735, 1, 7, 1, false, false, false, true, 3, false, 16, 12),
+                          (5, 736, 1, 27, 18, false, false, false, false, 3, false, 16, 13),
+                          (5, 737, 1, 15, 1, false, false, false, true, 3, false, 13, 14),
+                          (5, 738, 1, 12, 2, false, false, true, false, 3, false, 18, 15),
+                          (5, 739, 1, 4, 5, false, false, false, false, 3, false, 14, 16),
+                          (5, 740, 1, 9, 3, false, false, false, false, 3, false, 14, 17),
+                          (5, 741, 1, 24, 5, false, false, false, false, 3, false, 14, 18),
+                          (5, 742, 1, 2, 3, false, false, false, false, 3, false, 13, 19);
+
+-- Cole Reynolds
+INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest_lap, dotd, pole_position, season_id, sprint, race_distance, race_order)
+                  VALUES  (2, 743, 2, 3, 2, false, false, true, false, 3, false, 18, 1),
+                          (2, 744, 2, 25, 2, false, false, false, false, 3, false, 17, 2),
+                          (2, 745, 2, 10, 1, false, false, false, false, 3, false, 18, 3),  
+                          (2, 746, 2, 11, 4, false, true, true, false, 3, false, 18, 4),  
+                          (2, 747, 2, 20, 1, false, true, false, true, 3, false, 18, 5),
+                          (2, 748, 2, 13, 9, false, false, true, false, 3, false, 11, 6),  
+                          (2, 749, 2, 23, 2, false, true, true, false, 3,false, 14, 7),
+                          (2, 750, 2, 22, 20, false, false, false, false, 3, false, 15, 8),
+                          (2, 751, 2, 14, 4, false, false, false, false, 3, false, 18, 9),
+                          (2, 752, 2, 26, 1, false, false, true, false, 3, false, 13, 10),
+                          (2, 753, 2, 1, 4, false, false, true, false, 3, false, 13, 11),
+                          (2, 754, 2, 7, 2, false, false, false, false, 3, false, 16, 12),
+                          (2, 755, 2, 27, 2, false, false, false, false, 3, false, 16, 13),
+                          (2, 756, 2, 15, 11, false, true, true, true, 3, false, 13, 14),
+                          (2, 757, 2, 12, 20, false, false, false, false, 3, false, 18, 15),
+                          (2, 758, 2, 4, 4, false, false, false, false, 3, false, 14, 16),
+                          (2, 759, 2, 9, 7, false, false, false, false, 3, false, 14, 17),
+                          (2, 760, 2, 24, 4, false, false, false, false, 3, false, 14, 18),
+                          (2, 761, 2, 2, 12, false, false, true, false, 3, false, 13, 19);
+
+-- Ryan Reynolds
+INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest_lap, dotd, pole_position, season_id, sprint, race_distance, race_order)
+                  VALUES  (4, 761, 3, 3, 1, false, true, false, false, 3, false, 18, 1),
+                          (4, 762, 3, 25, 11, false, true, false, false, 3, false, 17, 2),
+                          (4, 763, 3, 10, 6, false, false, true, false, 3, false, 18, 3),  
+                          (4, 764, 3, 11, 1, false, false, false, false, 3, false, 18, 4),  
+                          (4, 765, 3, 20, 3, false, false, false, false, 3, false, 18, 5),
+                          (4, 766, 3, 13, 1, false, false, false, false, 3, false, 11, 6),  
+                          (4, 767, 3, 23, 1, false, false, false, false, 3,false, 14, 7),
+                          (4, 768, 3, 22, 7, false, false, true, false, 3, false, 15, 8),
+                          (4, 769, 3, 14, 2, false, false, false, false, 3, false, 18, 9),
+                          (4, 770, 3, 26, 3, false, true, true, false, 3, false, 13, 10),
+                          (4, 771, 3, 1, 1, false, true, false, false, 3, false, 13, 11),
+                          (4, 772, 3, 7, 5, false, true, false, false, 3, false, 16, 12),
+                          (4, 773, 3, 27, 5, false, false, false, false, 3, false, 16, 13),
+                          (4, 774, 3, 15, 2, false, false, false, false, 3, false, 13, 14),
+                          (4, 775, 3, 12, 1, false, true, false, false, 3, false, 18, 15),
+                          (4, 776, 3, 4, 3, false, true, false, true, 3, false, 14, 16),
+                          (4, 777, 3, 9, 4, false, false, true, false, 3, false, 14, 17),
+                          (4, 778, 3, 24, 2, false, false, false, false, 3, false, 14, 18),
+                          (4, 779, 3, 2, 5, false, false, false, false, 3, false, 13, 19);
