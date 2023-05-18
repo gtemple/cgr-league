@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import useGetImage from '../../../Hooks/useGetImage'
 
-
 type IRaceOrder = {
   previousRace2: {
     name: string | null;
@@ -41,13 +40,13 @@ function createRaceOrder(data: any[]): IRaceOrder {
       raceData.previousRace.layout = result.tracks.layout
       raceData.previousRace.img = result.tracks.img
       //@ts-expect-error
-      raceData.previousRace.position[result.position] = `${result.users.first_name} ${result.users.last_name}`
+      raceData.previousRace.position[result.position] = `${result.users.first_name[0]}. ${result.users.last_name}`
     }
 
     if (result.race_order == firstRace - 1 && result.position !== null) {
       raceData.previousRace2.name = result.tracks.name
       //@ts-expect-error
-      raceData.previousRace2.position[result.position] = `${result.users.first_name} ${result.users.last_name}`
+      raceData.previousRace2.position[result.position] = `${result.users.first_name[0]}. ${result.users.last_name}`
     }
     if (result.race_order == firstRace + 1 && result.position === null) {
       raceData.currentRace = result.tracks.name
@@ -60,14 +59,22 @@ function createRaceOrder(data: any[]): IRaceOrder {
   return raceData;
 }
 
-//@ts-expect-error
-const CurrentSeasonSchedule = (props: { seasonData: ObjectType; currentSeason: number }) => {
-  //@ts-expect-error
-  const [raceOrder, setRaceOrder] = useState<IRaceOrder>({});
-  //@ts-expect-error
-  const { img, loading } = useGetImage(raceOrder?.previousRace?.img, 'track-image' || '');
+const printGridCells = (raceOrder: IRaceOrder, start: number, end: number) => {
+  const gridCells = [];
+  for (let i = start; i <= end; i++) {
+    gridCells.push(
+      <div className='grid-cell' key={i}>
+        <div className='grid-position'>{i}th</div>
+        <div className='grid-name'>{raceOrder.previousRace.position[i]}</div>
+      </div>
+    );
+  }
+  return gridCells;
+};
 
-  
+const CurrentSeasonSchedule = (props: { seasonData: ObjectType; currentSeason: number }) => {
+  const [raceOrder, setRaceOrder] = useState<IRaceOrder>({});
+  const { img, loading } = useGetImage(raceOrder?.previousRace?.img, 'track-image' || '');
 
   useEffect(() => {
     if (props.seasonData) {
@@ -83,24 +90,24 @@ const CurrentSeasonSchedule = (props: { seasonData: ObjectType; currentSeason: n
           <div className='previous-race'>
             <div className='track-info track-name'>{raceOrder.previousRace2.name}</div>
             <div className='positions'>
-              <div>1. {raceOrder.previousRace2.position[1]}</div><div> 2. {raceOrder.previousRace2.position[2]} </div> <div>3. {raceOrder.previousRace2.position[3]} </div>
+              <div>1. {raceOrder.previousRace2.position[1]}</div>
+              <div>2. {raceOrder.previousRace2.position[2]}</div>
+              <div>3. {raceOrder.previousRace2.position[3]}</div>
             </div>
           </div>
           <div className='previous-race'>
             <div className='track-info'>
               <div>Last Race</div>
-            {loading ? (
+              {loading ? (
                 <div>Loading image...</div>
               ) : (
                 <img src={img} className='track-image' alt="Track Image" />
               )}
-            <div className='track-name'>{raceOrder.previousRace.name} </div>
+              <div className='track-name'>{raceOrder.previousRace.name} </div>
             </div>
-            <div>
-              <div>{raceOrder.previousRace.position[1]}</div>
-              <div>{raceOrder.previousRace.position[2]}</div>
-              <div>{raceOrder.previousRace.position[3]}</div>
-            </div>
+              <div className='remaining-grid'>
+                {printGridCells(raceOrder, 1, 20)}
+              </div>
           </div>
           <div>
             {raceOrder.currentRace}
@@ -109,9 +116,9 @@ const CurrentSeasonSchedule = (props: { seasonData: ObjectType; currentSeason: n
             {raceOrder.nextRace}
           </div>
         </>
-        )
-      }
-    </div>);
+      )}
+    </div>
+  );
 };
 
 export default CurrentSeasonSchedule;
