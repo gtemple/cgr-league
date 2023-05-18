@@ -71,9 +71,11 @@ const printGridCells = (raceOrder: IRaceOrder, start: number, end: number) => {
   }
   return gridCells;
 };
-
+  //@ts-expect-error
 const CurrentSeasonSchedule = (props: { seasonData: ObjectType; currentSeason: number }) => {
+  //@ts-expect-error
   const [raceOrder, setRaceOrder] = useState<IRaceOrder>({});
+  //@ts-expect-error
   const { img, loading } = useGetImage(raceOrder?.previousRace?.img, 'track-image' || '');
 
   useEffect(() => {
