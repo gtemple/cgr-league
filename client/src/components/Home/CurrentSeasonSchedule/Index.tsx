@@ -64,7 +64,7 @@ const printGridCells = (raceOrder: IRaceOrder, start: number, end: number) => {
   for (let i = start; i <= end; i++) {
     gridCells.push(
       <div className='grid-cell' key={i}>
-        <div className='grid-position'>{i}th</div>
+        <div className='grid-position'>{i}</div>
         <div className='grid-name'>{raceOrder.previousRace.position[i]}</div>
       </div>
     );
@@ -88,12 +88,14 @@ const CurrentSeasonSchedule = (props: { seasonData: ObjectType; currentSeason: n
       {Object.keys(raceOrder).length !== 0 && (
         <>
           <div className='previous-race'>
-            <div className='track-info track-name'>{raceOrder.previousRace2.name}</div>
-            <div className='positions'>
-              <div>1. {raceOrder.previousRace2.position[1]}</div>
-              <div>2. {raceOrder.previousRace2.position[2]}</div>
-              <div>3. {raceOrder.previousRace2.position[3]}</div>
-            </div>
+            <div className='track-info'>
+              <div className='track-name'>{raceOrder.previousRace2.name}</div>
+              <div className='positions'>
+                <div>1. {raceOrder.previousRace2.position[1]}</div>
+                <div>2. {raceOrder.previousRace2.position[2]}</div>
+                <div>3. {raceOrder.previousRace2.position[3]}</div>
+              </div>
+             </div>
           </div>
           <div className='previous-race'>
             <div className='track-info'>
