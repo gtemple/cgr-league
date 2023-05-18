@@ -81,8 +81,10 @@ const CurrentSeasonSchedule = (props: { seasonData: ObjectType; currentSeason: n
       {Object.keys(raceOrder).length !== 0 && (
         <>
           <div className='previous-race'>
-            <div className='track-info'>{raceOrder.previousRace2.name}</div>
-            {raceOrder.previousRace2.position[1]} {raceOrder.previousRace2.position[2]} {raceOrder.previousRace2.position[3]}
+            <div className='track-info track-name'>{raceOrder.previousRace2.name}</div>
+            <div className='positions'>
+              <div>1. {raceOrder.previousRace2.position[1]}</div><div> 2. {raceOrder.previousRace2.position[2]} </div> <div>3. {raceOrder.previousRace2.position[3]} </div>
+            </div>
           </div>
           <div className='previous-race'>
             <div className='track-info'>
@@ -92,7 +94,7 @@ const CurrentSeasonSchedule = (props: { seasonData: ObjectType; currentSeason: n
               ) : (
                 <img src={img} className='track-image' alt="Track Image" />
               )}
-            {raceOrder.previousRace.name} 
+            <div className='track-name'>{raceOrder.previousRace.name} </div>
             </div>
             <div>
               <div>{raceOrder.previousRace.position[1]}</div>

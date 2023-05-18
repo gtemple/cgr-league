@@ -19,8 +19,14 @@ const { seasonData } = useGetSeason(currentSeason);
       <div>
         <img src={background} className='background-image bottom-border' />
       </div>
-      <CurrentSeasonStats seasonData={seasonData} currentSeason={currentSeason}/>
-      <CurrentSeasonSchedule seasonData={seasonData} currentSeason={currentSeason} />
+      <div className='surround'>
+      </div>
+      <div>
+        <CurrentSeasonStats seasonData={seasonData} currentSeason={currentSeason}/>
+        <CurrentSeasonSchedule seasonData={seasonData} currentSeason={currentSeason} />
+      </div>
+      <div className='surround'>
+      </div>
 
     </div>
   )

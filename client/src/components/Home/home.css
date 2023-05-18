@@ -1,5 +1,5 @@
 .bottom-border {
-  border-color: #090C02;
+  border-color: #FFE66D;
   border-style: solid;
   border-width: 0 0 10px 0;
 }
@@ -14,8 +14,11 @@
 
 .current-season {
   padding: 1vw 0px 1vw 0px;
-  background-color: #F3D514;
-  /* background-color: #1F1F1F; */
+  background-color: #121417;
+  margin: 0 10% 0 10%;
+  border-style: solid;
+  border-color: #FFE66D;
+  border-width: 0 2px 0 2px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
@@ -25,7 +28,7 @@
   font-size:5vw;
   background-color: black;
   color: white;
-  margin: 1vw 35vw 1vw 35vw;
+  margin: 1vw 30vw 1vw 30vw;
 }
 
 .current-season-stats {
@@ -35,8 +38,6 @@
 }
 
 .current-season-container {
-  background-color: #090C02;
-  border-radius: 15px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
@@ -54,10 +55,7 @@
 }
 
 .standings-cell {
-  border-style: solid;
-  border-color: black;
-  border-width: 2px 0 2px 0;
-  background-color: #F3D514;
+  background-color: #FFE66D;
 
 }
 .chart {
@@ -110,16 +108,19 @@ tr {
   box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;}
 
 .schedule-container {
-  background-color: black;
+  background-color: #121417;
+  margin: 0 10% 0 10%;
+  border-style: solid;
+  border-color: #FFE66D;
+  border-width: 0 2px 0 2px;
 }
 
 .previous-race {
   display: flex;
-  background-color: lightgray;
+  background-color: #FF6B6B;
   width: 95%;
-  margin: 10px;
+  margin: 2px 2% 2px 2%;
   padding: 10px 20px 10px 20px;
-  border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
 
@@ -132,6 +133,18 @@ tr {
   width: 500px;
 }
 
+.track-name {
+  font-size: 2vw;
+}
+
+.positions {
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  width: 100%;
+  gap: 50px;
+  font-size: 1.2vw;
+}
 .track-image {
   object-fit: cover;
   height: 240px;
