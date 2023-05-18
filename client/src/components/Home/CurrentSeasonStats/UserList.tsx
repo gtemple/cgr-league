@@ -98,7 +98,6 @@ const UserList = (props: Props) => {
 
   return (
     <div>
-      CGR Standings:
       {userData.length > 0 && (
         <div className='chart'>
           <div className='stat'>

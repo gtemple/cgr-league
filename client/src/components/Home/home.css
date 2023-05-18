@@ -34,6 +34,7 @@
 .current-season-stats {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   
 }
 
@@ -51,7 +52,7 @@
 /* table */
 
 .standings {
-  width: 250px;
+  width: 35vw;
 }
 
 .standings-cell {
@@ -60,6 +61,11 @@
 }
 .chart {
   display: flex;
+  justify-content: center;
+  width: 65vw;
+  padding: 20px 0 0 0;
+  color: white;
+  background-color: #FF6B6B;
 }
 
 .stat {
@@ -72,7 +78,7 @@
 
 .bar {
   color: black;
-  width: 80px;
+  width: 100px;
   font-size: 25px;
   text-align: center;
   margin: 0 0 5px 0;
