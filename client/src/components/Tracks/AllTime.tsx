@@ -1,6 +1,8 @@
 import { positionScore } from "../../helpers/sumSeasonPoints";
 import TrackData from "../../classes/TrackData";
 
+import './tracks.css'
+
 interface Props {
   trackData: TrackData[];
 }
@@ -79,7 +81,7 @@ const AllTime: React.FC<Props> = ({ trackData }) => {
 
   return (
     <div>
-      <h2>Average Position</h2>
+      <h2>Best Average Position</h2>
       <table>
         <thead>
           <tr>
@@ -135,7 +137,7 @@ const AllTime: React.FC<Props> = ({ trackData }) => {
         </tbody>
       </table>
 
-      <h2>DNF (Did Not Finish)</h2>
+      <h2>DNF</h2>
       <table>
         <thead>
           <tr>

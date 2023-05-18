@@ -27,19 +27,19 @@ const Tracks = () => {
         <div>Loading</div>
       ) : (
         <div>
-          <div className='track-container'>
+          <div className='track-banner'>
             <img className='track-img' src={img2} alt="Track Image" />
             <div className='track-title'>{trackData[0]?.tracks?.name}</div>
           </div>
-          <div>
-            <img src={img} className='track-layout' alt="Track Layout" />
-           {/* 
-// @ts-ignore */}
-            <AllTime trackData={trackData}/>
+          <div className='track-container'>
+            <div className='track-lvl-1'>
+              <img src={img} className='track-layout' alt="Track Layout" />
+            {/*// @ts-ignore */}
+              <AllTime trackData={trackData}/>
+            </div>
+            {/*//@ts-expect-error */}
+            <Track trackData={trackData} />
           </div>
-          {/*//@ts-expect-error */}
-          <Track trackData={trackData} />
-          <div>Grouped data by season and user</div>
         </div>
       )}
     </div>

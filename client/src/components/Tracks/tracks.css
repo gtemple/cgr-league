@@ -1,4 +1,4 @@
-.track-container {
+.track-banner {
   position: relative;
   text-align: center;
   color: white;
@@ -22,6 +22,26 @@
 }
 
 .track-layout {
-  max-width: 35vw;
-  max-height: 25vw;
+  max-width: 30vw;
+  max-height: 20vw;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #FFE66D;
+  border-radius: 3px;
+  margin-right: 20px
+}
+
+.track-container {
+  background-color: #121417;
+  margin: 0 10% 0 10%;
+  border-style: solid;
+  border-color: #FFE66D;
+  border-width: 0 2px 0 2px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  padding: 20px 2% 20px 2%;
+}
+
+.track-lvl-1 {
+  display: flex;
+  flex-wrap: wrap;
 }
