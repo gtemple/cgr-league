@@ -13,7 +13,7 @@ interface SeasonData {
   race_distance: number;
   race_order: number;
   seasons: { id: number };
-  pole_position: boolean | undefined;
+  poll_position: boolean | null;
   sprint: boolean;
   teams: { team_name: string };
   tracks: { distance: number; img: null; layout: null; name: string };
@@ -48,6 +48,7 @@ export default function useGetSeason(id: number | string | undefined) {
         race_distance,
         sprint,
         position,
+        pole_position,
         race_order,
         created_at,
         users (id, human, first_name, last_name, country_of_representation, initials, profile_image),
