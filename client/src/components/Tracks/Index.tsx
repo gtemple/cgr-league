@@ -28,7 +28,7 @@ const Tracks = () => {
       ) : (
         <div>
           <div className='track-banner'>
-            <img className='track-img' src={img2} alt="Track Image" />
+            <img className='track-img  bottom-border' src={img2} alt="Track Image" />
             <div className='track-title'>{trackData[0]?.tracks?.name}</div>
           </div>
           <div className='track-container'>

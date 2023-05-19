@@ -21,6 +21,12 @@
   transform: translate(-50%, -50%);
 }
 
+.bottom-border {
+  border-color: #FFE66D;
+  border-style: solid;
+  border-width: 0 0 10px 0;
+}
+
 .track-layout {
   max-width: 30vw;
   max-height: 20vw;
