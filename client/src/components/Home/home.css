@@ -12,6 +12,7 @@
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
+
 .current-season {
   padding: 2vw 0px 1vw 0px;
   background-color: #121417;
@@ -46,7 +47,6 @@
   color: #F8F4F9;
   text-align: center;
   font-size: 1.5vw;
-  
 }
 
 /* table */
@@ -59,13 +59,28 @@
   background-color: #FFE66D;
 
 }
+
 .chart {
   display: flex;
   justify-content: center;
   width: 65vw;
   padding: 20px 0 0 0;
+  z-index: 2;
   color: white;
-  background-color: #FF6B6B;
+}
+
+.background-image2 {
+  object-fit: cover;
+  position: absolute;
+  width: 65vw;
+  height: 210px;
+  padding-bottom: 5px;
+  z-index: 1;
+  filter: brightness(30%);
+  border-style: solid;
+  border-width: 3px;
+  border-color: black;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .stat {
@@ -73,6 +88,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: end;
+  z-index: 2;
   margin: 5px;
 }
 

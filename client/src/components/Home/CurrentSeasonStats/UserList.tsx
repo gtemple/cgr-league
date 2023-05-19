@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import * as _ from '../../../helpers/sumSeasonPoints';
+import background from '../../../assets/background/ferrari-mclaren.jpg'
+
 import '../home.css';
 
 type RaceData = {
@@ -98,6 +100,7 @@ const UserList = (props: Props) => {
 
   return (
     <div>
+      <img src={background} className="background-image2"/>
       {userData.length > 0 && (
         <div className='chart'>
           <div className='stat'>
