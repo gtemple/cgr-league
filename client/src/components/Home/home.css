@@ -100,8 +100,8 @@
 .show-rows {
   width:20%;
   margin: 5px 40% 5px 40%;
-  background-color: white;
-  color: white;
+  background-color: lightgray;
+  color: #121417;
   border-radius: 8px
 }
 
