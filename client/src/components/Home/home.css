@@ -54,6 +54,7 @@
 
 .standings {
   width: 37vw;
+  min-width: 300px;
 }
 
 .standings-cell {
