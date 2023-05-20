@@ -24,7 +24,7 @@ INSERT INTO tracks (id, name, city, country, distance, layout, img) VALUES
 (22, 'Abu Dhabi Grand Prix', 'Abu Dhabi', 'United Arab Emirates', 5281, 'abu-dhabi-layout', 'abu-dhabi'),
 (23, 'Russian Grand Prix', 'Sochi', 'Russia', 5848, 'russia-layout', 'russia'),
 (24, 'Chinese Grand Prix', 'Shanghai', 'China', 5451, 'china-layout', 'china'),
-(25, 'Portuguese Grand Prix', 'Portimão', 'Portugal', 4653, 'portual-layout', 'portugal'),
+(25, 'Portuguese Grand Prix', 'Portimão', 'Portugal', 4653, 'portugal-layout', 'portugal'),
 (26, 'French Grand Prix', 'Le Mans', 'France', 5842, 'france-layout', 'france'),
 (27, 'Australian Grand Prix', 'Melbourne', 'Australia', 5278, 'australia-layout', 'australia');
 

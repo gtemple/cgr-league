@@ -1,4 +1,4 @@
-import React from 'react';
+import { positionScore } from "../../helpers/sumSeasonPoints";
 
 interface RaceData {
   created_at: string;
@@ -49,51 +49,42 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
     const { users, fastest_lap, dnf, dotd, poll_position } = data;
     const { first_name, last_name } = users;
 
-    if (fastest_lap) {
-      if (fastestLapSums[`${first_name} ${last_name}`]) {
-        fastestLapSums[`${first_name} ${last_name}`]++;
+    // Increment the count for each category
+    const incrementCount = (category: { [key: string]: number }) => {
+      if (category[`${first_name} ${last_name}`]) {
+        category[`${first_name} ${last_name}`]++;
       } else {
-        fastestLapSums[`${first_name} ${last_name}`] = 1;
+        category[`${first_name} ${last_name}`] = 1;
       }
+    };
+
+    if (fastest_lap) {
+      incrementCount(fastestLapSums);
     }
 
     if (dnf) {
-      if (dnfSums[`${first_name} ${last_name}`]) {
-        dnfSums[`${first_name} ${last_name}`]++;
-      } else {
-        dnfSums[`${first_name} ${last_name}`] = 1;
-      }
+      incrementCount(dnfSums);
     }
 
     if (dotd) {
-      if (dotdSums[`${first_name} ${last_name}`]) {
-        dotdSums[`${first_name} ${last_name}`]++;
-      } else {
-        dotdSums[`${first_name} ${last_name}`] = 1;
-      }
+      incrementCount(dotdSums);
     }
 
     if (poll_position) {
-      if (polePositionSums[`${first_name} ${last_name}`]) {
-        polePositionSums[`${first_name} ${last_name}`]++;
-      } else {
-        polePositionSums[`${first_name} ${last_name}`] = 1;
-      }
+      incrementCount(polePositionSums);
     }
   });
 
+  // Sorting function for descending order
+  const descendingSort = ([, sum1]: [string, number], [, sum2]: [string, number]) =>
+    sum2 - sum1;
+
   // Sort the sums in descending order
-  const sortedFastestLapSums = Object.entries(fastestLapSums).sort(
-    ([, sum1], [, sum2]) => sum2 - sum1
-  );
-  const sortedDnfSums = Object.entries(dnfSums).sort(
-    ([, sum1], [, sum2]) => sum2 - sum1
-  );
-  const sortedDotdSums = Object.entries(dotdSums).sort(
-    ([, sum1], [, sum2]) => sum2 - sum1
-  );
+  const sortedFastestLapSums = Object.entries(fastestLapSums).sort(descendingSort);
+  const sortedDnfSums = Object.entries(dnfSums).sort(descendingSort);
+  const sortedDotdSums = Object.entries(dotdSums).sort(descendingSort);
   const sortedPolePositionSums = Object.entries(polePositionSums).sort(
-    ([, sum1], [, sum2]) => sum2 - sum1
+    descendingSort
   );
 
   // Get the top 5 entries for each category
@@ -102,8 +93,72 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
   const top5Dotd = sortedDotdSums.slice(0, 5);
   const top5PolePosition = sortedPolePositionSums.slice(0, 5);
 
+  const lowestPositionSums: { [key: string]: number } = {};
+  const teamPositionSums: { [key: string]: number } = {};
+
+  seasonData.forEach((data) => {
+    const { users, position, fastest_lap, teams } = data;
+    const { first_name, last_name } = users;
+    const teamName = teams.team_name;
+
+    const driverName = `${first_name} ${last_name}`;
+
+    if (lowestPositionSums[driverName]) {
+      lowestPositionSums[driverName] += positionScore(position, fastest_lap);
+    } else {
+      lowestPositionSums[driverName] = positionScore(position, fastest_lap);
+    }
+
+    if (teamPositionSums[teamName]) {
+      teamPositionSums[teamName] += positionScore(position, fastest_lap);
+    } else {
+      teamPositionSums[teamName] = positionScore(position, fastest_lap);
+    }
+  });
+
+  // Sort the lowest position sums in ascending order
+  const sortedLowestPositionSums = Object.entries(lowestPositionSums).sort(
+    ([, sum1], [, sum2]) => sum2 - sum1
+  );
+
+  // Sort the team position sums in descending order
+  const sortedTeamPositionSums = Object.entries(teamPositionSums).sort(
+    ([, sum1], [, sum2]) => sum2 - sum1
+  );
+
+  // Get the top 5 entries for lowest position sums
+  const top5LowestPositionSums = sortedLowestPositionSums.slice(0, 20);
+
+  // Get the top 5 entries for team position sums
+  const top5TeamPositionSums = sortedTeamPositionSums.slice(0, 10);
+
+  // Calculate the sum of drivers with the most race wins
+  const winsSums: { [key: string]: number } = {};
+
+  seasonData.forEach((data) => {
+    const { users, position } = data;
+    const { first_name, last_name } = users;
+
+    if (position === 1) {
+      const driverName = `${first_name} ${last_name}`;
+
+      if (winsSums[driverName]) {
+        winsSums[driverName]++;
+      } else {
+        winsSums[driverName] = 1;
+      }
+    }
+  });
+
+  // Sort the drivers with the most wins in descending order
+  const sortedWinsSums = Object.entries(winsSums).sort(descendingSort);
+
+  // Get the top 5 drivers with the most wins
+  const top5WinsSums = sortedWinsSums.slice(0, 5);
+
   return (
     <div>
+      {/* Render each category with the corresponding table */}
       <div>
         <h2>Top 5 Fastest Laps</h2>
         <table>
@@ -178,6 +233,66 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
               <tr key={name}>
                 <td>{name}</td>
                 <td>{count}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <h2>Top 5 Lowest Position Sums</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Position Sum</th>
+            </tr>
+          </thead>
+          <tbody>
+            {top5LowestPositionSums.map(([name, positionSum]) => (
+              <tr key={name}>
+                <td>{name}</td>
+                <td>{positionSum}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <h2>Team Position Sums</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Team Name</th>
+              <th>Position Sum</th>
+            </tr>
+          </thead>
+          <tbody>
+            {top5TeamPositionSums.map(([teamName, positionSum]) => (
+              <tr key={teamName}>
+                <td>{teamName}</td>
+                <td>{positionSum}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <h2>Top 5 Drivers with Most Race Wins</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Wins</th>
+            </tr>
+          </thead>
+          <tbody>
+            {top5WinsSums.map(([name, wins]) => (
+              <tr key={name}>
+                <td>{name}</td>
+                <td>{wins}</td>
               </tr>
             ))}
           </tbody>
