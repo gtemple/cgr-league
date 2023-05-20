@@ -7,7 +7,7 @@ const User = () => {
   const { id } = useParams();
 
   return (
-    <div>
+    <div className='user'>
         <Bio id={id} />
         <AllTime id={id} />
         <SeasonList id={id} />

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Accordion, Card, Table } from 'react-bootstrap';
 
@@ -6,52 +6,55 @@ import useGetSeason from '../../Hooks/useGetSeason';
 
 import './season.css';
 
-const rows: {
-  name: string;
-  cells: {
-    initial: string;
-    position: number;
-    fastest_lap: boolean;
-    dnf: boolean;
-    dotd: boolean;
-  }[];
-}[] = [];
+interface Cell {
+  initial: string;
+  position: number;
+  race_order: number;
+  fastest_lap: boolean;
+  dnf: boolean;
+  dotd: boolean;
+}
 
+interface Row {
+  name: string;
+  cells: Cell[];
+}
 
 const SeasonTable = () => {
   const { id } = useParams();
   const { seasonData = [] } = useGetSeason(id);
   const [isViewportLessThan768, setIsViewportLessThan768] = useState(
-    window.innerWidth < 768
+    window.innerWidth < 800
   );
 
   if (!seasonData) return null;
 
-
   // Group the data by name and initials
+  const rows: Row[] = [];
   seasonData.forEach((data) => {
     const name = data.tracks.name;
     const initials = data.users.initials;
-    const { position, fastest_lap, dnf, dotd } = data;
-
-
+    const { position, fastest_lap, dnf, dotd, race_order } = data;
 
     let row = rows.find((r) => r.name === name);
-
     if (!row) {
       row = { name, cells: [] };
       rows.push(row);
     }
 
-    row.cells.push({ initial: initials, position, fastest_lap, dnf, dotd });
+    const cell = row.cells.find((c) => c.initial === initials);
+    if (!cell) {
+      row.cells.push({ initial: initials, position, race_order, fastest_lap, dnf, dotd });
+    }
   });
 
-  // Sort the rows by race_order
-  rows.sort((a, b) => {
-    const raceOrderA = a.cells[0].position;
-    const raceOrderB = b.cells[0].position;
-    return raceOrderA - raceOrderB;
-  });
+  if (isViewportLessThan768) {
+    // Sort the rows by position in ascending order for accordion mode
+    rows.sort((a, b) => a.cells[0].position - b.cells[0].position);
+  } else {
+    // Sort the rows by race_order for regular table mode
+    rows.sort((a, b) => a.cells[0].race_order - b.cells[0].race_order);
+  }
 
   // Get the initials to use as column headers
   const initials = Array.from(
@@ -61,11 +64,13 @@ const SeasonTable = () => {
   // Calculate the average position for each column
   const avgPositions: { [initial: string]: number } = {};
   initials.forEach((initial) => {
-    const positions = rows.flatMap((row) =>
-      row.cells
-        .filter((cell) => cell.initial === initial)
-        .map((cell) => cell.position)
-    );
+    const positions = rows
+      .flatMap((row) =>
+        row.cells
+          .filter((cell) => cell.initial === initial)
+          .map((cell) => cell.position)
+      )
+      .filter((pos) => !isNaN(pos));
     const avgPosition =
       positions.reduce((sum, pos) => sum + pos, 0) / positions.length;
     avgPositions[initial] = avgPosition;
@@ -88,10 +93,8 @@ const SeasonTable = () => {
         // Render accordion if viewport width is less than 768px
         <Accordion>
           {rows.map((row, index) => (
-              <Accordion.Item as={Card.Header} eventKey={String(index)}>
-                <Accordion.Header>
-                  {row.name}
-                </Accordion.Header>
+            <Accordion.Item key={index} eventKey={String(index)}>
+              <Accordion.Header>{row.name}</Accordion.Header>
               <Accordion.Body>
                 <Table>
                   <thead>
@@ -102,22 +105,27 @@ const SeasonTable = () => {
                   </thead>
                   <tbody>
                     {row.cells.map((cell, index) => (
-                      <tr key={index}>
+                      <tr
+                        key={index}
+                        className={`${cell.dnf ? 'dnf' : ''} ${
+                          cell.dotd ? 'dotd' : ''
+                        }`}
+                      >
                         <td>{cell.initial}</td>
-                        <td>{cell.position.toFixed(0)}</td>
+                        <td>{cell.position}</td>
                       </tr>
                     ))}
                   </tbody>
                 </Table>
-                </Accordion.Body>
-              </Accordion.Item>
+              </Accordion.Body>
+            </Accordion.Item>
           ))}
         </Accordion>
       ) : (
         // Render regular table if viewport width is greater than or equal to 768px
-        <table>
+        <table className="season-table">
           <thead>
-            <tr className="season-table">
+            <tr>
               <th></th>
               {initials.map((initial) => (
                 <th key={initial}>{initial}</th>

@@ -157,10 +157,10 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
   const top5WinsSums = sortedWinsSums.slice(0, 5);
 
   return (
-    <div>
+    <div className='season-records'>
       {/* Render each category with the corresponding table */}
       <div>
-        <h2>Top 5 Fastest Laps</h2>
+        <h2 className='season-records-title'>Most Fastest Laps</h2>
         <table>
           <thead>
             <tr>
@@ -180,7 +180,7 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
       </div>
 
       <div>
-        <h2>Top 5 DNFs</h2>
+        <h2 className='season-records-title'>Most DNFs</h2>
         <table>
           <thead>
             <tr>
@@ -200,7 +200,7 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
       </div>
 
       <div>
-        <h2>Top 5 Driver of the Day</h2>
+        <h2 className='season-records-title'>Most Driver of the Days</h2>
         <table>
           <thead>
             <tr>
@@ -220,7 +220,7 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
       </div>
 
       <div>
-        <h2>Top 5 Pole Positions</h2>
+        <h2 className='season-records-title'>Most Pole Positions</h2>
         <table>
           <thead>
             <tr>
@@ -240,7 +240,7 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
       </div>
 
       <div>
-        <h2>Top 5 Lowest Position Sums</h2>
+        <h2 className='season-records-title'>Drivers Standings</h2>
         <table>
           <thead>
             <tr>
@@ -260,7 +260,7 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
       </div>
 
       <div>
-        <h2>Team Position Sums</h2>
+        <h2 className='season-records-title'>Constructors Standings</h2>
         <table>
           <thead>
             <tr>
@@ -279,8 +279,8 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
         </table>
       </div>
 
-      <div>
-        <h2>Top 5 Drivers with Most Race Wins</h2>
+      <div className='season-records-title'>
+        <h2>Most Wins</h2>
         <table>
           <thead>
             <tr>
