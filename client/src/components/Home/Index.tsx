@@ -10,7 +10,7 @@ import background from '../../assets/background/ferrari.background.jpeg'
 
 
 const Home = () => {
-const currentSeason = 2;
+const currentSeason = 4;
 const { seasonData } = useGetSeason(currentSeason);
 
 
