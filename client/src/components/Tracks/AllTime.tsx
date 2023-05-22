@@ -47,30 +47,30 @@ const AllTime: React.FC<Props> = ({ trackData }) => {
     new Set(trackData.map((data) => data.users.id))
   );
 
-  // Sort the user IDs by average position in ascending order for the first table
-  const sortedUserIdsAverage = uniqueUserIds.sort(
-    (a, b) => calculateAveragePosition(a) - calculateAveragePosition(b)
-  );
+// Sort the user IDs by average position in ascending order for the first table
+const sortedUserIdsAverage = [...uniqueUserIds].sort(
+  (a, b) => calculateAveragePosition(a) - calculateAveragePosition(b)
+);
 
-  // Sort the user IDs by sum of positions in ascending order for the second table
-  const sortedUserIdsSum = uniqueUserIds.sort(
-    (a, b) => calculateSumOfPositions(b) - calculateSumOfPositions(a)
-  );
+// Sort the user IDs by sum of positions in ascending order for the second table
+const sortedUserIdsSum = [...uniqueUserIds].sort(
+  (a, b) => calculateSumOfPositions(b) - calculateSumOfPositions(a)
+);
 
-  // Sort the user IDs by DNF count in descending order for the third table
-  const sortedUserIdsDNF = uniqueUserIds.sort(
-    (a, b) => calculateDNFCount(b) - calculateDNFCount(a)
-  );
+// Sort the user IDs by DNF count in descending order for the third table
+const sortedUserIdsDNF = [...uniqueUserIds].sort(
+  (a, b) => calculateDNFCount(b) - calculateDNFCount(a)
+);
 
-  // Sort the user IDs by Pole Position count in descending order for the fourth table
-  const sortedUserIdsPolePosition = uniqueUserIds.sort(
-    (a, b) => calculatePolePositionCount(b) - calculatePolePositionCount(a)
-  );
+// Sort the user IDs by Pole Position count in descending order for the fourth table
+const sortedUserIdsPolePosition = [...uniqueUserIds].sort(
+  (a, b) => calculatePolePositionCount(b) - calculatePolePositionCount(a)
+);
 
-  // Sort the user IDs by DOTD count in descending order for the fifth table
-  const sortedUserIdsDOTD = uniqueUserIds.sort(
-    (a, b) => calculateDOTDCount(b) - calculateDOTDCount(a)
-  );
+// Sort the user IDs by DOTD count in descending order for the fifth table
+const sortedUserIdsDOTD = [...uniqueUserIds].sort(
+  (a, b) => calculateDOTDCount(b) - calculateDOTDCount(a)
+);
 
   // Get the first 10 user IDs for each table
   const first10UserIdsAverage = sortedUserIdsAverage.slice(0, 10);
