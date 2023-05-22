@@ -1,4 +1,4 @@
-.season{
+.season {
   background-color: #121417;
   margin: 0 10% 0 10%;
   border-style: solid;
@@ -38,6 +38,7 @@
 
 .season-records {
   display: flex;
-  flex: wrap;
-  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px
 }

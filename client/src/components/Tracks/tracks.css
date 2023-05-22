@@ -43,6 +43,7 @@
 .track-container {
   background-color: #121417;
   margin: 0 10% 0 10%;
+  padding: 0 0 20px 0;
   border-style: solid;
   border-color: #FFE66D;
   border-width: 0 2px 0 2px;

@@ -161,7 +161,7 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
       {/* Render each category with the corresponding table */}
       <div>
         <h2 className='season-records-title'>Most Fastest Laps</h2>
-        <table>
+        <table className='container2'>
           <thead>
             <tr>
               <th>Name</th>
@@ -181,7 +181,7 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
 
       <div>
         <h2 className='season-records-title'>Most DNFs</h2>
-        <table>
+        <table className='container2'>
           <thead>
             <tr>
               <th>Name</th>
@@ -201,7 +201,7 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
 
       <div>
         <h2 className='season-records-title'>Most Driver of the Days</h2>
-        <table>
+        <table className='container2'>
           <thead>
             <tr>
               <th>Name</th>
@@ -221,7 +221,7 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
 
       <div>
         <h2 className='season-records-title'>Most Pole Positions</h2>
-        <table>
+        <table className='container2'>
           <thead>
             <tr>
               <th>Name</th>
@@ -241,7 +241,7 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
 
       <div>
         <h2 className='season-records-title'>Drivers Standings</h2>
-        <table>
+        <table className='container2'>
           <thead>
             <tr>
               <th>Name</th>
@@ -261,7 +261,7 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
 
       <div>
         <h2 className='season-records-title'>Constructors Standings</h2>
-        <table>
+        <table className='container2'>
           <thead>
             <tr>
               <th>Team Name</th>
@@ -281,7 +281,7 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
 
       <div className='season-records-title'>
         <h2>Most Wins</h2>
-        <table>
+        <table className='container2'>
           <thead>
             <tr>
               <th>Name</th>
