@@ -18,30 +18,27 @@ const Track: React.FC<Props> = ({ trackData }) => {
         })
 
         return (
-          <table key={seasonId}>
-            <thead>
-              <tr>
-                {initials.map(initial => (
-                  <th key={initial}>{initial}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                {positions.map(position => (
-                  <td key={position}>{position}</td>
-                ))}
-              </tr>
-            </tbody>
-          </table>
+          <div>
+            <h2>Season {seasonId} results</h2>
+            <table className='container2 track-season' key={seasonId}>
+              <thead>
+                <tr>
+                  {initials.map(initial => (
+                    <th key={initial}>{initial}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  {positions.map(position => (
+                    <td key={position}>{position}</td>
+                  ))}
+                </tr>
+              </tbody>
+            </table>
+          </div>
         )
       })}
-            to add:
-      <ul>
-        <li>All time most points at track (top 10?)</li>
-        <li>Most fastest laps: top 5</li>
-        <li>most DOTDs: Top 5</li>
-      </ul>
     </div>
   )
 }

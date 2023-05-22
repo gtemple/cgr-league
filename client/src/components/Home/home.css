@@ -60,7 +60,6 @@
 
 .standings-cell {
   background-color: #FFE66D;
-
 }
 
 .chart {
@@ -130,8 +129,7 @@ tr {
   background-color: white;
   color: black;
   text-align: center;
-  border-style: solid;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;}
+  border-style: solid;}
 
 .schedule-container {
   background-color: #121417;

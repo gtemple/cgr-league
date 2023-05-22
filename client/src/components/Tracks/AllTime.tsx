@@ -80,121 +80,130 @@ const sortedUserIdsDOTD = [...uniqueUserIds].sort(
   const first10UserIdsDOTD = sortedUserIdsDOTD.slice(0, 5);
 
   return (
-    <div>
-      <h2>Best Average Position</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Average Position</th>
-          </tr>
-        </thead>
-        <tbody>
-          {first10UserIdsAverage.map((userId) => {
-            const userData = trackData.find(
-              (data) => data.users.id === userId
-            );
-            if (userData) {
-              return (
-                <tr key={userId}>
-                  <td>
-                    {userData.users.first_name} {userData.users.last_name}
-                  </td>
-                  <td>{calculateAveragePosition(userId).toFixed(1)}</td>
-                </tr>
+    <div className='all-time-stats'>
+      <div>
+        <h2>Best Average Position</h2>
+        <table className='container2'>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Average Position</th>
+            </tr>
+          </thead>
+          <tbody>
+            {first10UserIdsAverage.map((userId) => {
+              const userData = trackData.find(
+                (data) => data.users.id === userId
               );
-            }
-            return null;
-          })}
-        </tbody>
-      </table>
-
-      <h2>Sum of Positions</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Sum of Positions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {first10UserIdsSum.map((userId) => {
-            const userData = trackData.find(
-              (data) => data.users.id === userId
-            );
-            if (userData) {
-              return (
-                <tr key={userId}>
-                  <td>
-                    {userData.users.first_name} {userData.users.last_name}
-                  </td>
-                  <td>{calculateSumOfPositions(userId)}</td>
-                </tr>
+              if (userData) {
+                return (
+                  <tr key={userId}>
+                    <td>
+                      {userData.users.first_name} {userData.users.last_name}
+                    </td>
+                    <td>{calculateAveragePosition(userId).toFixed(1)}</td>
+                  </tr>
+                );
+              }
+              return null;
+            })}
+          </tbody>
+        </table>
+       </div>
+      
+      <div>
+        <h2>All-time points</h2>
+        <table className='container2'>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            {first10UserIdsSum.map((userId) => {
+              const userData = trackData.find(
+                (data) => data.users.id === userId
               );
-            }
-            return null;
-          })}
-        </tbody>
-      </table>
+              if (userData) {
+                return (
+                  <tr key={userId}>
+                    <td>
+                      {userData.users.first_name} {userData.users.last_name}
+                    </td>
+                    <td>{calculateSumOfPositions(userId)}</td>
+                  </tr>
+                );
+              }
+              return null;
+            })}
+          </tbody>
+        </table>
+      </div>
 
-      <h2>DNF</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>DNF Count</th>
-          </tr>
-        </thead>
-        <tbody>
-          {first10UserIdsDNF.map((userId) => {
-            const userData = trackData.find(
-              (data) => data.users.id === userId
-            );
-            if (userData) {
-              return (
-                <tr key={userId}>
-                  <td>
-                    {userData.users.first_name} {userData.users.last_name}
-                  </td>
-                  <td>{calculateDNFCount(userId)}</td>
-                </tr>
+      <div>
+        <h2>DNF</h2>
+        <table className='container2'>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>DNF Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            {first10UserIdsDNF.map((userId) => {
+              const userData = trackData.find(
+                (data) => data.users.id === userId
               );
-            }
-            return null;
-          })}
-        </tbody>
-      </table>
+              if (userData) {
+                return (
+                  <tr key={userId}>
+                    <td>
+                      {userData.users.first_name} {userData.users.last_name}
+                    </td>
+                    <td>{calculateDNFCount(userId)}</td>
+                  </tr>
+                );
+              }
+              return null;
+            })}
+          </tbody>
+        </table>
+      </div>
 
-      <h2>Pole Position</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Pole Position Count</th>
-          </tr>
-        </thead>
-        <tbody>
-          {first10UserIdsPolePosition.map((userId) => {
-            const userData = trackData.find(
-              (data) => data.users.id === userId
-            );
-            if (userData) {
-              return (
-                <tr key={userId}>
-                  <td>
-                    {userData.users.first_name} {userData.users.last_name}
-                  </td>
-                  <td>{calculatePolePositionCount(userId)}</td>
-                </tr>
+      <div>
+        <h2>Pole Position</h2>
+        <table className='container2'>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Pole Position Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            {first10UserIdsPolePosition.map((userId) => {
+              const userData = trackData.find(
+                (data) => data.users.id === userId
               );
-            }
-            return null;
-          })}
-        </tbody>
-      </table>
+              if (userData) {
+                return (
+                  <tr key={userId}>
+                    <td>
+                      {userData.users.first_name} {userData.users.last_name}
+                    </td>
+                    <td>{calculatePolePositionCount(userId)}</td>
+                  </tr>
+                );
+              }
+              return null;
+            })}
+          </tbody>
+        </table>
+       </div>
 
-      <h2>DOTD (Driver of the Day)</h2>
-      <table>
+      <div>
+      <h2>Driver of the Days</h2>
+      <table className='container2'>
         <thead>
           <tr>
             <th>Name</th>
@@ -220,6 +229,7 @@ const sortedUserIdsDOTD = [...uniqueUserIds].sort(
           })}
         </tbody>
       </table>
+    </div>
     </div>
   );
 };

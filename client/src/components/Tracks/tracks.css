@@ -31,11 +31,13 @@
 .track-layout {
   max-width: 30vw;
   max-height: 20vw;
+  min-width: 200px;
+  min-height: 200px;
   border-style: solid;
   border-width: 2px;
   border-color: #FFE66D;
   border-radius: 3px;
-  margin-right: 20px
+  margin: auto;
 }
 
 .track-container {
@@ -45,10 +47,27 @@
   border-color: #FFE66D;
   border-width: 0 2px 0 2px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  padding: 20px 2% 20px 2%;
 }
 
 .track-lvl-1 {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px 0 0 0;
+}
+
+.all-time-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+h2 {
+  text-align: center;
+  color: #FFE66D;
+  padding: 20px 0 0 0;
+}
+
+.track-season{
+  margin: 20px auto;
 }
