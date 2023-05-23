@@ -13,6 +13,7 @@ interface Cell {
   fastest_lap: boolean;
   dnf: boolean;
   dotd: boolean;
+  pole_position: boolean | null; // Add pole_position property
 }
 
 interface Row {
@@ -34,7 +35,7 @@ const SeasonTable = () => {
   seasonData.forEach((data) => {
     const name = data.tracks.name;
     const initials = data.users.initials;
-    const { position, fastest_lap, dnf, dotd, race_order } = data;
+    const { position, fastest_lap, dnf, dotd, race_order, pole_position } = data;
 
     let row = rows.find((r) => r.name === name);
     if (!row) {
@@ -44,7 +45,15 @@ const SeasonTable = () => {
 
     const cell = row.cells.find((c) => c.initial === initials);
     if (!cell) {
-      row.cells.push({ initial: initials, position, race_order, fastest_lap, dnf, dotd });
+      row.cells.push({
+        initial: initials,
+        position,
+        race_order,
+        fastest_lap,
+        dnf,
+        dotd,
+        pole_position, // Add pole_position property
+      });
     }
   });
 
@@ -112,7 +121,7 @@ const SeasonTable = () => {
                         }`}
                       >
                         <td>{cell.initial}</td>
-                        <td style={{color: 'rgb(149, 149, 149)'}}>{cell.position}</td>
+                        <td style={{ color: 'rgb(149, 149, 149)' }}>{cell.position}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -143,6 +152,7 @@ const SeasonTable = () => {
                   if (cell?.fastest_lap) classes.push('fastest-lap');
                   if (cell?.dotd) classes.push('dotd');
                   if (cell?.dnf) classes.push('dnf');
+                  if (cell?.pole_position) classes.push('pole-position'); // Add className for pole position
 
                   return (
                     <td key={initial} className={classes.join(' ')}>
@@ -166,6 +176,12 @@ const SeasonTable = () => {
           </tbody>
         </table>
       )}
+      <div className='legend'>
+        <div style={{ color: 'green' }}>Pole Position</div>
+        <div style={{ color: 'purple' }}>Fastest Lap</div>
+        <div style={{ color: 'blue' }}>Driver of the Day</div>
+        <div style={{ color: 'red' }}>DNF</div>
+      </div>
     </div>
   );
 };

@@ -9,7 +9,7 @@ interface RaceData {
   fastest_lap: boolean;
   id: number;
   position: number;
-  poll_position: boolean | null;
+  pole_position: boolean | null;
   race_distance: number;
   race_order: number;
   seasons: {
@@ -62,7 +62,7 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
       fastest_lap,
       dnf,
       dotd,
-      poll_position,
+      pole_position,
     } = data;
     const { first_name, last_name } = users;
     const driverName = `${first_name} ${last_name}`;
@@ -73,14 +73,14 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
         fastestLap: fastest_lap ? 1 : 0,
         dotd: dotd ? 1 : 0,
         dnf: dnf ? 1 : 0,
-        polePosition: poll_position ? 1 : 0,
+        polePosition: pole_position ? 1 : 0,
       };
     } else {
       userStats[driverName].points += positionScore(position, fastest_lap);
       userStats[driverName].fastestLap += fastest_lap ? 1 : 0;
       userStats[driverName].dotd += dotd ? 1 : 0;
       userStats[driverName].dnf += dnf ? 1 : 0;
-      userStats[driverName].polePosition += poll_position ? 1 : 0;
+      userStats[driverName].polePosition += pole_position ? 1 : 0;
     }
   });
 
@@ -125,6 +125,7 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
     if (sortColumn === column) {
       if (sortDirection === "asc") {
         return <BsFillCaretDownFill />;
+
       } else {
         return <BsFillCaretUpFill />;
       }

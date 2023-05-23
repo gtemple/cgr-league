@@ -38,17 +38,17 @@
 }
 
 .dotd {
-  background-color: green;
+  border-style: solid;
+  border-color: blue;
+  border-width: 1px;
 }
 
 .dnf {
-  background-color: yellow;
+  background-color: red;
 }
 
-.pole_position {
-  border-color: green;
-  border-style: solid;
-  border-width: 2px;
+.pole-position {
+  background-color: green;
 }
 
 .season-records {
@@ -56,4 +56,10 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px
+}
+
+.legend{
+  display: flex;
+  justify-content: center;
+  gap: 50px
 }
