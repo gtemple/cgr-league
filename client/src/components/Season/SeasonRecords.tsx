@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { BsFillCaretDownFill, BsFillCaretUpFill } from "react-icons/bs";
 import { positionScore } from "../../helpers/sumSeasonPoints";
 
 interface RaceData {
@@ -83,29 +84,31 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
     }
   });
 
-// Sort the user stats by the selected column
-const sortedUserStats = Object.entries(userStats).sort(([name1, stats1], [name2, stats2]) => {
-  let comparison = 0;
+  // Sort the user stats by the selected column
+  const sortedUserStats = Object.entries(userStats).sort(
+    ([name1, stats1], [name2, stats2]) => {
+      let comparison = 0;
 
-  if (sortColumn === "points") {
-    comparison = stats2.points - stats1.points;
-  } else if (sortColumn === "fastestLap") {
-    comparison = stats2.fastestLap - stats1.fastestLap;
-  } else if (sortColumn === "dotd") {
-    comparison = stats2.dotd - stats1.dotd;
-  } else if (sortColumn === "dnf") {
-    comparison = stats2.dnf - stats1.dnf;
-  } else if (sortColumn === "polePosition") {
-    comparison = stats2.polePosition - stats1.polePosition;
-  }
+      if (sortColumn === "points") {
+        comparison = stats2.points - stats1.points;
+      } else if (sortColumn === "fastestLap") {
+        comparison = stats2.fastestLap - stats1.fastestLap;
+      } else if (sortColumn === "dotd") {
+        comparison = stats2.dotd - stats1.dotd;
+      } else if (sortColumn === "dnf") {
+        comparison = stats2.dnf - stats1.dnf;
+      } else if (sortColumn === "polePosition") {
+        comparison = stats2.polePosition - stats1.polePosition;
+      }
 
-  // Adjust the comparison based on sort direction
-  if (sortDirection === "desc") {
-    comparison *= -1;
-  }
+      // Adjust the comparison based on sort direction
+      if (sortDirection === "desc") {
+        comparison *= -1;
+      }
 
-  return comparison;
-});
+      return comparison;
+    }
+  );
 
   // Function to handle column header click and toggle sort direction
   const handleColumnHeaderClick = (column: string) => {
@@ -117,28 +120,42 @@ const sortedUserStats = Object.entries(userStats).sort(([name1, stats1], [name2,
     }
   };
 
+  // Function to render the arrow icon based on sort direction
+  const renderSortArrow = (column: string) => {
+    if (sortColumn === column) {
+      if (sortDirection === "asc") {
+        return <BsFillCaretDownFill />;
+      } else {
+        return <BsFillCaretUpFill />;
+      }
+    }
+    return null;
+  };
+
   return (
     <div className="season-records">
       <div>
         <h2 className="season-records-title">Season Records</h2>
-        <table className="container2" style={{width: "70vw"}}>
+        <table className="container2" style={{ width: "70vw" }}>
           <thead>
             <tr>
               <th onClick={() => handleColumnHeaderClick("name")}>
-                Name
+                Name {renderSortArrow("name")}
               </th>
               <th onClick={() => handleColumnHeaderClick("points")}>
-                Total Points
+                Total Points {renderSortArrow("points")}
               </th>
               <th onClick={() => handleColumnHeaderClick("fastestLap")}>
-                Fastest Laps
+                Fastest Laps {renderSortArrow("fastestLap")}
               </th>
               <th onClick={() => handleColumnHeaderClick("dotd")}>
-                Driver of the Day
+                Driver of the Day {renderSortArrow("dotd")}
               </th>
-              <th onClick={() => handleColumnHeaderClick("dnf")}>DNFs</th>
+              <th onClick={() => handleColumnHeaderClick("dnf")}>
+                DNFs {renderSortArrow("dnf")}
+              </th>
               <th onClick={() => handleColumnHeaderClick("polePosition")}>
-                Pole Positions
+                Pole Positions {renderSortArrow("polePosition")}
               </th>
             </tr>
           </thead>
