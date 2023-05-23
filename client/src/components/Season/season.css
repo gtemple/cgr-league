@@ -38,13 +38,15 @@
 }
 
 .dotd {
-  border-style: solid;
-  border-color: blue;
-  border-width: 1px;
+  text-decoration: underline;
+  text-decoration-color: blue;
+  text-decoration-thickness: 2px;
 }
 
 .dnf {
-  background-color: red;
+  border-style: solid;
+  border-color: red;
+  border-width: 1px;
 }
 
 .pole-position {
