@@ -178,7 +178,7 @@ const SeasonTable = () => {
       )}
       <div className='legend'>
         <div style={{ color: 'green' }}>Pole Position</div>
-        <div style={{ color: 'purple' }}>Fastest Lap</div>
+        <div style={{ color: 'violet' }}>Fastest Lap</div>
         <div style={{ color: 'blue' }}>Driver of the Day</div>
         <div style={{ color: 'red' }}>DNF</div>
       </div>
