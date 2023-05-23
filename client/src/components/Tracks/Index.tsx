@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
 import useGetTrack from '../../Hooks/useGetTrackData';
 import useGetImage from '../../Hooks/useGetImage';
 
@@ -34,9 +33,15 @@ const Tracks = () => {
           <div className='track-container'>
             <div className='track-lvl-1'>
               <img src={img} className='track-layout' alt="Track Layout" />
+              <div>
+                <div>City: {trackData[0].tracks.city}</div>
+                <div>Country: {trackData[0].tracks.country}</div>
+                <div>Track Distance: {trackData[0].tracks.distance} meters</div>
+              </div>
+           </div>
+
             {/*// @ts-ignore */}
               <AllTime trackData={trackData}/>
-            </div>
             {/*//@ts-expect-error */}
             <Track trackData={trackData} />
           </div>

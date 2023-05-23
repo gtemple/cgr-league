@@ -6,22 +6,16 @@ html, div {
   background-color: #292F36;
 }
 
-.container2 td {
-  font-weight: normal;
-  font-size: 1em;
--webkit-box-shadow: 0 2px 2px -2px #0E1119;
-   -moz-box-shadow: 0 2px 2px -2px #0E1119;
-        box-shadow: 0 2px 2px -2px #0E1119;
-}
-
 .container2 {
   text-align: left;
   overflow: hidden;
   width: 24vw;
   min-width: 250px;
   margin: auto;
-display: table;
-padding: 0 0 8em 0;
+  display: table;
+  padding: 0 0 8em 0;
+  color: rgb(149, 149, 149);
+  font-weight: 200;
 }
 
 .container2 td, .container2 th {

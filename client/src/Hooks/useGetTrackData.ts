@@ -14,7 +14,7 @@ interface TrackData {
   seasons: { id: number; game: string } | { id: number; game: string }[] | null;  pole_position: boolean | undefined;
   sprint: boolean;
   teams: { team_name: string };
-  tracks: { distance: number; img: null | string | undefined; layout: null | string | undefined; name: string };
+  tracks: { distance: number; city: string; country: string; img: null | string | undefined; layout: null | string | undefined; name: string };
   users: {
     country_of_representation: string;
     first_name: string;
@@ -51,7 +51,7 @@ export default function useGetTrack(id: string | undefined) {
         users (id, human, first_name, last_name, country_of_representation, initials, profile_image),
         seasons (id, game),
         teams (team_name),
-        tracks (name, distance, layout, img)
+        tracks (name, city, country, distance, layout, img)
       `)
     .eq('track_id', trackId)
     if (error) {
