@@ -1,15 +1,16 @@
 import * as _ from "../../../helpers/sumSeasonPoints";
-import { useState } from "react";
-import { BsFillCaretDownFill, BsFillCaretUpFill } from "react-icons/bs";
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { BsFillCaretDownFill, BsFillCaretUpFill } from 'react-icons/bs';
 
-import "../home.css";
+import '../home.css';
 
 type ScoreTuple = [number, string, string];
-    //@ts-expect-error
+//@ts-expect-error
 
 const StandingsList = (props: { seasonData: ObjectType }) => {
   const [showTopRows, setShowTopRows] = useState(true);
-    //@ts-expect-error
+//@ts-expect-error
   const results = (results: ObjectType) => {
     const totalInfo = _.totalSeasonScore(results);
     const totalInfoArray: ScoreTuple[] = [];
@@ -18,7 +19,7 @@ const StandingsList = (props: { seasonData: ObjectType }) => {
       totalInfoArray.push([
         totalInfo[i].totalPoints,
         i,
-        [totalInfo[i].first_name, totalInfo[i].last_name].join(" "),
+        [totalInfo[i].first_name, totalInfo[i].last_name].join(' '),
       ]);
     }
 
@@ -34,12 +35,16 @@ const StandingsList = (props: { seasonData: ObjectType }) => {
     }
 
     return displayedScores.map((score, index) => {
-      const position = showTopRows ? index + 1 : sortedScores.length - 10 + index + 1;
+      const position = showTopRows
+        ? index + 1
+        : sortedScores.length - 10 + index + 1;
 
       return (
         <tr className="standings-cell" key={score[1]}>
           <th>{position}</th>
-          <th>{score[2]}</th>
+          <th>
+            <Link to={`/drivers/${score[1]}`}>{score[2]}</Link>
+          </th>
           <th>{score[0]}</th>
         </tr>
       );
@@ -54,9 +59,7 @@ const StandingsList = (props: { seasonData: ObjectType }) => {
     <div>
       <div className="container">
         <table className="standings">
-          <tbody>
-            {props.seasonData && results(props.seasonData)}
-          </tbody>
+          <tbody>{props.seasonData && results(props.seasonData)}</tbody>
         </table>
         <button className="show-rows" onClick={toggleShowTopRows}>
           {showTopRows ? <BsFillCaretDownFill /> : <BsFillCaretUpFill />}

@@ -24,7 +24,7 @@ display: table;
 padding: 0 0 8em 0;
 }
 
-.container2 td, .container th {
+.container2 td, .container2 th {
   padding-bottom: 2%;
   padding-top: 2%;
 padding-left:2%;  
@@ -42,6 +42,7 @@ padding-left:2%;
 
 .container2 th {
   background-color: #1F2739;
+  color: #FFE66D;
 }
 
 .container2 td:first-child { color: #FB667A; }
