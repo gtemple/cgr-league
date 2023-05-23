@@ -153,10 +153,10 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
                 Driver of the Day {renderSortArrow("dotd")}
               </th>
               <th onClick={() => handleColumnHeaderClick("dnf")}>
-                DNFs {renderSortArrow("dnf")}
+                DNFs* {renderSortArrow("dnf")}
               </th>
               <th onClick={() => handleColumnHeaderClick("polePosition")}>
-                Pole Positions {renderSortArrow("polePosition")}
+                Pole Positions** {renderSortArrow("polePosition")}
               </th>
             </tr>
           </thead>
@@ -173,6 +173,8 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
             ))}
           </tbody>
         </table>
+        <div style={{color: 'yellow'}}>*Tracked as of Season 5</div>
+        <div style={{color: 'yellow'}}>**Tracked as of Season 3</div>
       </div>
     </div>
   );

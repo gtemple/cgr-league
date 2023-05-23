@@ -61,3 +61,8 @@
   display: flex;
   justify-content: space-between;
 }
+
+.season-list{
+  display: flex;
+  flex-wrap: wrap;
+}
