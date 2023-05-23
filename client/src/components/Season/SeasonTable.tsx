@@ -96,9 +96,9 @@ const SeasonTable = () => {
             <Accordion.Item key={index} eventKey={String(index)}>
               <Accordion.Header>{row.name}</Accordion.Header>
               <Accordion.Body>
-                <Table>
+                <Table className='season-table'>
                   <thead>
-                    <tr className="season-table">
+                    <tr>
                       <th>Name</th>
                       <th>Position</th>
                     </tr>
@@ -112,7 +112,7 @@ const SeasonTable = () => {
                         }`}
                       >
                         <td>{cell.initial}</td>
-                        <td>{cell.position}</td>
+                        <td style={{color: 'rgb(149, 149, 149)'}}>{cell.position}</td>
                       </tr>
                     ))}
                   </tbody>

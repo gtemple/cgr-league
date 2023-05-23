@@ -8,15 +8,30 @@
 }
 
 .season-table {
-  border-style: solid;
-  border-width: 2px;
-  border-color: black;
   margin: auto;
+  padding: 0 0 8em 0;
+  color: rgb(149, 149, 149);
+  font-weight: 200;
+  margin: auto;
+  text-align: center;
+  overflow: hidden;
 }
 
-.season-cell {
-  margin: 8px
+/* Background-color of the odd rows */
+.season-table tr:nth-child(odd) {
+  background-color: #323C50;
 }
+/* Background-color of the even rows */
+.season-table tr:nth-child(even) {
+  background-color: #2C3446;
+}
+
+.season-table th {
+  background-color: #1F2739;
+  color: #FFE66D;
+}
+
+.season-table td:first-child { color: #FB667A; }
 
 .fastest-lap {
   color: purple;

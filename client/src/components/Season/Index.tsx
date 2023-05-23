@@ -14,6 +14,7 @@ const Season = () => {
 
   return (
     <div className='season'>
+      <div className='current-season-title'>Season {id}</div>
       <SeasonTable key={id} />
       <SeasonRecords seasonData={seasonData} />
     </div>
