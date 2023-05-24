@@ -1,5 +1,7 @@
 import StandingsList from './StandingsList'
 import UserList from './UserList';
+import TwitchPopout from "./TwitchPopout";
+
 
 import '../home.css'
 import ConstructorsStandings from './ConstructorsStandings';
@@ -19,8 +21,9 @@ const CurrentSeasonStats = (props: { seasonData: ObjectType; currentSeason: numb
           <div className='current-season-container-title'>Driver Standings</div>
           <StandingsList seasonData={props.seasonData} />
         </div>
-        <div className='current-season-container'>
+        <div className='current-season-container2'>
           <UserList seasonData={props.seasonData} />
+          <TwitchPopout />
         </div>
       </div>
     </div>

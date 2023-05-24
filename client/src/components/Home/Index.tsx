@@ -1,5 +1,6 @@
 import CurrentSeasonStats from './CurrentSeasonStats/Index'
 import CurrentSeasonSchedule from './CurrentSeasonSchedule/Index'
+
 import useGetSeason from '../../Hooks/useGetSeason'
 
 
@@ -20,12 +21,9 @@ const { seasonData } = useGetSeason(currentSeason);
         <img src={background} className='background-image bottom-border' />
       </div>
       <div>
-      </div>
-      <div>
         <CurrentSeasonStats seasonData={seasonData} currentSeason={currentSeason}/>
         <CurrentSeasonSchedule seasonData={seasonData} currentSeason={currentSeason} />
       </div>
-
     </div>
   )
 }

@@ -115,9 +115,10 @@ const UserList = (props: Props) => {
             <div className='bar bronze-chart' style={{height: `${calculateChartSize(userData[2].points, userData[1].points, userData[0].points)}px`}}>{userData[2].points}</div> 
             <div>{userData[2].firstName.slice(-0, 1) + '.'} {userData[2].lastName}</div>
           </div>
+          <div>
+          </div>
         </div>
-      )} 
-      <div></div>
+      )}
     </div>
   )
 }

@@ -12,7 +12,6 @@
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
-
 .current-season {
   background-color: #121417;
   margin: 0 10% 0 10%;
@@ -42,6 +41,14 @@
 
 .current-season-container {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.current-season-container2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin: 0 0 30px 0;
 }
 
 .current-season-container-title {
@@ -76,23 +83,30 @@ padding-left:2%;
   border-width: 4px;
 }
 
+.twitch {
+  background-color: black;
+  text-align: center;
+  border-style: solid;
+  border-color: black;
+  border-width: 9px;
+
+}
+
 .chart {
   display: flex;
   justify-content: center;
-  width: 65vw;
+  width: 30vw;
   padding: 20px 0 0 0;
   z-index: 2;
   color: white;
-  margin: 0 0 30px 0;
 }
 
 .background-image2 {
   object-fit: cover;
   position: absolute;
-  width: 65vw;
-  height: 210px;
+  width: 30vw;
+  height: 240px;
   padding-bottom: 5px;
-  z-index: 1;
   filter: brightness(30%);
   border-style: solid;
   border-width: 9px;
@@ -140,6 +154,11 @@ padding-left:2%;
   border-radius: 8px
 }
 
+.twitch {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
 
 .schedule-container {
   background-color: #121417;
