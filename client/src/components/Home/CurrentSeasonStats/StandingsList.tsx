@@ -2,10 +2,12 @@ import * as _ from "../../../helpers/sumSeasonPoints";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { BsFillCaretDownFill, BsFillCaretUpFill } from 'react-icons/bs';
+import convertTeam from '../../../helpers/convertTeam'
+
 
 import '../home.css';
 
-type ScoreTuple = [number, string, string];
+type ScoreTuple = [number, string, string, string];
 //@ts-expect-error
 
 const StandingsList = (props: { seasonData: ObjectType }) => {
@@ -20,7 +22,9 @@ const StandingsList = (props: { seasonData: ObjectType }) => {
         totalInfo[i].totalPoints,
         i,
         [totalInfo[i].first_name, totalInfo[i].last_name].join(' '),
-      ]);
+        totalInfo[i].team
+        ],
+      );
     }
 
     const sortedScores = totalInfoArray.sort(
@@ -35,6 +39,7 @@ const StandingsList = (props: { seasonData: ObjectType }) => {
     }
 
     return displayedScores.map((score, index) => {
+      const teamClass = convertTeam(score[3]) + ' ' + 'team-box';
       const position = showTopRows
         ? index + 1
         : sortedScores.length - 10 + index + 1;
@@ -43,7 +48,7 @@ const StandingsList = (props: { seasonData: ObjectType }) => {
         <tr key={score[1]}>
           <td>{position}</td>
           <td>
-            <Link to={`/drivers/${score[1]}`} className='no-link-2'>{score[2]}</Link>
+            <Link to={`/drivers/${score[1]}`} className='no-link-2'>{score[2]} <div className={teamClass} /></Link>
           </td>
           <td>{score[0]}</td>
         </tr>

@@ -45,7 +45,8 @@ export const totalSeasonScore = (races:ArrayType): ObjectType => {
         totalPoints: positionScore(race.position, race.fastest_lap),
         first_name: race.users.first_name,
         last_name: race.users.last_name,
-        human: race.users.human
+        human: race.users.human,
+        team: race.teams.team_name
       }
     }
   })
