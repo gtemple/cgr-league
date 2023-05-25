@@ -67,3 +67,43 @@ transition-timing-function: line;
 .container2 td:nth-child(4),
 .container2 th:nth-child(4) { display: none; }
 }
+
+.red-bull {
+  background-color: #3672c6;
+}
+
+.aston-martin {
+  background-color: #358c75;
+}
+
+.mercedes {
+  background-color: #6bd4bf;
+}
+
+.ferrari {
+  background-color: #fa1436;
+}
+
+.mclaren {
+  background-color: #f5801f;
+}
+
+.alpine {
+  background-color: #2293d1;
+}
+
+.haas {
+  background-color: gainsboro;
+}
+
+.alfa-romeo {
+  background-color: #c92e4b;
+}
+
+.alpha-tauri {
+  background-color: #5e90aa;
+}
+
+.williams {
+  background-color: #37bedd;
+}
