@@ -43,7 +43,7 @@ const StandingsList = (props: { seasonData: ObjectType }) => {
         <tr key={score[1]}>
           <td>{position}</td>
           <td>
-            <Link to={`/drivers/${score[1]}`}>{score[2]}</Link>
+            <Link to={`/drivers/${score[1]}`} className='no-link-2'>{score[2]}</Link>
           </td>
           <td>{score[0]}</td>
         </tr>

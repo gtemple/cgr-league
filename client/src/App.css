@@ -18,6 +18,14 @@ html, div {
   font-weight: 200;
 }
 
+.no-link-2 {
+  color: rgb(149, 149, 149);
+  font-weight: 200;
+
+  text-decoration: none;
+
+}
+
 .container2 td, .container2 th {
   padding-bottom: 2%;
   padding-top: 2%;

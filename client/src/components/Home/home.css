@@ -52,7 +52,8 @@
 }
 
 .current-season-container-title {
-  color: #F8F4F9;
+  background-color: #1F2739;
+  color: #FFE66D;
   text-align: center;
   font-size: 1.5vw;
 
@@ -63,11 +64,6 @@
 .standings {
   width: 37vw;
   min-width: 250px;
-  text-align: left;
-  overflow: hidden;
-  margin: auto;
-  display: table;
-  padding: 0 0 8em 0;
 }
 
 .twitch {
