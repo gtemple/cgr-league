@@ -76,6 +76,10 @@ transition-timing-function: line;
 .container2 th:nth-child(4) { display: none; }
 }
 
+.team-box {
+  width: 10px;
+  height: 3px;
+}
 .red-bull {
   background-color: #3672c6;
 }
