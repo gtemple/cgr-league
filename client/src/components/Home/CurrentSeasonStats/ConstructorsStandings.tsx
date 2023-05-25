@@ -13,21 +13,21 @@ const ConstructorsStandings = (props: { seasonData: ObjectType }) => {
     return infoArray.map((team, index) =>{
       position++
       return (
-        <tr className="standings-cell" key={index}>
-          <th>{position}</th>
-          <th>{team}</th>
-          <th>{(
+        <tr key={index}>
+          <td>{position}</td>
+          <td>{team}</td>
+          <td>{(
             //@ts-expect-error
             totalInfo[team]
-            )}</th>
+            )}</td>
         </tr>
       )
     })
   };
 
   return (
-    <div className='container'>
-      <table className="standings">
+    <div>
+      <table className="container2 standings">
         <tbody>
           {props.seasonData && results(props.seasonData)}
         </tbody>

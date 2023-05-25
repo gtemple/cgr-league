@@ -40,12 +40,12 @@ const StandingsList = (props: { seasonData: ObjectType }) => {
         : sortedScores.length - 10 + index + 1;
 
       return (
-        <tr className="standings-cell" key={score[1]}>
-          <th>{position}</th>
-          <th>
+        <tr key={score[1]}>
+          <td>{position}</td>
+          <td>
             <Link to={`/drivers/${score[1]}`}>{score[2]}</Link>
-          </th>
-          <th>{score[0]}</th>
+          </td>
+          <td>{score[0]}</td>
         </tr>
       );
     });
@@ -57,8 +57,8 @@ const StandingsList = (props: { seasonData: ObjectType }) => {
 
   return (
     <div>
-      <div className="container">
-        <table className="standings">
+      <div>
+        <table className="container2 standings">
           <tbody>{props.seasonData && results(props.seasonData)}</tbody>
         </table>
         <button className="show-rows" onClick={toggleShowTopRows}>
