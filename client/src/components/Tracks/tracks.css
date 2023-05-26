@@ -29,20 +29,20 @@
 }
 
 .track-layout {
-  max-width: 30vw;
-  max-height: 20vw;
-  min-width: 200px;
-  min-height: 200px;
+  max-width:20vw;
+  max-height:25vw;
+  min-height: auto;
+  width: auto;
+  height: auto;
   border-style: solid;
   border-width: 2px;
   border-color: #FFE66D;
   border-radius: 3px;
-  margin: auto;
 }
 
 .track-container {
   background-color: #121417;
-  margin: 0 10% 0 10%;
+  margin: 0 5% 0 5%;
   padding: 0 0 20px 0;
   border-style: solid;
   border-color: #FFE66D;
@@ -71,4 +71,25 @@ h2 {
 
 .track-season{
   margin: 20px auto;
+}
+
+.tracks-table {
+  width: 70vw;
+  margin: 30px 0 0 0;
+}
+
+.season-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+@media only screen and (max-width: 850px) {
+  .track-container{ 
+    margin: 0;
+    border: none;
+  }
+  .track-table {
+    width: 100%
+  }
 }

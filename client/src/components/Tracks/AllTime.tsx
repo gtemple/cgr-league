@@ -76,7 +76,7 @@ const AllTime: React.FC<Props> = ({ trackData }) => {
 
   return (
     <div className="all-time-stats">
-      <table className="container2">
+      <table className="container2 tracks-table">
         <thead>
           <tr>
             <th>Name</th>
