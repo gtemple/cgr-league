@@ -1,4 +1,7 @@
 .user{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
   background-color: #121417;
   margin: 0 10% 0 10%;
   border-style: solid;
@@ -8,10 +11,12 @@
   border-width: 0 2px 0 2px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
+
 .bio {
   border-color: #1F1F1F;
   background-color: lightgray;
-  width: 900px;
+  width: 77vw;
+  height:fit-content;
   margin: 10px 0 5px 10px;
   padding: 20px 20px 20px 20px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -21,8 +26,10 @@
 .bio-img {
   object-fit: cover;
   object-position: 0 0%;
-  width:  300px;
-  height: 240px;
+  width:  16vw;
+  min-width: 200px;
+  height: 14vw;
+  min-height: 170px;
   margin-right: 20px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
@@ -35,6 +42,7 @@
 
 .bio-details {
   display: flex;
+  flex-wrap: wrap;
   font-size: 17px;
 }
 
@@ -44,7 +52,7 @@
 
 .bio-secondary {
   display: flex;
-  width: 300px;
+  width: 80vw;
   justify-content: flex-start ;
   font-size: 18px;
   margin: 8px 0 0 6px;
@@ -62,10 +70,39 @@
 .all-time {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .season-list{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  gap: 20px;
+}
+
+
+@media only screen and (max-width: 850px) {
+  .user{ 
+    margin: 0;
+    border: none;
+  }
+  .bio-details{
+  justify-content: center;
+  text-align: center;
+  }
+
+  .bio-img{
+    margin: 0;
+  }
+  .bio-secondary{
+    justify-content: center;
+    width: 100%
+  }
+  .all-time {
+    justify-content: center;
+    text-align: center;
+  }
+  .container2 {
+    width: 100vw;
+  }
 }
