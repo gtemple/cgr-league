@@ -63,3 +63,94 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (2, 1401, 3, 9, 12, false, false, false, false, 5, false, 14, 17),
                           (2, 1402, 3, 24, 20, false, false, false, false, 5, false, 14, 18),
                           (2, 1403, 3, 2, 19, false, false, false, false, 5, false, 13, 19);
+
+-- Lewis Hamilton
+INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest_lap, dotd, pole_position, season_id, sprint, race_distance, race_order)
+                  VALUES  (5, 1404, 11, 3, 4, false, false, false, false, 5, false, 18, 1),
+                          (5, 1405, 11, 25, 7, false, false, false, false, 5, false, 17, 2),
+                          (5, 1479, 11, 5, 6, false, false, false, false, 5, false, 18, 3),  
+                          (5, 1406, 11, 11, 8, false, false, false, false, 5, false, 18, 4),  
+                          (5, 1407, 11, 20, 5, false, false, false, false, 5, false, 18, 5),
+                          (5, 1408, 11, 13, 5, false, false, false, false, 5, false, 11, 6),
+                          (5, 1409, 11, 6, 6, false, false, false, false, 5, false, 11, 7),  
+                          (5, 1410, 11, 22, 4, false, false, false, false, 5, false, 15, 8),
+                          (5, 1411, 11, 14, 6, false, false, false, false, 5, false, 18, 9),
+                          (5, 1412, 11, 26, 3, false, false, false, false, 5, false, 13, 10),
+                          (5, 1413, 11, 1, 8, false, false, false, false, 5, false, 13, 11),
+                          (5, 1414, 11, 7, 13, false, false, false, false, 5, true, 5, 12),
+                          (5, 1415, 11, 7, 15, false, false, false, false, 5, false, 16, 13),
+                          (5, 1416, 11, 15, 4, false, false, false, false, 5, false, 13, 14),
+                          (5, 1417, 11, 12, 4, false, false, false, false, 5, false, 18, 15),
+                          (5, 1418, 11, 4, 5, false, false, false, false, 5, false, 14, 16),
+                          (5, 1419, 11, 9, 4, false, false, false, false, 5, false, 14, 17),
+                          (5, 1420, 11, 24, 8, false, false, false, false, 5, false, 14, 18),
+                          (5, 1421, 11, 2, 3, false, false, false, false, 5, false, 13, 19);
+
+-- George Russel
+INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest_lap, dotd, pole_position, season_id, sprint, race_distance, race_order)
+                  VALUES  (5, 1422, 11, 3, 20, false, false, false, false, 5, false, 18, 1),
+                          (5, 1423, 11, 25, 8, false, false, false, false, 5, false, 17, 2),
+                          (5, 1424, 11, 5, 7, false, false, false, false, 5, false, 18, 3),  
+                          (5, 1425, 11, 11, 11, false, false, false, false, 5, false, 18, 4),  
+                          (5, 1426, 11, 20, 18, false, false, false, false, 5, false, 18, 5),
+                          (5, 1427, 11, 13, 11, false, false, false, false, 5, false, 11, 6),
+                          (5, 1428, 11, 6, 5, false, false, false, false, 5, false, 11, 7),  
+                          (5, 1429, 11, 22, 6, false, false, false, false, 5, false, 15, 8),
+                          (5, 1430, 11, 14, 9, false, false, false, false, 5, false, 18, 9),
+                          (5, 1431, 11, 26, 7, false, false, false, false, 5, false, 13, 10),
+                          (5, 1432, 11, 1, 6, false, false, false, false, 5, false, 13, 11),
+                          (5, 1433, 11, 7, 7, false, false, false, false, 5, true, 5, 12),
+                          (5, 1434, 11, 7, 4, false, false, false, false, 5, false, 16, 13),
+                          (5, 1435, 11, 15, 17, false, false, false, false, 5, false, 13, 14),
+                          (5, 1436, 11, 12, 5, false, false, true, false, 5, false, 18, 15),
+                          (5, 1437, 11, 4, 9, false, false, false, false, 5, false, 14, 16),
+                          (5, 1438, 11, 9, 6, false, false, false, false, 5, false, 14, 17),
+                          (5, 1439, 11, 24, 5, false, false, false, false, 5, false, 14, 18),
+                          (5, 1440, 11, 2, 5, false, false, false, false, 5, false, 13, 19);
+
+-- Max Verstappen
+
+INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest_lap, dotd, pole_position, season_id, sprint, race_distance, race_order)
+                VALUES    (4, 1441, 13, 25, 1, false, true, false, false, 5, false, 17, 2),
+                          (4, 1442, 13, 3, 1, false, true, false, true, 5, false, 18, 1),
+                          (4, 1443, 13, 5, 19, false, false, false, true, 5, false, 18, 3),  
+                          (4, 1444, 13, 11, 2, false, false, true, false, 5, false, 18, 4),  
+                          (4, 1445, 13, 20, 10, false, false, false, true, 5, false, 18, 5),
+                          (4, 1446, 13, 13, 4, false, false, false, false, 5, false, 11, 6),
+                          (4, 1447, 13, 6, 2, false, false, false, false, 5, false, 11, 7),  
+                          (4, 1448, 13, 22, 1, false, true, false, true, 5, false, 15, 8),
+                          (4, 1449, 13, 14, 2, false, false, false, false, 5, false, 18, 9),
+                          (4, 1450, 13, 26, 1, false, false, false, true, 5, false, 13, 10),
+                          (4, 1451, 13, 1, 3, false, false, false, false, 5, false, 13, 11),
+                          (4, 1452, 13, 7, 1, false, true, false, true, 5, true, 5, 12),
+                          (4, 1453, 13, 7, 1, false, true, false, true, 5, false, 16, 13),
+                          (4, 1454, 13, 15, 1, false, false, false, true, 5, false, 13, 14),
+                          (4, 1455, 13, 12, 1, false, true, false, true, 5, false, 18, 15),
+                          (4, 1456, 13, 4, 2, false, false, false, false, 5, false, 14, 16),
+                          (4, 1457, 13, 9, 1, false, true, true, false, 5, false, 14, 17),
+                          (4, 1458, 13, 24, 1, false, true, false, true, 5, false, 14, 18),
+                          (4, 1459, 13, 2, 20, false, false, false, true, 5, false, 13, 19);
+
+-- Sergio Perez
+INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest_lap, dotd, pole_position, season_id, sprint, race_distance, race_order)
+                  VALUES  (4, 1460, 14, 3, 3, false, false, false, false, 5, false, 18, 1),
+                          (4, 1461, 14, 25, 3, false, false, false, false, 5, false, 17, 2),
+                          (4, 1462, 14, 5, 3, false, false, false, false, 5, false, 18, 3),  
+                          (4, 1463, 14, 11, 1, false, true, false, false, 5, false, 18, 4),  
+                          (4, 1464, 14, 20, 3, false, false, false, false, 5, false, 18, 5),
+                          (4, 1465, 14, 13, 20, false, false, false, false, 5, false, 11, 6),
+                          (4, 1466, 14, 6, 1, false, true, false, true, 5, false, 11, 7),  
+                          (4, 1467, 14, 22, 2, false, false, false, false, 5, false, 15, 8),
+                          (4, 1468, 14, 14, 4, false, false, false, false, 5, false, 18, 9),
+                          (4, 1469, 14, 26, 2, false, true, false, true, 5, false, 13, 10),
+                          (4, 1470, 14, 1, 2, false, false, false, false, 5, false, 13, 11),
+                          (4, 1471, 14, 7, 8, false, false, false, false, 5, true, 5, 12),
+                          (4, 1472, 14, 7, 8, false, false, false, false, 5, false, 16, 13),
+                          (4, 1473, 14, 15, 10, false, false, false, false, 5, false, 13, 14),
+                          (4, 1474, 14, 12, 2, false, false, false, false, 5, false, 18, 15),
+                          (4, 1475, 14, 4, 1, false, true, false, true, 5, false, 14, 16),
+                          (4, 1476, 14, 9, 2, false, false, false, true, 5, false, 14, 17),
+                          (4, 1477, 14, 24, 3, false, false, false, false, 5, false, 14, 18),
+                          (4, 1478, 14, 2, 1, false, false, false, false, 5, false, 13, 19);
+
+                          --next one is 1480

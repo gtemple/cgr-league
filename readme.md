@@ -20,8 +20,8 @@ There are 20 drivers on the grid each race - Cole, Giordano, and Ryan, as well a
 - The server is currently provided by Supabase. The Express server in this repository was from an older version of this app and has been kept in case any offline work is ever required and the Supabase hosted database cannot be accessed.
 
 ## Things to add:
+- Optimize for mobile
 - Continue to work on styling
 - Add team pages
-- A popout will be shown in case we are streaming
 - Possible articles page that provide race recaps as well as full race videos
 - An admin login to be added so that data can be added through the front end rather than doing so by directly interacting with the database
