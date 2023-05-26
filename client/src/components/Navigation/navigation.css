@@ -10,13 +10,14 @@
   display: none;
 }
 
+.nav-drop-menu.show {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr 1fr !important;
+  width: 900px !important;
+}
 
 
-@media only screen and (min-width: 850px) {
-  .nav-bar{
-    display: flex;
-    justify-content: center;
-  }
+@media only screen and (-width: 850px) {
   .nav-drop-menu.show {
     display: flex !important;
     flex-direction: column;
