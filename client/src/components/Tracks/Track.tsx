@@ -17,6 +17,9 @@ const Track: React.FC<Props> = ({ trackData }) => {
           return userData ? { user, position: userData.position } : null;
         });
 
+        // Sort the userPositions array based on the position
+        userPositions.sort((a, b) => a.position - b.position);
+
         return (
           <div>
             <h2>Season {seasonId} results</h2>
