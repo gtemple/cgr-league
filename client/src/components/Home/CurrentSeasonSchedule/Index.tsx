@@ -48,10 +48,10 @@ function createRaceOrder(data: any[]): IRaceOrder {
       //@ts-expect-error
       raceData.previousRace2.position[result.position] = `${result.users.first_name[0]}. ${result.users.last_name}`
     }
-    if (result.race_order == firstRace + 1 && result.position === 0) {
+    if (result.race_order == firstRace && result.position === 0) {
       raceData.currentRace = result.tracks.name
     }
-    if (result.race_order == firstRace + 2 && result.position === 0) {
+    if (result.race_order == firstRace + 1 && result.position === 0) {
       raceData.currentRace = result.tracks.name
     }
     
