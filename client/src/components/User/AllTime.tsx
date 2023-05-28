@@ -11,7 +11,8 @@ interface AllTime {
   'podiums'?: number,
   'wins'?: number,
   'fastestLaps'?: number,
-  'dotd'?: number
+  'dotd'?: number,
+  'averagePosition'?: number
 }
 
 const AllTime = (props: Props) => {
@@ -26,13 +27,15 @@ const AllTime = (props: Props) => {
     const wins = _.totalWins(userData)
     const fastestLaps = _.totalFastestLaps(userData);
     const dotd = _.totalDOTDs(userData);
+    const averagePosition = _.averagePosition(userData);
 
     setAllTimeStats({
       'points': points,
       'podiums': podiums,
       'wins': wins,
       'fastestLaps': fastestLaps,
-      'dotd': dotd
+      'dotd': dotd,
+      'averagePosition': averagePosition
     })
   }, [userData])
 
@@ -49,6 +52,8 @@ const AllTime = (props: Props) => {
           <div>
             <div>All Time podiums: {allTimeStats.podiums}</div>
             <div>All Time wins: {allTimeStats.wins}</div>
+            <div>Average Position: {allTimeStats.averagePosition?.toFixed(1)}</div>
+
           </div>
         </div>)}
     </div>

@@ -12,6 +12,20 @@ export const lifetimePoints = (races: []): number => {
     return totalPoints
 }
 
+export const averagePosition = (races: []): number => {
+  let totalPositions = 0;
+  let totalRaces = 0;
+
+  races.forEach((race: RaceResults) => {
+    if (race.position !== 0) {
+      totalPositions += race.position;
+      totalRaces++
+    }
+  });
+
+  return totalPositions / totalRaces;
+}
+
 export const lifetimeLaps = (races: []): number => {
   let totalLaps = 0;
 
