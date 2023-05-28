@@ -76,13 +76,13 @@ const SeasonTable = () => {
     const positions = rows
       .flatMap((row) =>
         row.cells
-          .filter((cell) => cell.initial === initial)
+          .filter((cell) => cell.initial === initial && cell.position !== 0)
           .map((cell) => cell.position)
       )
       .filter((pos) => !isNaN(pos));
     const avgPosition =
       positions.reduce((sum, pos) => sum + pos, 0) / positions.length;
-    avgPositions[initial] = avgPosition;
+    avgPositions[initial] = avgPosition || 0;
   });
 
   useEffect(() => {
@@ -121,7 +121,9 @@ const SeasonTable = () => {
                         }`}
                       >
                         <td>{cell.initial}</td>
-                        <td style={{ color: 'rgb(149, 149, 149)' }}>{cell.position}</td>
+                        <td style={{ color: 'rgb(149, 149, 149)' }}>
+                          {cell.position !== 0 ? cell.position : '-'}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -132,7 +134,7 @@ const SeasonTable = () => {
         </Accordion>
       ) : (
         // Render regular table if viewport width is greater than or equal to 768px
-        <table className="season-table">
+        <table className='season-table'>
           <thead>
             <tr>
               <th></th>
@@ -143,11 +145,15 @@ const SeasonTable = () => {
           </thead>
           <tbody>
             {rows.map((row) => (
-              <tr className="season-table" key={row.name}>
+              <tr className='season-table' key={row.name}>
                 <td>{row.name}</td>
                 {initials.map((initial) => {
                   const cell = row.cells.find((c) => c.initial === initial);
-                  const position = cell ? cell.position.toFixed(0) : '-';
+                  const position = cell
+                    ? cell.position !== 0
+                      ? cell.position.toFixed(0)
+                      : '-'
+                    : '-';
                   const classes: string[] = [];
                   if (cell?.fastest_lap) classes.push('fastest-lap');
                   if (cell?.dotd) classes.push('dotd');
@@ -168,7 +174,7 @@ const SeasonTable = () => {
                 const avgPosition = avgPositions[initial];
                 return (
                   <td key={initial}>
-                    {avgPosition ? avgPosition.toFixed(1) : '-'}
+                    {avgPosition !== 0 ? avgPosition.toFixed(1) : '-'}
                   </td>
                 );
               })}

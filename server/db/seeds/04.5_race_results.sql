@@ -435,7 +435,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (6, 1720, 30, 14, 17, false, false, false, false, 5, false, 18, 9),
                           (6, 1721, 30, 26, 11, false, false, false, false, 5, false, 13, 10),
                           (6, 1722, 30, 1, 14, false, false, false, false, 5, false, 13, 11),
-                          (6, 1723, 30, 7, 7, false, false, false, false, 5, true, 5, 12),
+                          (6, 1723, 30, 7, 9, false, false, false, false, 5, true, 5, 12),
                           (6, 1724, 30, 7, 9, false, false, false, false, 5, false, 16, 13),
                           (6, 1725, 30, 15, 11, false, false, false, false, 5, false, 13, 14),
                           (6, 1726, 30, 12, 10, false, false, false, false, 5, false, 18, 15),
