@@ -40,7 +40,7 @@ export const lifetimeDistance = (races: []): number => {
 export const totalPodiums = (races: []): number => {
   let totalPodiums = 0;
   races.forEach((race: RaceResults) => {
-    if (race.position >= 1 && race.position <= 3) {
+    if (race.position >= 1 && race.position <= 3 && !race.sprint) {
       totalPodiums++
     }
   });
@@ -51,7 +51,7 @@ export const totalPodiums = (races: []): number => {
 export const totalWins = (races: []): number => {
   let totalWins = 0;
   races.forEach((race: RaceResults) => {
-    if (race.position === 1) {
+    if (race.position === 1 && !race.sprint) {
       totalWins++
     }
   });

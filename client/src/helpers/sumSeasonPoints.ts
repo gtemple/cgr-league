@@ -78,10 +78,10 @@ export const totalConstructorScore = (races) => {
     //@ts-expect-error
     if (allScores[race.teams.team_name] != undefined) {
       //@ts-expect-error
-      allScores[race.teams.team_name] += positionScore(race.position, race.fastest_lap)
+      allScores[race.teams.team_name] += positionScore(race.position, race.fastest_lap, race.sprint)
     } else {
       //@ts-expect-error
-      allScores[race.teams.team_name] = positionScore(race.position, race.fastest_lap)
+      allScores[race.teams.team_name] = positionScore(race.position, race.fastest_lap, race.sprint)
     }
   })
   return allScores
