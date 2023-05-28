@@ -86,7 +86,7 @@ const CurrentSeasonSchedule = (props: { seasonData: ObjectType; currentSeason: n
   }, [props.seasonData]);
 
   return (
-    <div className='schedule-container'>
+    <div className='current-season'>
       {Object.keys(raceOrder).length !== 0 && (
         <>
           <div className='previous-race'>
@@ -113,11 +113,11 @@ const CurrentSeasonSchedule = (props: { seasonData: ObjectType; currentSeason: n
                 {printGridCells(raceOrder, 1, 20)}
               </div>
           </div>
-          <div>
-            {raceOrder.currentRace}
-          </div>
-          <div>
-            {raceOrder.nextRace}
+          <div className='previous-race'>
+            <div className='track-info'>
+              <div className='track-name'>Next race</div>
+              <div className='track-name'>{raceOrder.currentRace}</div>
+            </div>
           </div>
         </>
       )}
