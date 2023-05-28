@@ -63,20 +63,21 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
       dnf,
       dotd,
       pole_position,
+      sprint
     } = data;
     const { first_name, last_name } = users;
     const driverName = `${first_name} ${last_name}`;
 
     if (!userStats[driverName]) {
       userStats[driverName] = {
-        points: positionScore(position, fastest_lap),
+        points: positionScore(position, fastest_lap, sprint),
         fastestLap: fastest_lap ? 1 : 0,
         dotd: dotd ? 1 : 0,
         dnf: dnf ? 1 : 0,
         polePosition: pole_position ? 1 : 0,
       };
     } else {
-      userStats[driverName].points += positionScore(position, fastest_lap);
+      userStats[driverName].points += positionScore(position, fastest_lap, sprint);
       userStats[driverName].fastestLap += fastest_lap ? 1 : 0;
       userStats[driverName].dotd += dotd ? 1 : 0;
       userStats[driverName].dnf += dnf ? 1 : 0;

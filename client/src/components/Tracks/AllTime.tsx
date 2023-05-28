@@ -18,7 +18,7 @@ const AllTime: React.FC<Props> = ({ trackData }) => {
   const calculateSumOfPositions = (userId: number): number => {
     const userData = trackData.filter((data) => data.users.id === userId);
     return userData.reduce(
-      (acc, data) => acc + positionScore(data.position, data.fastest_lap),
+      (acc, data) => acc + positionScore(data.position, data.fastest_lap, data.sprint),
       0
     );
   };

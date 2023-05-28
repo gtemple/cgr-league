@@ -5,8 +5,7 @@ type Scores = {
 };
 
 
-export const positionScore = (position: number | null, fastestLap: boolean):number => {
-  let finalScore = 0
+export const positionScore = (position: number | null, fastestLap: boolean, sprint: boolean):number => {
   const scores:Scores = {
     '1': 25,
     '2': 18,
@@ -20,15 +19,34 @@ export const positionScore = (position: number | null, fastestLap: boolean):numb
     '10': 1,
   }
 
+  const sprintScores:Scores = {
+    '1': 8,
+    '2': 7,
+    '3': 6,
+    '4': 5,
+    '5': 4,
+    '6': 3,
+    '7': 2,
+    '8': 1
+  }
+
+  let finalScore = 0
+
+
   if (fastestLap && Number(position) < 11) {
     finalScore += 1;
   }
 
-  if (position && position !== undefined && position < 11) {
+  if (position && position !== undefined && !sprint && position < 11) {
     //@ts-expect-error
     finalScore += scores[position as keyof ObjectType]
   }
 
+  if (position && position !== undefined && sprint && position < 9) {
+    //@ts-expect-error
+    finalScore += sprintScores[position as keyof ObjectType]
+  }
+  console.log(finalScore)
   return finalScore;
 }
 
@@ -39,10 +57,10 @@ export const totalSeasonScore = (races:ArrayType): ObjectType => {
 
   races.forEach((race:RaceResults) => {
     if (allScores[race.users.id] != undefined) {
-      allScores[race.users.id].totalPoints += positionScore(race.position, race.fastest_lap)
+      allScores[race.users.id].totalPoints += positionScore(race.position, race.fastest_lap, race.sprint)
     } else {
       allScores[race.users.id] = {
-        totalPoints: positionScore(race.position, race.fastest_lap),
+        totalPoints: positionScore(race.position, race.fastest_lap, race.sprint),
         first_name: race.users.first_name,
         last_name: race.users.last_name,
         human: race.users.human,

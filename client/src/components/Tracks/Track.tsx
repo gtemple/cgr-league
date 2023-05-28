@@ -18,6 +18,7 @@ const Track: React.FC<Props> = ({ trackData }) => {
         });
 
         // Sort the userPositions array based on the position
+        //@ts-expect-error
         userPositions.sort((a, b) => a.position - b.position);
 
         return (

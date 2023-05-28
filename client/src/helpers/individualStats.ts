@@ -6,7 +6,7 @@ export const lifetimePoints = (races: []): number => {
     let totalPoints = 0;
 
     races.forEach((race: RaceResults) => {
-      totalPoints += _.positionScore(race.position, race.fastest_lap)
+      totalPoints += _.positionScore(race.position, race.fastest_lap, race.sprint)
     });
 
     return totalPoints
