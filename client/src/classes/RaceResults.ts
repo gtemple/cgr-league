@@ -7,6 +7,7 @@ export default interface RaceResults {
     position: number;
     race_distance: number;
     race_order: number;
+    pole_position: boolean;
     seasons: {
       id: number;
     };

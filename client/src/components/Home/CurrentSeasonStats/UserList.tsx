@@ -65,12 +65,12 @@ const getUserData = (raceData: RaceData[]) => {
     if (race.users.human) {
       if (humans[race.users.id] === undefined) {
         humans[race.users.id] = {
-          points: _.positionScore(race.position, race.fastest_lap),
+          points: _.positionScore(race.position, race.fastest_lap, race.sprint),
           firstName: race.users.first_name,
           lastName: race.users.last_name
         };
       } else {
-        humans[race.users.id].points += _.positionScore(race.position, race.fastest_lap);
+        humans[race.users.id].points += _.positionScore(race.position, race.fastest_lap, race.sprint);
       }
     }
   });

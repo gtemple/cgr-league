@@ -12,6 +12,7 @@ const Season = (props: Props) => {
 
   const printSeason = (races: Array<RaceResults>) => {
     const filteredRaces = races.filter((race: RaceResults) => race.seasons.id === id);
+
     if (userData && userData.length > 0 && filteredRaces.length > 0) {
       return (
         <div>
@@ -22,14 +23,14 @@ const Season = (props: Props) => {
                 <th>Track</th>
                 <th>Position</th>
               </tr>
-              {filteredRaces.map((race: RaceResults) => (
+              {filteredRaces.map((race: RaceResults) =>
+              (
+
                 <tr key={race.id}>
                   <td>{race.sprint ? 'Sprint: ' : null} {race.tracks.name}</td>
                   <td>
-                    <div>
+                  <div className={`${race.fastest_lap ? 'fastest-lap' : ''} ${race.dnf ? 'dnf' : ''} ${race.dotd ? 'dotd' : ''} ${race.pole_position ? 'pole-position' : ''}`}>
                       {race.position ? race.position : '-'}
-                      {race.fastest_lap && <div>Yes, it's the fastest lap</div>}
-                      {race.dnf && <div>Yes, it's a DNF</div>}
                     </div>
                   </td>
                 </tr>
