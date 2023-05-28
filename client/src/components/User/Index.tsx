@@ -10,7 +10,7 @@ const User = () => {
     <div className='user'>
         <Bio id={id} />
         <AllTime id={id} />
-        <SeasonList id={id} />
+        <SeasonList id={id}/>
     </div>
   )
 }

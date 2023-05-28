@@ -46,7 +46,6 @@ export const positionScore = (position: number | null, fastestLap: boolean, spri
     //@ts-expect-error
     finalScore += sprintScores[position as keyof ObjectType]
   }
-  console.log(finalScore)
   return finalScore;
 }
 

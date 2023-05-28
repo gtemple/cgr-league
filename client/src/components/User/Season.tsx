@@ -24,10 +24,10 @@ const Season = (props: Props) => {
               </tr>
               {filteredRaces.map((race: RaceResults) => (
                 <tr key={race.id}>
-                  <td>{race.tracks.name}</td>
+                  <td>{race.sprint ? 'Sprint: ' : null} {race.tracks.name}</td>
                   <td>
                     <div>
-                      {race.position}
+                      {race.position ? race.position : '-'}
                       {race.fastest_lap && <div>Yes, it's the fastest lap</div>}
                       {race.dnf && <div>Yes, it's a DNF</div>}
                     </div>

@@ -13,7 +13,7 @@ interface Cell {
   fastest_lap: boolean;
   dnf: boolean;
   dotd: boolean;
-  pole_position: boolean | null; // Add pole_position property
+  pole_position: boolean | null;
 }
 
 interface Row {
@@ -33,7 +33,7 @@ const SeasonTable = () => {
   // Group the data by name and initials
   const rows: Row[] = [];
   seasonData.forEach((data) => {
-    const name = data.tracks.name;
+    const name = data.sprint ? `Sprint: ${data.tracks.name}` : data.tracks.name;
     const initials = data.users.initials;
     const { position, fastest_lap, dnf, dotd, race_order, pole_position } = data;
 
@@ -52,7 +52,7 @@ const SeasonTable = () => {
         fastest_lap,
         dnf,
         dotd,
-        pole_position, // Add pole_position property
+        pole_position,
       });
     }
   });
@@ -158,7 +158,7 @@ const SeasonTable = () => {
                   if (cell?.fastest_lap) classes.push('fastest-lap');
                   if (cell?.dotd) classes.push('dotd');
                   if (cell?.dnf) classes.push('dnf');
-                  if (cell?.pole_position) classes.push('pole-position'); // Add className for pole position
+                  if (cell?.pole_position) classes.push('pole-position');
 
                   return (
                     <td key={initial} className={classes.join(' ')}>
