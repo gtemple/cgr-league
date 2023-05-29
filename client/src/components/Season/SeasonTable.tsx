@@ -13,7 +13,7 @@ interface Cell {
   fastest_lap: boolean;
   dnf: boolean;
   dotd: boolean;
-  pole_position: boolean | null;
+  pole_position: boolean | null | undefined;
 }
 
 interface Row {

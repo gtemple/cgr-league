@@ -21,6 +21,7 @@
   text-align: center;
   color: white;
   font-weight: 900;
+  width: 80%;
   top: 22%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -74,7 +75,6 @@
   color: #FFE66D;
   text-align: center;
   font-size: calc(25px + 0.3vw);
-  margin: 20px 0 0 0;
 }
 
 /* table */

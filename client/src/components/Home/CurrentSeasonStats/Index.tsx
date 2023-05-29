@@ -11,7 +11,7 @@ const CurrentSeasonStats = (props: { seasonData: ObjectType; currentSeason: numb
 
   return (
     <div className='current-season'>
-      <h1 className='current-season-title'>Season {props.currentSeason}</h1>
+      <h1 className='current-season-title'>SEASON {props.currentSeason}</h1>
       <div className='current-season-stats'>
         <div>
           <div className='current-season-container-title'>Constructor Standings</div>
