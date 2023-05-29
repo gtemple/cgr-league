@@ -61,12 +61,14 @@ function createRaceOrder(data: any[]): IRaceOrder {
       raceData.previousRace2.position[position] = `${users.first_name[0]}. ${users.last_name}`;
     }
 
-    if (result.race_order === firstRace && result.position === 0) {
-      raceData.currentRace = result.tracks.name;
+    if (result.race_order === firstRace + 1 && result.position === 0) {
+      const { tracks, sprint } = result;
+      raceData.currentRace = sprint ? 'Sprint: ' + tracks.name: tracks.name;
     }
 
-    if (result.race_order === firstRace + 1 && result.position === 0) {
-      raceData.currentRace = result.tracks.name;
+    if (result.race_order === firstRace + 2 && result.position === 0) {
+      const { tracks, sprint } = result;
+      raceData.nextRace = sprint ? 'Sprint: ' + tracks.name: tracks.name;
     }
   });
 
@@ -144,11 +146,15 @@ const CurrentSeasonSchedule = (props: { seasonData: any[]; currentSeason: number
             <div className="remaining-grid">{printGridCells(raceOrder, 1, 20)}</div>
           </div>
         </div>
-          <div className="race-history">
+        <div className="track-name">Upcoming Races</div>
+          <div className='upcoming'>
           <div className='previous-race-box'>
             <div className="track-info">
-              <div className="track-name2">Next race</div>
-              <div className="track-name2">{raceOrder.currentRace}</div>
+              <div className="track-name3">{raceOrder.currentRace?.substring(0, raceOrder.currentRace.length - 11)} GP</div>            </div>
+          </div>
+          <div className='previous-race-box'>
+            <div className="track-info">
+              <div className="track-name3">{raceOrder.nextRace?.substring(0, raceOrder.nextRace.length - 11)} GP</div>
             </div>
           </div>
         </div>
