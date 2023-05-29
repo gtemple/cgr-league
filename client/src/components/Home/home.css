@@ -170,6 +170,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   margin: auto;
+  margin-left: 8px;
 }
 
 .previous-race-box {
@@ -180,7 +181,6 @@
   background-color: #323C50;
   width: 230px;
   height: 150px;
-  margin: 3px;
   padding: 10px 20px 10px 20px;
   border-style: solid;
   border-color: #2C3446;
@@ -195,7 +195,7 @@
   background-color: #2C3446;
   color: rgb(149, 149, 149);
   flex: 1;
-  margin: 2px 2% 2px 2%;
+  margin: 2px 8px 2px 8px;
   padding: 10px 20px 10px 20px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }

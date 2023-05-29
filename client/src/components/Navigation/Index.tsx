@@ -1,5 +1,6 @@
-import * as React from 'react';
-import {Route, Routes, Link} from 'react-router-dom'
+import React, { useState } from 'react';
+import { Route, Routes, Link, useNavigate } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -48,6 +49,8 @@ interface Tracks {
 
 
 const Navigation = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
   const { userData } = useGetUsers();
   const { seasonData } = useGetSeasons();
   const { tracksData } = useGetTracks();
