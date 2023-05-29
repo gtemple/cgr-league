@@ -1,5 +1,8 @@
 .nav-bar {
-  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;}
+  z-index: 3;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
 
 .nav-button {
   background-color: transparent !important;

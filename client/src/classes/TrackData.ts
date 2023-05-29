@@ -8,7 +8,7 @@ export default interface TrackData {
   race_distance: number;
   race_order: number;
   seasons: { id: number; game: string};
-  pole_position: boolean | undefined;
+  pole_position: boolean | null | undefined;
   sprint: boolean;
   teams: { team_name: string };
   tracks: { distance: number; img: null; layout: null; name: string };

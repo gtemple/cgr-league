@@ -73,7 +73,7 @@ const Bio = (props: Props) => {
                 <div className='basic-stats'>
                   <div>Races – {userData2.length}</div>
                   <div>Laps – {_.lifetimeLaps(userData2)}</div>
-                  <div>Distance – {_.lifetimeDistance(userData2)/100} KM</div>
+                  <div>Distance – {(_.lifetimeDistance(userData2)/1000).toFixed(0)} KM</div>
                 </div>
               </div>
             </div>

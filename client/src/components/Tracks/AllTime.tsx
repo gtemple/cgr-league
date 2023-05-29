@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { positionScore } from "../../helpers/sumSeasonPoints";
 import TrackData from "../../classes/TrackData";
 import "./tracks.css";
@@ -7,11 +8,24 @@ interface Props {
 }
 
 const AllTime: React.FC<Props> = ({ trackData }) => {
+  const [sortColumn, setSortColumn] = useState<string>("averagePosition");
+  const [sortOrder, setSortOrder] = useState<string>("asc");
+
+  const toggleSortOrder = () => {
+    setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+  };
+
+  const handleSort = (column: string) => {
+    setSortColumn(column);
+    toggleSortOrder();
+  };
+
   // Calculate the average position for each user
   const calculateAveragePosition = (userId: number): number => {
     const userData = trackData.filter((data) => data.users.id === userId && data.position !== 0);
     const sum = userData.reduce((acc, data) => acc + data.position, 0);
-    return sum / userData.length;
+    //@ts-expect-error
+    return (sum / userData.length).toFixed(1);
   };
 
   // Calculate the sum of positions for each user
@@ -41,71 +55,72 @@ const AllTime: React.FC<Props> = ({ trackData }) => {
     return userData.reduce((acc, data) => acc + (data.dotd ? 1 : 0), 0);
   };
 
-  // Extract unique user IDs
   const uniqueUserIds = Array.from(
     new Set(trackData.map((data) => data.users.id))
   );
 
-  // Sort the user IDs by average position in ascending order for the first table
-  const sortedUserIdsAverage = [...uniqueUserIds].sort(
-    (a, b) => calculateAveragePosition(a) - calculateAveragePosition(b)
-  );
+  let sortedUserIds: number[] = [];
+  switch (sortColumn) {
+    case "averagePosition":
+      sortedUserIds = [...uniqueUserIds].sort(
+        (a, b) => calculateAveragePosition(a) - calculateAveragePosition(b)
+      );
+      break;
+    case "allTimePoints":
+      sortedUserIds = [...uniqueUserIds].sort(
+        (a, b) => calculateSumOfPositions(b) - calculateSumOfPositions(a)
+      );
+      break;
+    case "dnfCount":
+      sortedUserIds = [...uniqueUserIds].sort(
+        (a, b) => calculateDNFCount(b) - calculateDNFCount(a)
+      );
+      break;
+    case "polePositionCount":
+      sortedUserIds = [...uniqueUserIds].sort(
+        (a, b) => calculatePolePositionCount(b) - calculatePolePositionCount(a)
+      );
+      break;
+    case "dotdCount":
 
-  // Sort the user IDs by sum of positions in ascending order for the second table
-  const sortedUserIdsSum = [...uniqueUserIds].sort(
-    (a, b) => calculateSumOfPositions(b) - calculateSumOfPositions(a)
-  );
+    default:
+      sortedUserIds = uniqueUserIds;
+  }
 
-  // Sort the user IDs by DNF count in descending order for the third table
-  const sortedUserIdsDNF = [...uniqueUserIds].sort(
-    (a, b) => calculateDNFCount(b) - calculateDNFCount(a)
-  );
-
-  // Sort the user IDs by Pole Position count in descending order for the fourth table
-  const sortedUserIdsPolePosition = [...uniqueUserIds].sort(
-    (a, b) => calculatePolePositionCount(b) - calculatePolePositionCount(a)
-  );
-
-  // Sort the user IDs by DOTD count in descending order for the fifth table
-  const sortedUserIdsDOTD = [...uniqueUserIds].sort(
-    (a, b) => calculateDOTDCount(b) - calculateDOTDCount(a)
-  );
-
-  // Get the first 10 user IDs for each table
-  const first10UserIdsAverage = sortedUserIdsAverage
+  if (sortOrder === "desc") {
+    sortedUserIds.reverse();
+  }
 
   return (
     <div className="all-time-stats">
-      <table className="container2 tracks-table">
+      <table className="container2 track-table">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Average Position</th>
-            <th>All-Time Points</th>
-            <th>DNF Count</th>
-            <th>Pole Position Count</th>
-            <th>DOTD Count</th>
+            <th>User</th>
+            <th onClick={() => handleSort("averagePosition")}>
+              Avg. Position
+            </th>
+            <th onClick={() => handleSort("allTimePoints")}>
+              All Time Points
+            </th>
+            <th onClick={() => handleSort("dnfCount")}>DNF Count</th>
+            <th onClick={() => handleSort("polePositionCount")}>
+              Pole Position Count
+            </th>
+            <th onClick={() => handleSort("dotdCount")}>DOTD Count</th>
           </tr>
         </thead>
         <tbody>
-          {first10UserIdsAverage.map((userId) => {
-            const userData = trackData.find((data) => data.users.id === userId);
-            if (userData) {
-              return (
-                <tr key={userId}>
-                  <td>
-                    {userData.users.first_name} {userData.users.last_name}
-                  </td>
-                  <td>{calculateAveragePosition(userId).toFixed(1)}</td>
-                  <td>{calculateSumOfPositions(userId)}</td>
-                  <td>{calculateDNFCount(userId)}</td>
-                  <td>{calculatePolePositionCount(userId)}</td>
-                  <td>{calculateDOTDCount(userId)}</td>
-                </tr>
-              );
-            }
-            return null;
-          })}
+          {sortedUserIds.map((userId) => (
+            <tr key={userId}>
+              <td>{trackData.find((data) => data.users.id === userId)?.users.first_name} {trackData.find((data) => data.users.id === userId)?.users.last_name}</td>
+              <td>{calculateAveragePosition(userId)}</td>
+              <td>{calculateSumOfPositions(userId)}</td>
+              <td>{calculateDNFCount(userId)}</td>
+              <td>{calculatePolePositionCount(userId)}</td>
+              <td>{calculateDOTDCount(userId)}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

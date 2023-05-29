@@ -44,7 +44,7 @@ export const lifetimeDistance = (races: []): number => {
   races.forEach((race: RaceResults) => {
 
     if (race.position !== 0) {
-      totalDistance += race.tracks.distance
+      totalDistance += (race.tracks.distance * race.race_distance)
     }
   });
 

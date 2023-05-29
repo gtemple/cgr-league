@@ -28,16 +28,16 @@ interface SeasonData {
   };
 }
 
-export default function useGetSeason(id: number | string | undefined) {
-  const [seasonData, setSeasonData] = useState<SeasonData[]>([]); // Provide type annotation and initialize as an empty array
+export default function useGetAllRaceData() {
+  const [raceData, setRaceData] = useState<SeasonData[]>([]); // Provide type annotation and initialize as an empty array
   const [loaded, setLoaded] = useState<boolean>(false);
 
 
   useEffect(() => {
-    getSeasonData(id);
+    getRaceData();
   }, []);
 
-  async function getSeasonData(seasonId: number | string | undefined) {
+  async function getRaceData() {
     const { data, error } = await supabase
       .from('race_results')
       .select(`
@@ -56,7 +56,6 @@ export default function useGetSeason(id: number | string | undefined) {
         teams (team_name),
         tracks (name, distance, layout, img)
       `)
-    .eq('season_id', seasonId)
     if (error) {
       console.error(error);
       return null;
@@ -64,12 +63,12 @@ export default function useGetSeason(id: number | string | undefined) {
 
     //@ts-expect-error
   
-    setSeasonData(data)
+    setRaceData(data)
     setLoaded(true)
   }
 
 
   return {
-    seasonData,
+    raceData,
   };
 }

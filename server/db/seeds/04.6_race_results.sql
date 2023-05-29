@@ -235,7 +235,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (10, 1934, 6, 7, 5, false, false, false, false, 6, false, 16, 15),
                           (10, 1935, 6, 15, 3, false, false, false, false, 6, false, 13, 16),
                           (10, 1936, 6, 12, 12, false, false, false, false, 6, false, 18, 17),
-                          (10, 1937, 6, 4, 16, false, false, false, false, 6, false, 14, 18),
+                          (10, 1937, 6, 4, 6, false, false, false, false, 6, false, 14, 18),
                           (10, 1938, 6, 9, 0, false, false, false, false, 6, false, 14, 19),
                           (10, 1939, 6, 24, 0, false, false, false, false, 6, false, 14, 20),
                           (10, 1940, 6, 2, 0, false, false, false, false, 6, false, 13, 21);
@@ -307,7 +307,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (3, 1997, 32, 7, 14, false, false, false, false, 6, false, 16, 15),
                           (3, 1998, 32, 15, 17, false, false, false, false, 6, false, 13, 16),
                           (3, 1999, 32, 12, 15, false, false, false, false, 6, false, 18, 17),
-                          (3, 2000, 32, 4, 15, false, false, false, false, 6, false, 14, 18),
+                          (3, 2000, 32, 4, 13, false, false, false, false, 6, false, 14, 18),
                           (3, 2001, 32, 9, 0, false, false, false, false, 6, false, 14, 19),
                           (3, 2002, 32, 24, 0, false, false, false, false, 6, false, 14, 20),
                           (3, 2003, 32, 2, 0, false, false, false, false, 6, false, 13, 21);
