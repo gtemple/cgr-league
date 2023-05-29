@@ -9,7 +9,7 @@ interface RaceData {
   fastest_lap: boolean;
   id: number;
   position: number;
-  pole_position: boolean | null;
+  pole_position: boolean | null | undefined;
   race_distance: number;
   race_order: number;
   seasons: {
