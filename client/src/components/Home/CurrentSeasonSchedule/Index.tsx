@@ -101,9 +101,10 @@ const CurrentSeasonSchedule = (props: { seasonData: any[]; currentSeason: number
   const previousRaces = [raceOrder.previousRace5, raceOrder.previousRace4, raceOrder.previousRace3, raceOrder.previousRace2]
 
   return (
-    <div className="current-season">
+    <div className='current-season'>
       {Object.keys(raceOrder).length !== 0 && (
         <>
+        <div className="schedule">
           <div className="race-history">
             {previousRaces.map((race) => (
               race.name && (
@@ -142,13 +143,16 @@ const CurrentSeasonSchedule = (props: { seasonData: any[]; currentSeason: number
             </div>
             <div className="remaining-grid">{printGridCells(raceOrder, 1, 20)}</div>
           </div>
-          <div className="previous-race">
+        </div>
+          <div className="race-history">
+          <div className='previous-race-box'>
             <div className="track-info">
-              <div className="track-name">Next race</div>
-              <div className="track-name">{raceOrder.currentRace}</div>
+              <div className="track-name2">Next race</div>
+              <div className="track-name2">{raceOrder.currentRace}</div>
             </div>
           </div>
-        </>
+        </div>
+      </>
       )}
     </div>
   );

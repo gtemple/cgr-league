@@ -160,27 +160,41 @@
   color: white;
 }
 
+.schedule {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .race-history {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: auto;
 }
 
 .previous-race-box {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #FF6B6B;
+  color: rgb(149, 149, 149);
+  background-color: #323C50;
   width: 230px;
+  height: 150px;
+  margin: 3px;
   padding: 10px 20px 10px 20px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-style: solid;
+  border-color: #2C3446;
+  border-width: 4px;
+  border-radius: 3px;
 }
 
 .previous-race {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #FF6B6B;
-  width: 95%;
+  background-color: #2C3446;
+  color: rgb(149, 149, 149);
+  flex: 1;
   margin: 2px 2% 2px 2%;
   padding: 10px 20px 10px 20px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
@@ -196,8 +210,16 @@
 }
 
 .track-name {
+  color: #FB667A;
   font-size: 3vw;
 }
+.track-name2 {
+  text-align: center;
+  color: #FB667A;
+  font-size: 15px;
+  padding: 2px 0 8px 0;
+}
+
 
 .positions {
   display: flex;
@@ -205,7 +227,7 @@
   align-items: right;
   width: 100%;
   gap: 4px;
-  font-size: 1.2vw;
+  font-size: calc(10px+1vw);
 }
 .track-image {
   object-fit: cover;
