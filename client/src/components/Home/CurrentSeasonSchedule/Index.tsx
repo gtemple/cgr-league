@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import useGetImage from '../../../Hooks/useGetImage'
+import useGetImage from '../../../Hooks/useGetImage';
 
 type IRaceOrder = {
-  previousRace2: {
-    name: string | null;
-    position: { [key: number]: string };
-  };
+  previousRace5: { name: string | null; position: { [key: number]: string } };
+  previousRace4: { name: string | null; position: { [key: number]: string } };
+  previousRace3: { name: string | null; position: { [key: number]: string } };
+  previousRace2: { name: string | null; position: { [key: number]: string } };
   previousRace: {
     name: string | null;
     img: string | null;
@@ -17,62 +17,75 @@ type IRaceOrder = {
 };
 
 function createRaceOrder(data: any[]): IRaceOrder {
-  let firstRace = 0
-  let raceData = {
-    previousRace2: {
-      name: null,
-      position: {}
-    },
-    previousRace: {
-      name: null,
-      img: null,
-      layout: null,
-      position: {}
-    },
+  let firstRace = 0;
+  const raceData: IRaceOrder = {
+    previousRace5: { name: null, position: {} },
+    previousRace4: { name: null, position: {} },
+    previousRace3: { name: null, position: {} },
+    previousRace2: { name: null, position: {} },
+    previousRace: { name: null, img: null, layout: null, position: {} },
     currentRace: null,
     nextRace: null,
-  }
+  };
 
   data.forEach((result) => {
     if (result.race_order >= firstRace && result.position !== 0) {
-      firstRace = result.race_order
-      raceData.previousRace.name = result.tracks.name
-      raceData.previousRace.layout = result.tracks.layout
-      raceData.previousRace.img = result.tracks.img
-      //@ts-expect-error
-      raceData.previousRace.position[result.position] = `${result.users.first_name[0]}. ${result.users.last_name}`
+      firstRace = result.race_order;
+      const { tracks, users, position, sprint } = result;
+      raceData.previousRace.name = sprint ? 'Sprint: ' + tracks.name: tracks.name;
+      raceData.previousRace.layout = tracks.layout;
+      raceData.previousRace.img = tracks.img;
+      raceData.previousRace.position[position] = `${users.first_name[0]}. ${users.last_name}`;
     }
 
-    if (result.race_order == firstRace - 1 && result.position !== 0) {
-      raceData.previousRace2.name = result.tracks.name
-      //@ts-expect-error
-      raceData.previousRace2.position[result.position] = `${result.users.first_name[0]}. ${result.users.last_name}`
+    if (result.race_order === firstRace - 4 && result.position !== 0) {
+      const { tracks, users, position, sprint } = result;
+      raceData.previousRace5.name = sprint ? 'Sprint: ' + tracks.name: tracks.name;
+      raceData.previousRace5.position[position] = `${users.first_name[0]}. ${users.last_name}`;
     }
-    if (result.race_order == firstRace && result.position === 0) {
-      raceData.currentRace = result.tracks.name
+    if (result.race_order === firstRace - 3 && result.position !== 0) {
+      const { tracks, users, position, sprint } = result;
+      raceData.previousRace4.name = sprint ? 'Sprint: ' + tracks.name: tracks.name;
+      raceData.previousRace4.position[position] = `${users.first_name[0]}. ${users.last_name}`;
     }
-    if (result.race_order == firstRace + 1 && result.position === 0) {
-      raceData.currentRace = result.tracks.name
+
+    if (result.race_order === firstRace - 2 && result.position !== 0) {
+      const { tracks, users, position, sprint } = result;
+      raceData.previousRace3.name = sprint ? 'Sprint: ' + tracks.name: tracks.name;
+      raceData.previousRace3.position[position] = `${users.first_name[0]}. ${users.last_name}`;
     }
-    
-  })
+
+    if (result.race_order === firstRace - 1 && result.position !== 0) {
+      const { tracks, users, position, sprint } = result;
+      raceData.previousRace2.name = sprint ? 'Sprint: ' + tracks.name: tracks.name;
+      raceData.previousRace2.position[position] = `${users.first_name[0]}. ${users.last_name}`;
+    }
+
+    if (result.race_order === firstRace && result.position === 0) {
+      raceData.currentRace = result.tracks.name;
+    }
+
+    if (result.race_order === firstRace + 1 && result.position === 0) {
+      raceData.currentRace = result.tracks.name;
+    }
+  });
+
   return raceData;
 }
 
 const printGridCells = (raceOrder: IRaceOrder, start: number, end: number) => {
-  const gridCells = [];
-  for (let i = start; i <= end; i++) {
-    gridCells.push(
-      <div className='grid-cell' key={i}>
-        <div className='grid-position'>{i}</div>
-        <div className='grid-name'>{raceOrder.previousRace.position[i]}</div>
+  return Array.from({ length: end - start + 1 }, (_, i) => {
+    const position = i + start;
+    return (
+      <div className="grid-cell" key={position}>
+        <div className="grid-position">{position}</div>
+        <div className="grid-name">{raceOrder.previousRace.position[position]}</div>
       </div>
     );
-  }
-  return gridCells;
+  });
 };
-  //@ts-expect-error
-const CurrentSeasonSchedule = (props: { seasonData: ObjectType; currentSeason: number }) => {
+
+const CurrentSeasonSchedule = (props: { seasonData: any[]; currentSeason: number }) => {
   //@ts-expect-error
   const [raceOrder, setRaceOrder] = useState<IRaceOrder>({});
   //@ts-expect-error
@@ -85,38 +98,54 @@ const CurrentSeasonSchedule = (props: { seasonData: ObjectType; currentSeason: n
     }
   }, [props.seasonData]);
 
+  const previousRaces = [raceOrder.previousRace5, raceOrder.previousRace4, raceOrder.previousRace3, raceOrder.previousRace2]
+
   return (
-    <div className='current-season'>
+    <div className="current-season">
       {Object.keys(raceOrder).length !== 0 && (
         <>
-          <div className='previous-race'>
-            <div className='track-info'>
-              <div className='track-name'>{raceOrder.previousRace2.name}</div>
-              <div className='positions'>
-                <div>1. {raceOrder.previousRace2.position[1]}</div>
-                <div>2. {raceOrder.previousRace2.position[2]}</div>
-                <div>3. {raceOrder.previousRace2.position[3]}</div>
-              </div>
-             </div>
+          <div className="race-history">
+            {previousRaces.map((race) => (
+              race.name && (
+                <div className="previous-race-box" key={race.name}>
+                  <div className="track-info">
+                    <div className="track-name2">{race.name?.substring(0, race.name.length - 11)} GP</div>
+                    <div className="positions">
+                      {Object.entries(race.position).map(([position, name]) => {
+                        const parsedPosition = parseInt(position, 10);
+                        if (parsedPosition <= 3) {
+                          return (
+                            <div key={position}>
+                              {parsedPosition}. {name}
+                            </div>
+                          );
+                        }
+                        return null;
+                      })}
+                    </div>
+                  </div>
+                </div>
+              )
+            ))}
           </div>
-          <div className='previous-race'>
-            <div className='track-info'>
+          <div className="previous-race">
+            <div className="track-info">
               <div>Last Race</div>
               {loading ? (
                 <div>Loading image...</div>
               ) : (
-                <img src={img} className='track-image' alt="Track Image" />
+                <>
+                  <div className="track-name">{raceOrder.previousRace.name} </div>
+                  <img src={img} className="track-image" alt="Track Image" />
+                </>
               )}
-              <div className='track-name'>{raceOrder.previousRace.name} </div>
             </div>
-              <div className='remaining-grid'>
-                {printGridCells(raceOrder, 1, 20)}
-              </div>
+            <div className="remaining-grid">{printGridCells(raceOrder, 1, 20)}</div>
           </div>
-          <div className='previous-race'>
-            <div className='track-info'>
-              <div className='track-name'>Next race</div>
-              <div className='track-name'>{raceOrder.currentRace}</div>
+          <div className="previous-race">
+            <div className="track-info">
+              <div className="track-name">Next race</div>
+              <div className="track-name">{raceOrder.currentRace}</div>
             </div>
           </div>
         </>

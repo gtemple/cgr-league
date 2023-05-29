@@ -160,6 +160,21 @@
   color: white;
 }
 
+.race-history {
+  display: flex;
+  justify-content: center;
+}
+
+.previous-race-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #FF6B6B;
+  width: 230px;
+  padding: 10px 20px 10px 20px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
 .previous-race {
   display: flex;
   flex-wrap: wrap;
@@ -181,15 +196,15 @@
 }
 
 .track-name {
-  font-size: 2vw;
+  font-size: 3vw;
 }
 
 .positions {
   display: flex;
-  align-items: center;
-  margin-left: 50px;
+  flex-direction: column;
+  align-items: right;
   width: 100%;
-  gap: 50px;
+  gap: 4px;
   font-size: 1.2vw;
 }
 .track-image {

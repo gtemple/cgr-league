@@ -47,6 +47,7 @@ const Home = () => {
         <div className='home-title'>THE 3 PARTICIPANTS OF CGR LEAGUE HAVE DRIVEN A COMBINED <span className='emphasis'>{humanStats.laps} LAPS</span> AND <span className='emphasis'>{(humanStats.distance / 1000).toFixed(0)} KM</span> IN RACES</div>
       </div>
       <div>
+        
         <CurrentSeasonStats seasonData={seasonData} currentSeason={currentSeason} />
         <CurrentSeasonSchedule seasonData={seasonData} currentSeason={currentSeason} />
       </div>
