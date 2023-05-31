@@ -29,7 +29,11 @@ const Tracks = () => {
   }
 
   if (!trackData || trackData.length === 0) {
-    return null; // Return null or show a loading state if trackData is not available
+    return (
+     <div className='track-container empty'> 
+        NO TRACK DATA
+      </div>
+      ); // Return null or show a loading state if trackData is not available
   }
 
   let info = totalLapsAndDistance(trackData)
