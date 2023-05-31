@@ -27,18 +27,18 @@ const Track: React.FC<Props> = ({ trackData }) => {
             <table className="container2 track-season" key={seasonId}>
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Position</th>
+                  <th></th>
+                  <th>Driver</th>
                 </tr>
               </thead>
               <tbody>
                 {userPositions.map((userPosition) =>
                   userPosition ? (
                     <tr key={userPosition.user.id}>
+                      <td>{userPosition.position}</td>
                       <td>
                         {userPosition.user.first_name} {userPosition.user.last_name}
                       </td>
-                      <td>{userPosition.position}</td>
                     </tr>
                   ) : null
                 )}
