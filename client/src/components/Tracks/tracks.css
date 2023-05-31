@@ -1,3 +1,18 @@
+h3 {
+  color: red;
+  font-weight: 600 !important;
+  font-size: 28px !important;
+  text-transform: uppercase !important;
+}
+
+h4 {
+  color: white;
+  font-weight: 100 !important;
+  font-size: 17px !important;
+  text-transform: uppercase !important;
+
+}
+
 .track-banner {
   position: relative;
   text-align: center;
@@ -29,11 +44,11 @@
 }
 
 .track-layout {
-  max-width:20vw;
-  max-height:25vw;
-  min-height: auto;
+  object-fit: cover;
+  height: 15vw;
+  min-height: 150px;
   width: auto;
-  height: auto;
+  margin: 0 20px 0 20px;
   border-style: solid;
   border-width: 2px;
   border-color: #FFE66D;
@@ -53,8 +68,18 @@
 .track-lvl-1 {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px 0 0 0;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 40px 0 40px;
+}
+
+.track-details {
+  margin: 20px
+}
+.general-stats {
+  color: white;
+  margin: 20px;
+  font-weight: 100;
 }
 
 .all-time-stats {
@@ -91,5 +116,8 @@ h2 {
   }
   .track-table {
     width: 100%
+  }
+  .track-lvl-1 {
+    justify-content: center;
   }
 }

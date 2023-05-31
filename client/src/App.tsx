@@ -12,7 +12,7 @@ function App() {
         <title>SUP</title>
         <Navigation />
       </div>
-
+      
     <Routes>
       <Route path='users'>
         <Route path=":userId" element={<User />} />
