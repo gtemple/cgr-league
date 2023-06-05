@@ -35,7 +35,7 @@ const Track: React.FC<Props> = ({ trackData }) => {
                 {userPositions.map((userPosition) =>
                   userPosition ? (
                     <tr key={userPosition.user.id}>
-                      <td>{userPosition.position}</td>
+                      <td>{userPosition.position ? userPosition.position : '-'}</td>
                       <td>
                         {userPosition.user.first_name} {userPosition.user.last_name}
                       </td>

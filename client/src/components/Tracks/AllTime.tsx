@@ -25,7 +25,7 @@ const AllTime: React.FC<Props> = ({ trackData }) => {
     const userData = trackData.filter((data) => data.users.id === userId && data.position !== 0);
     const sum = userData.reduce((acc, data) => acc + data.position, 0);
     //@ts-expect-error
-    return (sum / userData.length).toFixed(1);
+    return (sum ? (sum / userData.length).toFixed(1) : '-');
   };
 
   // Calculate the sum of positions for each user
@@ -90,6 +90,7 @@ const AllTime: React.FC<Props> = ({ trackData }) => {
   if (sortOrder === "desc") {
     sortedUserIds.reverse();
   }
+  
 
   return (
     <div className="all-time-stats">
