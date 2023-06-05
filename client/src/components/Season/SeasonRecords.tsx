@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BsFillCaretDownFill, BsFillCaretUpFill } from "react-icons/bs";
 import { positionScore } from "../../helpers/sumSeasonPoints";
+import { Link } from 'react-router-dom';
 
 interface RaceData {
   created_at: string;
@@ -52,6 +53,7 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
       dotd: number;
       dnf: number;
       polePosition: number;
+      id: number; // Add id property
     };
   } = {};
 
@@ -65,7 +67,7 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
       pole_position,
       sprint
     } = data;
-    const { first_name, last_name } = users;
+    const { first_name, last_name, id } = users;
     const driverName = `${first_name} ${last_name}`;
 
     if (!userStats[driverName]) {
@@ -75,6 +77,7 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
         dotd: dotd ? 1 : 0,
         dnf: dnf ? 1 : 0,
         polePosition: pole_position ? 1 : 0,
+        id, // Assign id
       };
     } else {
       userStats[driverName].points += positionScore(position, fastest_lap, sprint);
@@ -164,7 +167,9 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
           <tbody>
             {sortedUserStats.map(([name, stats]) => (
               <tr key={name}>
-                <td>{name}</td>
+                <td>
+                  <Link to={`/drivers/${stats.id}`} className='driver'>{name}</Link>
+                </td>
                 <td>{stats.points}</td>
                 <td>{stats.fastestLap}</td>
                 <td>{stats.dotd}</td>
@@ -174,8 +179,8 @@ const SeasonRecords: React.FC<SeasonRecordsProps> = ({ seasonData }) => {
             ))}
           </tbody>
         </table>
-        <div style={{color: 'yellow'}}>*Tracked as of Season 5</div>
-        <div style={{color: 'yellow'}}>**Tracked as of Season 3</div>
+        <div style={{ color: 'yellow' }}>*Tracked as of Season 5</div>
+        <div style={{ color: 'yellow' }}>**Tracked as of Season 3</div>
       </div>
     </div>
   );

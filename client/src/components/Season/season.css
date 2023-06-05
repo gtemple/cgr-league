@@ -17,6 +17,11 @@
   overflow: hidden;
 }
 
+.driver {
+  color: #FB667A; 
+  text-decoration: none;
+}
+
 /* Background-color of the odd rows */
 .season-table tr:nth-child(odd) {
   background-color: #323C50;
