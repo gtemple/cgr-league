@@ -264,6 +264,10 @@
   justify-content: center;
 }
 
+.podiums {
+  font-weight: 100;
+}
+
 @media only screen and (max-width: 850px) {
   .schedule-container{
     margin: 0;
@@ -272,5 +276,4 @@
   .container2{
     width: 100vw;
   }
-
 }

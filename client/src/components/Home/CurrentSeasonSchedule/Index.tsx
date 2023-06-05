@@ -118,7 +118,7 @@ const CurrentSeasonSchedule = (props: { seasonData: any[]; currentSeason: number
                         const parsedPosition = parseInt(position, 10);
                         if (parsedPosition <= 3) {
                           return (
-                            <div key={position}>
+                            <div key={position} className='podiums'>
                               {parsedPosition}. {name}
                             </div>
                           );

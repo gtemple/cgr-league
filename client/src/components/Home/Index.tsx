@@ -17,7 +17,6 @@ const Home = () => {
   });
 
   const calculateHumanStates = (data: TrackData[]) => {
-    console.log(data)
     const stats = {
       laps: 0,
       distance: 0
