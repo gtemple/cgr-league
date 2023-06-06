@@ -18,9 +18,9 @@ const TwitchPopout = () => {
         muted 
         withChat={false}
         darkMode={true} 
-        height={200}
-        width={500}
-        onVideoReady={handleReady} 
+        height={150}
+        width={300}
+        onVideoReady={handleReady}
       />
     </div>
   )

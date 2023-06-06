@@ -48,7 +48,6 @@
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  
 }
 
 
@@ -56,7 +55,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 50px;
-  justify-content: center;
   margin: 0 0 30px 0;
 }
 
@@ -71,7 +69,7 @@
 
 .standings {
   width: 37vw;
-  min-width: 250px;
+  min-width: 100%;
 }
 
 .twitch {
@@ -96,7 +94,6 @@
   object-fit: cover;
   position: absolute;
   width: 30vw;
-  min-width: 330px;
   height: 240px;
   padding-bottom: 2px;
   filter: brightness(30%);
@@ -117,7 +114,7 @@
 .bar {
   color: black;
   width: 6vw;
-  min-width: 70px;
+  min-width: 80px;
   font-size: 25px;
   text-align: center;
   margin: 0 0 5px 0;
@@ -160,7 +157,6 @@
   flex-direction: column;
   flex-wrap: wrap;
   margin: auto;
-  margin-left: 8px;
 }
 
 .previous-race-box {
@@ -196,7 +192,7 @@
   flex-direction: column;
   align-items: center;
   margin: 0 10px 0 0;
-  width: 500px;
+  min-width: 100%;
 }
 
 .track-name {
@@ -229,6 +225,7 @@
   gap: 4px;
   font-size: calc(10px+1vw);
 }
+
 .track-image {
   object-fit: cover;
   height: 12vw;
@@ -272,6 +269,21 @@
   .schedule-container{
     margin: 0;
     border: none;
+  }
+  .previous-race-box {
+    width: 100vw;
+  }
+  .chart {
+    margin: 10px 35vw;
+  }
+  .twitch {
+    margin: auto;
+  }
+  .current-season-stats{
+    justify-content: flex-start;
+  }
+  .background-image2 {
+    min-width: 100%;
   }
   .container2{
     width: 100vw;
