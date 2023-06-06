@@ -20,10 +20,11 @@
 }
 
 
-@media only screen and (-width: 850px) {
+@media only screen and (max-width: 850px) {
   .nav-drop-menu.show {
     display: flex !important;
     flex-direction: column;
     width: 100% !important;
   }
 }
+
