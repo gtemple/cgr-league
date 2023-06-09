@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Route, Routes, Link, useNavigate } from 'react-router-dom';
-import Form from 'react-bootstrap/Form';
+import { Route, Routes } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -14,6 +13,7 @@ import Home from '../Home/Index'
 import User from '../User/Index';
 import Tracks from '../Tracks/Index';
 import Season from '../Season/Index';
+import Teams from '../Teams/Index'
 
 import useGetUsers from '../../Hooks/useGetUsers';
 import useGetSeasons from '../../Hooks/useGetSeasons';
@@ -48,8 +48,6 @@ interface Tracks {
 
 
 const Navigation = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const navigate = useNavigate();
   const { userData } = useGetUsers();
   const { seasonData } = useGetSeasons();
   const { tracksData } = useGetTracks();
@@ -76,6 +74,14 @@ const Navigation = () => {
     return tracks.sort((a, b) => a.name.localeCompare(b.name)).map((track:Tracks) => {
       return (
         <Dropdown.Item className="nav-drop" href={`/tracks/${track.id}`} key={track.id}>{track.name}</Dropdown.Item>
+      )
+    })
+  }
+
+  const displayTeams = (teams: Teams[]):React.ReactNode => {
+    return teams.sort((a, b) => a.name.localeCompare(b.name)).map((team:Team) => {
+      return (
+        <Dropdown.Item className="nav-drop" href={`/tracks/${team.id}`} key={track.id}>{track.name}</Dropdown.Item>
       )
     })
   }
@@ -128,7 +134,7 @@ const Navigation = () => {
         <Route path='/tracks/:id' element={<Tracks />} />
         <Route path='/drivers/:id' element={<User />} />
         <Route path='/seasons/:id' element={<Season />} />
-
+        <Route path='/teams/:id' element={<Teams />} />
       </Routes>
 
     </>
