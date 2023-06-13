@@ -89,7 +89,7 @@ const Navigation = () => {
   const displayTeams = (teams: Teams[]):React.ReactNode => {
     return teams.sort((a, b) => a.team_name.localeCompare(b.team_name)).map((team:Teams) => {
       return (
-        <Dropdown.Item className="nav-drop" href={`/tracks/${team.id}`} key={team.id}>{team.team_name}</Dropdown.Item>
+        <Dropdown.Item className="nav-drop" href={`/teams/${team.id}`} key={team.id}>{team.team_name}</Dropdown.Item>
       )
     })
   }
