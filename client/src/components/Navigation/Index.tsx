@@ -18,6 +18,7 @@ import Teams from '../Teams/Index'
 import useGetUsers from '../../Hooks/useGetUsers';
 import useGetSeasons from '../../Hooks/useGetSeasons';
 import useGetTracks from '../../Hooks/useGetTracks';
+import useGetTeams from '../../Hooks/useGetTeams';
 
 import './navigation.css'
 
@@ -46,11 +47,18 @@ interface Tracks {
   distance: number
 }
 
+interface Teams {
+  id: number;
+  team_name: string;
+  team_img: string | null;
+}
+
 
 const Navigation = () => {
   const { userData } = useGetUsers();
   const { seasonData } = useGetSeasons();
   const { tracksData } = useGetTracks();
+  const { teamsData } = useGetTeams();
 
   const displaySeasons = (seasons: Seasons[]):React.ReactNode => {
     return seasons.map((season:Seasons) => {
@@ -79,9 +87,9 @@ const Navigation = () => {
   }
 
   const displayTeams = (teams: Teams[]):React.ReactNode => {
-    return teams.sort((a, b) => a.name.localeCompare(b.name)).map((team:Team) => {
+    return teams.sort((a, b) => a.team_name.localeCompare(b.team_name)).map((team:Teams) => {
       return (
-        <Dropdown.Item className="nav-drop" href={`/tracks/${team.id}`} key={track.id}>{track.name}</Dropdown.Item>
+        <Dropdown.Item className="nav-drop" href={`/tracks/${team.id}`} key={team.id}>{team.team_name}</Dropdown.Item>
       )
     })
   }
@@ -120,6 +128,13 @@ const Navigation = () => {
         <Dropdown.Toggle className='nav-button' id="tracks-toggle">Tracks</Dropdown.Toggle>
         <Dropdown.Menu className="nav-drop-track nav-drop-menu">
           {tracksData && displayTracks(tracksData)}
+        </Dropdown.Menu>
+      </Dropdown>
+
+      <Dropdown as={ButtonGroup} title="Teams" id="teams-dropdown" onClick={handleDropdownClick}>
+        <Dropdown.Toggle className='nav-button' id="tracks-toggle">Teams</Dropdown.Toggle>
+        <Dropdown.Menu className="nav-drop-track nav-drop-menu">
+          {teamsData && displayTeams(teamsData)}
         </Dropdown.Menu>
       </Dropdown>
 
