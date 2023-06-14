@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface RaceData {
   created_at: string;
   dnf: boolean;
@@ -35,17 +33,21 @@ interface RaceData {
 }
 
 interface SeasonRecordsProps {
-  teamData: RaceData[] | null | undefined;
+  teamData: RaceData[];
 }
 
-const TeamInfo: React.FC<SeasonRecordsProps> = ({ teamData }) => {
-  const teamName = teamData?.[0]?.teams?.team_name;
 
+const TeamRecords: React.FC<SeasonRecordsProps> = ({ teamData }) => {
   return (
     <div>
-      <div>{teamName ? teamName : <span>loading...</span>}</div>
-    </div>
-  );
-};
+      {teamData && (
+        <div>
+          <div>All Time Races: {teamData.length / 2}</div>
+        </div>
+      )}
 
-export default TeamInfo;
+    </div>
+  )
+}
+
+export default TeamRecords;
