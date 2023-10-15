@@ -8,7 +8,7 @@ import './home.css';
 import background from '../../assets/background/ferrari.background.jpeg';
 
 const Home = () => {
-  const currentSeason = 6;
+  const currentSeason = 7;
   const { seasonData } = useGetSeason(currentSeason);
   const { raceData } = useGetAllRaceData();
   const [humanStats, setHumanStats] = useState({

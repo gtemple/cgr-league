@@ -4,5 +4,7 @@ DROP TABLE IF EXISTS teams CASCADE;
 CREATE TABLE teams (
   id SERIAL PRIMARY KEY,
   team_name VARCHAR(255) NOT NULL,
+  country VARCHAR(255),
+  founded integer, 
   team_img TEXT
 );

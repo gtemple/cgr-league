@@ -1,7 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(import.meta.env.VITE_DB_URL, import.meta.env.VITE_DB_KEY);
+const supabase = createClient(
+  import.meta.env.VITE_DB_URL,
+  import.meta.env.VITE_DB_KEY
+);
 
 interface TeamData {
   created_at: string;
@@ -12,7 +15,7 @@ interface TeamData {
   position: number;
   race_distance: number;
   race_order: number;
-  seasons: { id: number, game: string };
+  seasons: { id: number; game: string };
   pole_position: boolean | null | undefined;
   sprint: boolean;
   teams: { team_name: string };
@@ -32,15 +35,15 @@ export default function useGetTeam(id: number | string | undefined) {
   const [teamData, setTeamData] = useState<TeamData[]>([]); // Provide type annotation and initialize as an empty array
   const [loaded, setLoaded] = useState<boolean>(false);
 
-
   useEffect(() => {
     getTeamData(id);
   }, []);
 
   async function getTeamData(teamId: number | string | undefined) {
     const { data, error } = await supabase
-      .from('race_results')
-      .select(`
+      .from("race_results")
+      .select(
+        `
         dotd,
         id,
         dnf,
@@ -55,19 +58,19 @@ export default function useGetTeam(id: number | string | undefined) {
         seasons (id),
         teams (team_name),
         tracks (name, distance, layout, img)
-      `)
-    .eq('team_id', teamId)
+      `
+      )
+      .eq("team_id", teamId);
     if (error) {
       console.error(error);
       return null;
     }
 
     //@ts-expect-error
-  
-    setTeamData(data)
-    setLoaded(true)
-  }
 
+    setTeamData(data);
+    setLoaded(true);
+  }
 
   return {
     teamData,
