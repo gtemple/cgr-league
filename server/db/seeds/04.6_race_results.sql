@@ -17,7 +17,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (5, 1745, 1, 7, 20, false, false, false, false, 6, false, 16, 15),
                           (5, 1746, 1, 15, 7, false, false, true, false, 6, false, 13, 16),
                           (5, 1747, 1, 12, 7, false, false, false, false, 6, false, 18, 17),
-                          (5, 1748, 1, 4, 19, false, false, false, false, 6, false, 14, 18),
+                          (5, 1748, 1, 4, 19, false, false, false, false, 6, false, 14, 18);
 
 
 -- Ryan Reynolds
@@ -39,7 +39,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (5, 1766, 3, 7, 8, false, false, false, false, 6, false, 16, 15),
                           (5, 1767, 3, 15, 11, false, false, false, false, 6, false, 13, 16),
                           (5, 1768, 3, 12, 8, false, false, false, false, 6, false, 18, 17),
-                          (5, 1769, 3, 4, 8, false, false, false, false, 6, false, 14, 18),
+                          (5, 1769, 3, 4, 8, false, false, false, false, 6, false, 14, 18);
 
 
 
@@ -63,7 +63,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (10, 1787, 2, 7, 1, false, false, false, false, 6, false, 16, 15),
                           (10, 1788, 2, 15, 19, false, false, false, false, 6, false, 13, 16),
                           (10, 1789, 2, 12, 5, false, false, false, false, 6, false, 18, 17),
-                          (10, 1790, 2, 4, 3, false, false, false, true, 6, false, 14, 18),
+                          (10, 1790, 2, 4, 3, false, false, false, true, 6, false, 14, 18);
 
 
 -- Max Verstappen
@@ -85,7 +85,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (4, 1808, 13, 7, 3, false, false, false, false, 6, false, 16, 15),
                           (4, 1809, 13, 15, 1, false, true, false, true, 6, false, 13, 16),
                           (4, 1810, 13, 12, 2, false, false, false, false, 6, false, 18, 17),
-                          (4, 1811, 13, 4, 2, false, false, false, false, 6, false, 14, 18),
+                          (4, 1811, 13, 4, 2, false, false, false, false, 6, false, 14, 18);
 
 
 -- Sergio Perez
@@ -107,7 +107,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (4, 1829, 14, 7, 4, false, false, false, false, 6, false, 16, 15),
                           (4, 1830, 14, 15, 2, false, false, false, false, 6, false, 13, 16),
                           (4, 1831, 14, 12, 1, false, false, false, false, 6, false, 18, 17),
-                          (4, 1832, 14, 4, 4, false, false, false, false, 6, false, 14, 18),
+                          (4, 1832, 14, 4, 4, false, false, false, false, 6, false, 14, 18);
 
 
 -- Carlos Sainz
@@ -129,7 +129,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (1, 1850, 31, 7, 11, false, false, true, false, 6, false, 16, 15),
                           (1, 1851, 31, 15, 5, false, false, false, false, 6, false, 13, 16),
                           (1, 1852, 31, 12, 6, false, false, false, false, 6, false, 18, 17),
-                          (1, 1853, 31, 4, 5, false, false, false, false, 6, false, 14, 18),
+                          (1, 1853, 31, 4, 5, false, false, false, false, 6, false, 14, 18);
 
 
 -- Charles Leclerc
@@ -151,7 +151,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (1, 1871, 4, 7, 2, false, false, false, false, 6, false, 16, 15),
                           (1, 1872, 4, 15, 20, true, false, false, false, 6, false, 13, 16),
                           (1, 1873, 4, 12, 3, false, false, true, false, 6, false, 18, 17),
-                          (1, 1874, 4, 4, 1, false, false, false, false, 6, false, 14, 18),
+                          (1, 1874, 4, 4, 1, false, false, false, false, 6, false, 14, 18);
 
 
 -- Lando Norris
@@ -173,7 +173,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (2, 1892, 5, 7, 12, false, false, false, false, 6, false, 16, 15),
                           (2, 1893, 5, 15, 10, false, false, false, false, 6, false, 13, 16),
                           (2, 1894, 5, 12, 4, false, false, false, false, 6, false, 18, 17),
-                          (2, 1895, 5, 4, 9, false, false, false, false, 6, false, 14, 18),
+                          (2, 1895, 5, 4, 9, false, false, false, false, 6, false, 14, 18);
 
 
 -- Daniel Ricciardo
@@ -195,7 +195,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (2, 1913, 25, 7, 9, false, false, false, false, 6, false, 16, 15),
                           (2, 1914, 25, 15, 9, false, false, false, false, 6, false, 13, 16),
                           (2, 1915, 25, 12, 10, false, false, false, false, 6, false, 18, 17),
-                          (2, 1916, 25, 4, 10, false, false, false, false, 6, false, 14, 18),
+                          (2, 1916, 25, 4, 10, false, false, false, false, 6, false, 14, 18);
 
 
 -- Fernando Alonso 
@@ -217,7 +217,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (10, 1934, 6, 7, 5, false, false, false, false, 6, false, 16, 15),
                           (10, 1935, 6, 15, 3, false, false, false, false, 6, false, 13, 16),
                           (10, 1936, 6, 12, 12, false, false, false, false, 6, false, 18, 17),
-                          (10, 1937, 6, 4, 6, false, false, false, false, 6, false, 14, 18),
+                          (10, 1937, 6, 4, 6, false, false, false, false, 6, false, 14, 18);
 
 
 -- Pierre Gasly
@@ -239,7 +239,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (7, 1955, 22, 7, 6, false, false, false, false, 6, false, 16, 15),
                           (7, 1956, 22, 15, 8, false, false, false, false, 6, false, 13, 16),
                           (7, 1957, 22, 12, 11, false, false, false, false, 6, false, 18, 17),
-                          (7, 1958, 22, 4, 11, false, false, false, false, 6, false, 14, 18),
+                          (7, 1958, 22, 4, 11, false, false, false, false, 6, false, 14, 18);
 
 
   -- Yuki Tsunoda
@@ -261,7 +261,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (7, 1976, 23, 7, 7, false, false, false, false, 6, false, 16, 15),
                           (7, 1977, 23, 15, 4, false, false, true, false, 6, false, 13, 16),
                           (7, 1978, 23, 12, 9, false, false, false, false, 6, false, 18, 17),
-                          (7, 1979, 23, 4, 7, false, false, false, false, 6, false, 14, 18),
+                          (7, 1979, 23, 4, 7, false, false, false, false, 6, false, 14, 18);
 
 
   -- Sebastian Vettel
@@ -283,7 +283,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (3, 1997, 32, 7, 14, false, false, false, false, 6, false, 16, 15),
                           (3, 1998, 32, 15, 17, false, false, false, false, 6, false, 13, 16),
                           (3, 1999, 32, 12, 15, false, false, false, false, 6, false, 18, 17),
-                          (3, 2000, 32, 4, 13, false, false, false, false, 6, false, 14, 18),
+                          (3, 2000, 32, 4, 13, false, false, false, false, 6, false, 14, 18);
 
 
 -- Lance Stroll
@@ -305,7 +305,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (3, 2018, 7, 7, 15, false, false, false, false, 6, false, 16, 15),
                           (3, 2019, 7, 15, 17, false, false, false, false, 6, false, 13, 16),
                           (3, 2020, 7, 12, 15, false, false, false, false, 6, false, 18, 17),
-                          (3, 2021, 7, 4, 15, false, false, false, false, 6, false, 14, 18),
+                          (3, 2021, 7, 4, 15, false, false, false, false, 6, false, 14, 18);
 
 
 -- Latifi
@@ -327,7 +327,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (9, 2039, 8, 7, 16, false, false, false, false, 6, false, 16, 15),
                           (9, 2040, 8, 15, 18, false, false, false, false, 6, false, 13, 16),
                           (9, 2041, 8, 12, 16, false, false, false, false, 6, false, 18, 17),
-                          (9, 2042, 8, 4, 16, false, false, true, false, 6, false, 14, 18),
+                          (9, 2042, 8, 4, 16, false, false, true, false, 6, false, 14, 18);
 
 
 -- Alex Albon
@@ -349,7 +349,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (9, 2060, 9, 7, 19, false, false, false, false, 6, false, 16, 15),
                           (9, 2061, 9, 15, 16, false, false, false, false, 6, false, 13, 16),
                           (9, 2062, 9, 12, 17, false, false, false, false, 6, false, 18, 17),
-                          (9, 2063, 9, 4, 20, true, false, false, false, 6, false, 14, 18),
+                          (9, 2063, 9, 4, 20, true, false, false, false, 6, false, 14, 18);
 
 
 -- Valtteri Bottas
@@ -371,7 +371,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (8, 2081, 15, 7, 13, false, false, false, false, 6, false, 16, 15),
                           (8, 2082, 15, 15, 12, false, false, false, false, 6, false, 13, 16),
                           (8, 2083, 15, 12, 14, false, false, false, false, 6, false, 18, 17),
-                          (8, 2084, 15, 4, 12, false, false, false, false, 6, false, 14, 18),
+                          (8, 2084, 15, 4, 12, false, false, false, false, 6, false, 14, 18);
 
 
 -- M Schumaccher
@@ -393,7 +393,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (6, 2102, 27, 7, 17, false, false, false, false, 6, false, 16, 15),
                           (6, 2103, 27, 15, 15, false, false, false, false, 6, false, 13, 16),
                           (6, 2104, 27, 12, 20, false, false, false, false, 6, false, 18, 17),
-                          (6, 2105, 27, 4, 18, false, false, false, false, 6, false, 14, 18),
+                          (6, 2105, 27, 4, 18, false, false, false, false, 6, false, 14, 18);
 
 
 -- K Mag
@@ -415,7 +415,7 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (6, 2123, 30, 7, 10, false, false, false, false, 6, false, 16, 15),
                           (6, 2124, 30, 15, 6, false, false, false, false, 6, false, 13, 16),
                           (6, 2125, 30, 12, 19, false, false, false, false, 6, false, 18, 17),
-                          (6, 2126, 30, 4, 14, false, false, false, false, 6, false, 14, 18),
+                          (6, 2126, 30, 4, 14, false, false, false, false, 6, false, 14, 18);
 
 
 -- Zhou Guanyu
@@ -437,4 +437,4 @@ INSERT INTO race_results (team_id, id, user_id, track_id, position, dnf, fastest
                           (8, 2144, 16, 7, 18, false, false, false, false, 6, false, 16, 15),
                           (8, 2145, 16, 15, 14, false, false, false, false, 6, false, 13, 16),
                           (8, 2146, 16, 12, 18, false, false, false, false, 6, false, 18, 17),
-                          (8, 2147, 16, 4, 17, false, false, false, false, 6, false, 14, 18),
+                          (8, 2147, 16, 4, 17, false, false, false, false, 6, false, 14, 18);
