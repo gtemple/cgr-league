@@ -19,6 +19,9 @@ const useGetImage = (profileImage: string | undefined, type: string) => {
         } else if (profileImage && type === 'track-image') {
           const importedImage = await import(`../assets/track-images/${profileImage}.jpg`);
           setImg(importedImage.default);
+        } else if (profileImage && type === 'article-image') {
+          const importedImage = await import(`../assets/article-images/${profileImage}.jpg`);
+          setImg(importedImage.default);
         } else {
           setLoading(false);
         }

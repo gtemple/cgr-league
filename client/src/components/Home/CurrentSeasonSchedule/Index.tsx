@@ -146,18 +146,6 @@ const CurrentSeasonSchedule = (props: { seasonData: any[]; currentSeason: number
             <div className="remaining-grid">{printGridCells(raceOrder, 1, 20)}</div>
           </div>
         </div>
-        <div className="track-name">Upcoming Races</div>
-          <div className='upcoming'>
-          <div className='previous-race-box'>
-            <div className="track-info">
-              <div className="track-name3">{raceOrder.currentRace?.substring(0, raceOrder.currentRace.length - 11)} GP</div>            </div>
-          </div>
-          <div className='previous-race-box'>
-            <div className="track-info">
-              <div className="track-name3">{raceOrder.nextRace?.substring(0, raceOrder.nextRace.length - 11)} GP</div>
-            </div>
-          </div>
-        </div>
       </>
       )}
     </div>

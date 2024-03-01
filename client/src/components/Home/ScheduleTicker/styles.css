@@ -1,0 +1,36 @@
+.ticker-container {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(239, 239, 239);
+  & > * {
+    display: flex;
+  }
+}
+
+.race-info-box {
+  width: 11em;
+  background-color: rgb(239, 239, 239);
+  border-width: 0.1em;
+  border-style: solid;
+  border-color: rgb(180, 179, 179);
+  border-radius: 0.8em;
+  margin: 0.5em 0.2em;
+  padding: 0.5em;
+  font-size: 0.9em
+}
+
+.info-header{
+  color: rgb(119, 119, 119);
+  font-weight: 900;
+}
+
+.position-container {
+  color: white;
+  padding: 0.1em;
+  border-radius: 0.2em;
+  font-weight: 500;
+}
+
+.position-name {
+  font-weight: 500;
+}
