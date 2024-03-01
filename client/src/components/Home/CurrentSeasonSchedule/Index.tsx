@@ -100,37 +100,11 @@ const CurrentSeasonSchedule = (props: { seasonData: any[]; currentSeason: number
     }
   }, [props.seasonData]);
 
-  const previousRaces = [raceOrder.previousRace5, raceOrder.previousRace4, raceOrder.previousRace3, raceOrder.previousRace2]
-
   return (
     <div className='current-season'>
       {Object.keys(raceOrder).length !== 0 && (
         <>
         <div className="schedule">
-          <div className="race-history">
-            {previousRaces.map((race) => (
-              race.name && (
-                <div className="previous-race-box" key={race.name}>
-                  <div className="track-info">
-                    <div className="track-name2">{race.name?.substring(0, race.name.length - 11)} GP</div>
-                    <div className="positions">
-                      {Object.entries(race.position).map(([position, name]) => {
-                        const parsedPosition = parseInt(position, 10);
-                        if (parsedPosition <= 3) {
-                          return (
-                            <div key={position} className='podiums'>
-                              {parsedPosition}. {name}
-                            </div>
-                          );
-                        }
-                        return null;
-                      })}
-                    </div>
-                  </div>
-                </div>
-              )
-            ))}
-          </div>
           <div className="previous-race">
             <div className="track-info">
               <div>Last Race</div>

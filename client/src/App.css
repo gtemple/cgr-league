@@ -23,12 +23,9 @@ html, div {
   background-color: rgb(165, 95, 42);
 }
 
-.default-margin {
-  margin: 1em 5em;
-}
-
 .default-container {
-  margin: 0.8em 0;
+  margin: 1em 5em;
+  padding: 8px;
   color: rgb(149, 149, 149);
   background-color: #121417;
   border-radius: 0.5em;
@@ -166,6 +163,8 @@ transition-timing-function: line;
     margin: 0;
     border: none;
   }
-
+  .default-container {
+    margin: 0;
+  }
 }
 

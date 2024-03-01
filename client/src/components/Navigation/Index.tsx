@@ -9,6 +9,7 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 
 import Home from "../Home/Index";
+import Articles from "../Articles/Index";
 import User from "../User/Index";
 import Tracks from "../Tracks/Index";
 import Season from "../Season/Index";
@@ -127,11 +128,12 @@ const Navigation = () => {
         variant="dark"
       >
         <Container>
-          <Navbar.Brand href="/">CGR Racing League</Navbar.Brand>
+          <Navbar.Brand href="/articles">CGR Racing League</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/articles">Articles</Nav.Link>
               <Dropdown as={ButtonGroup} title="Tracks" id="seasons-dropdown">
                 <Dropdown.Toggle className="nav-button" id="seasons-toggle">
                   Seasons
@@ -189,6 +191,7 @@ const Navigation = () => {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/articles" element={<Articles />} />
         <Route path="/tracks/:id" element={<Tracks />} />
         <Route path="/drivers/:id" element={<User />} />
         <Route path="/seasons/:id" element={<Season />} />
