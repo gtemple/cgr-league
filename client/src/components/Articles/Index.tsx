@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import useGetArticles from "../../Hooks/useGetArticles";
 import useGetImage from "../../Hooks/useGetImage";
 import moment from "moment";
@@ -26,18 +27,16 @@ function ArticleCard({ article }) {
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <>
-          <div>
-            <img src={img} alt="Article Image" />
-          </div>
-          <div>
-            <div>{article.title}</div>
+        <Link to={`/articles/article/${article.id}`} className='no-link-2'>
+          <img src={img} alt="Article Image" className='preview-img'/>
+          <div className='blog-text'>
+            <div className='blog-title'>{article.title}</div>
             <div>{article.subtitle}</div>
-            <div>
+            <div className='blog-date'>
               {moment(article.created_at).format("MMMM Do YYYY, h:mm:ss a")}
             </div>
           </div>
-        </>
+        </Link>
       )}
     </div>
   );

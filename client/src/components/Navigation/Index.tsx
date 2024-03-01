@@ -9,6 +9,7 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 
 import Home from "../Home/Index";
+import Article from "../Articles/Article/Index";
 import Articles from "../Articles/Index";
 import User from "../User/Index";
 import Tracks from "../Tracks/Index";
@@ -192,6 +193,7 @@ const Navigation = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/articles" element={<Articles />} />
+        <Route path="/articles/article/:id" element={<Article />} />
         <Route path="/tracks/:id" element={<Tracks />} />
         <Route path="/drivers/:id" element={<User />} />
         <Route path="/seasons/:id" element={<Season />} />

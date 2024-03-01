@@ -6,5 +6,37 @@
   border-radius: 0.8em;
   margin: 0.5em 0.2em;
   padding: 0.5em;
-  font-size: 0.9em
+  font-size: 0.9em;
+
+  &:hover {
+    filter: brightness(80%);
+  }
+
+  & > * {
+    display: flex;
+  }
+}
+
+.preview-img {
+  object-fit: cover;
+  width: 16em;
+  margin: 6px;
+  height: 8em;
+  border-radius: 3px;
+  filter: brightness(80%);
+}
+
+.blog-text {
+  color: black;
+  margin: auto 0;
+}
+
+.blog-title {
+  font-size: 3em;
+}
+
+.blog-date {
+  color: rgb(149, 149, 149);
+  padding: 4px 0;
+  font-size: 0.8em;
 }
